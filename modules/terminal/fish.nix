@@ -28,8 +28,8 @@
 
       # Git shortcuts are huge quality of life
       gs = "git status";
-      ga = "git add";
-      gc = "git commit";
+      ga = "git add .";
+      gc = "git commit -m";
       gp = "git push";
     };
 
