@@ -1,0 +1,67 @@
+{ pkgs, ... }:
+
+{
+  programs.fish = {
+    enable = true;
+
+    # Set environment variables here so they are ready before the prompt loads
+    shellInit = ''
+      set -gx STARSHIP_CONFIG ~/nixdots/config/starship.toml
+    '';
+
+    # Commands that run when you open a terminal
+    interactiveShellInit = ''
+      # QoL: Disable the "Welcome to fish" message
+      set -g fish_greeting ""
+
+      # Fastfetch with custom logo
+      # The check ensures the shell still opens even if fastfetch isn't installed
+      if type -q fastfetch
+        fastfetch --logo ~/nixdots/Pictures/tbearlogo.png --logo-type auto --logo-width 35 --logo-height 30
+      end
+    '';
+
+    # Abbreviations expand in place (type 'nrs' + space -> see full command)
+    shellAbbrs = {
+      nrs = "sudo nixos-rebuild switch --flake ~/nixdots#my-nix-den";
+      flakeup = "nix flake update";
+
+      # Git shortcuts are huge quality of life
+      gs = "git status";
+      ga = "git add";
+      gc = "git commit";
+      gp = "git push";
+    };
+
+    shellAliases = {
+      vim = "nvim";
+
+      # Optional: Map ls to eza for icons and better formatting
+      # (Only works if you enable eza below)
+      ls = "eza --icons --group-directories-first";
+      ll = "eza -l --icons --group-directories-first";
+    };
+  };
+
+  # --- Integrations ---
+
+  # Enable Starship Prompt
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
+  # Enable Zoxide (Smart 'cd')
+  # Usage: type 'z down' to jump to 'Downloads' automatically
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
+  # Enable Eza (Modern 'ls' replacement)
+  programs.eza = {
+    enable = true;
+    enableFishIntegration = true;
+    icons = "auto";
+  };
+}
