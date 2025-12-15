@@ -17,8 +17,8 @@ in
 {
 
   imports = [
-    ./modules/terminal.nix
-    ./modules/apps.nix
+    ./terminal.nix
+    ./apps.nix
 
   ];
 
@@ -27,8 +27,6 @@ in
   home.stateVersion = "25.05";
 
   programs.home-manager.enable = true;
-
-
 
   home.packages = with pkgs; [
     gcc
@@ -43,7 +41,6 @@ in
 
     inputs.zen-browser.packages.${pkgs.system}.default
   ];
-
 
   xdg.configFile = builtins.mapAttrs
     (name: subpath: {

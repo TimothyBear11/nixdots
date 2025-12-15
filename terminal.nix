@@ -11,6 +11,7 @@
   home.packages = with pkgs; [
     kitty
     foot
+    kdePackages.konsole
     btop
     bootdev-cli
     starship

@@ -11,17 +11,13 @@
     ];
   };
 
-
   environment.systemPackages = with pkgs; [
     lmstudio
     ollama-rocm
 
-
-
     rocmPackages.rocm-smi
     rocmPackages.rocminfo
   ];
-
 
   environment.variables = {
     # (Only uncomment if you have crashes with standard settings)

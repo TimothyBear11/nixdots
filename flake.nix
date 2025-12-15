@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
-
     mangowc = {
       url = "github:DreamMaoMao/mangowc";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,7 +16,6 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -32,11 +30,10 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
-        ./modules/noctalia.nix
-        ./modules/ai.nix
+        ./noctalia.nix
+        ./ai.nix
 
         mangowc.nixosModules.mango
-
         home-manager.nixosModules.home-manager
         {
           home-manager = {

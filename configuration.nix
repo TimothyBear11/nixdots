@@ -3,27 +3,23 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./modules/desktops.nix
-    ./modules/gaming.nix
-    ./modules/fontsAndNeeds.nix
-    ./modules/qtile.nix
+    ./desktops.nix
+    ./gaming.nix
+    ./fontsAndNeeds.nix
+    ./qtile.nix
   ];
-
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
-
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
   };
 
-
   networking.hostName = "my-nix-den";
   networking.networkmanager.enable = true;
   services.printing.enable = true;
-
 
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -34,10 +30,8 @@
     pulse.enable = true;
   };
 
-
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
-
 
   programs.fish.enable = true;
 
