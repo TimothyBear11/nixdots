@@ -269,9 +269,7 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "noctalia-shell"
-spawn-at-startup "brave"
-spawn-at-startup "kitty -e btop"
-spawn-at-startup "lm-stuido"
+spawn-at-startup "steam"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -375,14 +373,13 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+T { spawn "foot"; }
     Mod+D { spawn  "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Mod+F1 { spawn "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
     Mod+F2 { spawn "noctalia-shell" "ipc" "call" "settings" "toggle"; }
     Mod+F3 { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
     Mod+F4 { spawn "noctalia-shell" "ipc" "call" "sessionsMenu" "toggle"; }
     Mod+K { spawn "kate"; }
-    Mod+B { spawn "brave"; }
+    Mod+B { spawn "zen"; }
     Mod+M { spawn "spotify"; }
     Mod+V { spawn "vesktop"; }
     Mod+Return { spawn "kitty"; }
@@ -392,6 +389,7 @@ binds {
     Mod+E { spawn "dolphin"; }
     Mod+J { spawn "joplin-desktop"; }
     Mod+A { spawn "signal-desktop"; }
+    Mod+T { spawn "konsole"; }
 
 
 
@@ -572,3 +570,4 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 }
 
+include "./noctalia.kdl"

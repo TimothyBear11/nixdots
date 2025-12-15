@@ -18,9 +18,9 @@
     filezilla
     spotify
     vesktop
-    zed-editor
     joplin-desktop
     pcmanfm
-    go
+    pywalfox-native
+    spicetify-cli
   ];
 }

@@ -32,6 +32,7 @@
         ./configuration.nix
         ./noctalia.nix
         ./ai.nix
+        ./dev.nix
 
         mangowc.nixosModules.mango
         home-manager.nixosModules.home-manager
