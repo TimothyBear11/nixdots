@@ -8,8 +8,8 @@
     enable = true;
 
     extraPackages = python3Packages: with python3Packages; [
-      qtile-extras
-      qtile-bonsai
+     # qtile-extras
+     # qtile-bonsai
     ];
   };
 
