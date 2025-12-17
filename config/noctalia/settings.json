@@ -34,7 +34,7 @@
         "monitors": [
         ],
         "outerCorners": true,
-        "position": "left",
+        "position": "top",
         "showCapsule": false,
         "showOutline": false,
         "transparent": false,
@@ -42,76 +42,25 @@
             "center": [
                 {
                     "customFont": "",
-                    "formatHorizontal": "HH:mm ddd, MMM dd",
+                    "formatHorizontal": "h:mm AP ddd, MMM dd",
                     "formatVertical": "h:mm AP",
                     "id": "Clock",
                     "useCustomFont": false,
                     "usePrimaryColor": true
                 },
                 {
-                    "customFont": "",
-                    "formatHorizontal": "HH:mm ddd, MMM dd",
-                    "formatVertical": "ddd, MMM dd",
-                    "id": "Clock",
-                    "useCustomFont": false,
-                    "usePrimaryColor": true
-                },
-                {
-                    "characterCount": 2,
-                    "colorizeIcons": false,
-                    "enableScrollWheel": true,
-                    "followFocusedScreen": false,
-                    "hideUnoccupied": false,
-                    "id": "Workspace",
-                    "labelMode": "index",
-                    "showApplications": false,
-                    "showLabelsOnlyWhenOccupied": true
-                },
-                {
-                    "colorName": "primary",
-                    "hideWhenIdle": false,
+                    "colorName": "secondary",
+                    "hideWhenIdle": true,
                     "id": "AudioVisualizer",
-                    "width": 200
-                }
-            ],
-            "left": [
-                {
-                    "colorizeDistroLogo": false,
-                    "colorizeSystemIcon": "none",
-                    "customIconPath": "",
-                    "enableColorization": false,
-                    "icon": "noctalia",
-                    "id": "ControlCenter",
-                    "useDistroLogo": false
+                    "width": 300
                 },
                 {
-                    "diskPath": "/",
-                    "id": "SystemMonitor",
-                    "showCpuTemp": true,
-                    "showCpuUsage": true,
-                    "showDiskUsage": false,
-                    "showGpuTemp": false,
-                    "showMemoryAsPercent": false,
-                    "showMemoryUsage": true,
-                    "showNetworkStats": false,
-                    "usePrimaryColor": false
-                },
-                {
-                    "colorizeIcons": false,
-                    "hideMode": "hidden",
-                    "id": "ActiveWindow",
-                    "maxWidth": 145,
-                    "scrollingMode": "hover",
-                    "showIcon": true,
-                    "useFixedWidth": false
-                },
-                {
-                    "hideMode": "hidden",
+                    "hideMode": "idle",
                     "hideWhenIdle": false,
                     "id": "MediaMini",
-                    "maxWidth": 145,
+                    "maxWidth": 300,
                     "scrollingMode": "hover",
-                    "showAlbumArt": false,
+                    "showAlbumArt": true,
                     "showArtistFirst": true,
                     "showProgressRing": true,
                     "showVisualizer": false,
@@ -119,14 +68,32 @@
                     "visualizerType": "linear"
                 }
             ],
+            "left": [
+                {
+                    "diskPath": "/",
+                    "id": "SystemMonitor",
+                    "showCpuTemp": true,
+                    "showCpuUsage": true,
+                    "showDiskUsage": true,
+                    "showGpuTemp": true,
+                    "showMemoryAsPercent": false,
+                    "showMemoryUsage": true,
+                    "showNetworkStats": true,
+                    "usePrimaryColor": true
+                },
+                {
+                    "characterCount": 2,
+                    "colorizeIcons": true,
+                    "enableScrollWheel": true,
+                    "followFocusedScreen": false,
+                    "hideUnoccupied": false,
+                    "id": "Workspace",
+                    "labelMode": "index",
+                    "showApplications": true,
+                    "showLabelsOnlyWhenOccupied": true
+                }
+            ],
             "right": [
-                {
-                    "id": "ScreenRecorder"
-                },
-                {
-                    "displayMode": "onhover",
-                    "id": "Volume"
-                },
                 {
                     "hideWhenZero": true,
                     "id": "NotificationHistory",
@@ -135,11 +102,12 @@
                 {
                     "blacklist": [
                     ],
-                    "colorizeIcons": false,
+                    "colorizeIcons": true,
                     "drawerEnabled": true,
                     "hidePassive": false,
                     "id": "Tray",
                     "pinned": [
+                        "LM Studio"
                     ]
                 }
             ]
@@ -175,7 +143,7 @@
         "generateTemplatesForPredefined": true,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
-        "matugenSchemeType": "scheme-expressive",
+        "matugenSchemeType": "scheme-fruit-salad",
         "predefinedScheme": "Noctalia (default)",
         "schedulingMode": "off",
         "useWallpaperColors": true
@@ -201,9 +169,13 @@
             {
                 "enabled": true,
                 "id": "media-sysmon-card"
+            },
+            {
+                "enabled": false,
+                "id": "brightness-card"
             }
         ],
-        "position": "close_to_bar_button",
+        "position": "top_center",
         "shortcuts": {
             "left": [
                 {
@@ -307,6 +279,8 @@
     "hooks": {
         "darkModeChange": "",
         "enabled": false,
+        "screenLock": "",
+        "screenUnlock": "",
         "wallpaperChange": ""
     },
     "location": {
@@ -327,7 +301,7 @@
     "nightLight": {
         "autoSchedule": true,
         "dayTemp": "6500",
-        "enabled": false,
+        "enabled": true,
         "forced": false,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
@@ -384,6 +358,7 @@
     "sessionMenu": {
         "countdownDuration": 10000,
         "enableCountdown": true,
+        "largeButtonsStyle": false,
         "position": "center",
         "powerOptions": [
             {
@@ -455,7 +430,7 @@
         "gtk": true,
         "kcolorscheme": true,
         "kitty": true,
-        "niri": true,
+        "niri": false,
         "pywalfox": true,
         "qt": true,
         "spicetify": true,
@@ -467,7 +442,7 @@
         "zed": true
     },
     "ui": {
-        "fontDefault": "Cascadia Code NF",
+        "fontDefault": "TeX Gyre Heros",
         "fontDefaultScale": 1,
         "fontFixed": "JetBrainsMono Nerd Font Mono",
         "fontFixedScale": 1,
