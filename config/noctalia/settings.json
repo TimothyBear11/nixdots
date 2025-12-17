@@ -49,7 +49,7 @@
                     "usePrimaryColor": true
                 },
                 {
-                    "colorName": "secondary",
+                    "colorName": "tertiary",
                     "hideWhenIdle": true,
                     "id": "AudioVisualizer",
                     "width": 300
