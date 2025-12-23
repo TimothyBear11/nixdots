@@ -7,6 +7,7 @@
     ./gaming.nix
     ./fontsAndNeeds.nix
     ./qtile.nix
+    ./lazyvim.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
