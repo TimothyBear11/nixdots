@@ -41,7 +41,7 @@ in
           disallowedRequisites = [ ];
         }))
       ];
-      text = ''exec nix-search-tv "$@"'';
+      text = ''exec "${pkgs.nix-search-tv.src}/nixpkgs.sh" "$@"'';
     })
 
     inputs.zen-browser.packages.${pkgs.system}.default
