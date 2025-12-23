@@ -1,0 +1,15 @@
+{
+  "settings": {
+    "barWidth": "Bar Width",
+    "bloomIntensity": "Bloom Intensity",
+    "description": "Configure the audio visualizer appearance",
+    "ringOpacity": "Ring Opacity",
+    "rotationSpeed": "Rotation Speed",
+    "sensitivity": "Sensitivity",
+    "showBars": "Show Bars",
+    "showBars-description": "Display circular audio bars",
+    "showRings": "Show Rings",
+    "showRings-description": "Display reactive rings in the center",
+    "title": "Visualizer Settings"
+  }
+}

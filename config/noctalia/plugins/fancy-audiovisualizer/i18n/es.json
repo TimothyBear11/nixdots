@@ -1,0 +1,15 @@
+{
+  "settings": {
+    "barWidth": "Ancho de barra",
+    "bloomIntensity": "Intensidad de floración",
+    "description": "Configurar la apariencia del visualizador de audio",
+    "ringOpacity": "Opacidad del anillo",
+    "rotationSpeed": "Velocidad de rotación",
+    "sensitivity": "Sensibilidad",
+    "showBars": "Mostrar barras",
+    "showBars-description": "Mostrar barras de audio circulares",
+    "showRings": "Anillos de exhibición",
+    "showRings-description": "Mostrar anillos reactivos en el centro",
+    "title": "Ajustes del Visualizador"
+  }
+}

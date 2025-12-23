@@ -4,6 +4,7 @@
         "customLaunchPrefixEnabled": false,
         "enableClipPreview": true,
         "enableClipboardHistory": false,
+        "iconMode": "tabler",
         "pinnedExecs": [
         ],
         "position": "center",
@@ -19,7 +20,6 @@
         "mprisBlacklist": [
         ],
         "preferredPlayer": "",
-        "visualizerQuality": "high",
         "visualizerType": "linear",
         "volumeOverdrive": false,
         "volumeStep": 5
@@ -208,8 +208,8 @@
         }
     },
     "desktopWidgets": {
-        "editMode": false,
         "enabled": true,
+        "gridSnap": false,
         "monitorWidgets": [
             {
                 "name": "HDMI-A-1",
@@ -222,8 +222,13 @@
                         "y": 445.703125
                     },
                     {
+                        "clockStyle": "minimal",
+                        "customFont": "",
+                        "format": "h:mm AP\\n ddd, MMM dd",
                         "id": "Clock",
                         "showBackground": true,
+                        "useCustomFont": false,
+                        "usePrimaryColor": true,
                         "x": 184.55859375,
                         "y": 44.6328125
                     },
@@ -232,12 +237,28 @@
                         "showBackground": true,
                         "x": 123.765625,
                         "y": 238.19921875
+                    },
+                    {
+                        "defaultSettings": {
+                            "barWidth": 0.6,
+                            "bloomIntensity": 0.5,
+                            "ringOpacity": 0.8,
+                            "rotationSpeed": 0.5,
+                            "sensitivity": 1.5,
+                            "showBars": true,
+                            "showRings": true
+                        },
+                        "id": "plugin:fancy-audiovisualizer",
+                        "showBackground": true,
+                        "x": 97,
+                        "y": 580
                     }
                 ]
             }
         ]
     },
     "dock": {
+        "animationSpeed": 1,
         "backgroundOpacity": 1,
         "colorizeIcons": false,
         "deadOpacity": 0.6,
@@ -279,6 +300,8 @@
     "hooks": {
         "darkModeChange": "",
         "enabled": false,
+        "performanceModeDisabled": "",
+        "performanceModeEnabled": "",
         "screenLock": "",
         "screenUnlock": "",
         "wallpaperChange": ""
@@ -428,9 +451,11 @@
         "fuzzel": true,
         "ghostty": false,
         "gtk": true,
+        "hyprland": true,
         "kcolorscheme": true,
         "kitty": true,
-        "niri": false,
+        "mango": true,
+        "niri": true,
         "pywalfox": true,
         "qt": true,
         "spicetify": true,
@@ -442,6 +467,8 @@
         "zed": true
     },
     "ui": {
+        "bluetoothDetailsViewMode": "grid",
+        "bluetoothHideUnnamedDevices": false,
         "fontDefault": "TeX Gyre Heros",
         "fontDefaultScale": 1,
         "fontFixed": "JetBrainsMono Nerd Font Mono",
@@ -449,7 +476,8 @@
         "panelBackgroundOpacity": 0.65,
         "panelsAttachedToBar": true,
         "settingsPanelMode": "centered",
-        "tooltipsEnabled": true
+        "tooltipsEnabled": true,
+        "wifiDetailsViewMode": "grid"
     },
     "wallpaper": {
         "directory": "/home/tbear/nixdots/Pictures/Wallpapers",
@@ -474,6 +502,7 @@
         "wallhavenOrder": "desc",
         "wallhavenPurity": "100",
         "wallhavenQuery": "f-22",
+        "wallhavenRatios": "",
         "wallhavenResolutionHeight": "",
         "wallhavenResolutionMode": "atleast",
         "wallhavenResolutionWidth": "",

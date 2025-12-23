@@ -1,0 +1,15 @@
+{
+  "settings": {
+    "barWidth": "条宽",
+    "bloomIntensity": "光晕强度",
+    "description": "配置音频可视化效果外观",
+    "ringOpacity": "环透明度",
+    "rotationSpeed": "转速",
+    "sensitivity": "敏感性",
+    "showBars": "显示条形图",
+    "showBars-description": "显示圆形音频条",
+    "showRings": "展示戒指",
+    "showRings-description": "在中心显示反应环",
+    "title": "可视化设置"
+  }
+}

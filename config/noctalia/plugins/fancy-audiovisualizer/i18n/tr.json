@@ -1,0 +1,15 @@
+{
+  "settings": {
+    "barWidth": "Çubuk Genişliği",
+    "bloomIntensity": "Çiçeklenme Yoğunluğu",
+    "description": "Ses görselleştirici görünümünü yapılandır",
+    "ringOpacity": "Halka Opaklığı",
+    "rotationSpeed": "Dönme Hızı",
+    "sensitivity": "Hassasiyet",
+    "showBars": "Çubukları Göster",
+    "showBars-description": "Dairesel ses çubukları görüntüle",
+    "showRings": "Gösteri Halkaları",
+    "showRings-description": "Reaktif halkaları ortada görüntüle",
+    "title": "Görselleştirici Ayarları"
+  }
+}
