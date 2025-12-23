@@ -9,7 +9,7 @@
     # -- IDEs --
     zed-editor
     vscodium
-    jetbrains.pycharm-professional
+    jetbrains.pycharm
 
     # -- Productivity --
     direnv         # Auto-load envs

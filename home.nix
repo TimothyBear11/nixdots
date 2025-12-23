@@ -34,9 +34,13 @@ in
       name = "ns";
       runtimeInputs = with pkgs; [
         fzf
-        (nix-search-tv.overrideAttrs { env.GOEXPERIMENT = "jsonv2"; })
+        (nix-search-tv.overrideAttrs (oldAttrs: {
+          env.GOEXPERIMENT = "jsonv2";
+          # This removes the restriction that was causing the build failure
+          disallowedRequisites = [ ];
+        }))
       ];
-      text = ''exec "${pkgs.nix-search-tv.src}/nixpkgs.sh" "$@"'';
+      text = ''exec nix-search-tv "$@"'';
     })
 
     inputs.zen-browser.packages.${pkgs.system}.default
