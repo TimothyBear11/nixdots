@@ -36,7 +36,8 @@ in
         fzf
         (nix-search-tv.overrideAttrs (oldAttrs: {
           env.GOEXPERIMENT = "jsonv2";
-          # This removes the restriction that was causing the build failure
+          # You need to clear disallowedReferences to allow the Go compiler in the closure
+          disallowedReferences = [ ];
           disallowedRequisites = [ ];
         }))
       ];
