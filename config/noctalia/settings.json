@@ -254,6 +254,56 @@
                         "y": 580
                     }
                 ]
+            },
+            {
+                "name": "DP-1",
+                "widgets": [
+                    {
+                        "clockStyle": "minimal",
+                        "customFont": "",
+                        "format": "h:mm AP\\nddd, MMM dd",
+                        "id": "Clock",
+                        "scale": 1.5515432893255072,
+                        "showBackground": true,
+                        "useCustomFont": false,
+                        "usePrimaryColor": true,
+                        "x": 2145,
+                        "y": 339.00000000000006
+                    },
+                    {
+                        "hideMode": "idle",
+                        "id": "MediaPlayer",
+                        "showBackground": true,
+                        "showButtons": true,
+                        "visualizerType": "linear",
+                        "visualizerVisibility": "always",
+                        "x": 2081,
+                        "y": 611
+                    },
+                    {
+                        "defaultSettings": {
+                            "barWidth": 0.6,
+                            "bloomIntensity": 0.5,
+                            "ringOpacity": 0.8,
+                            "rotationSpeed": 0.5,
+                            "sensitivity": 1.5,
+                            "showBars": true,
+                            "showRings": true
+                        },
+                        "id": "plugin:fancy-audiovisualizer",
+                        "scale": 1.4148359782961077,
+                        "showBackground": true,
+                        "x": 2053,
+                        "y": 752
+                    },
+                    {
+                        "id": "Weather",
+                        "scale": 1.2404163056034263,
+                        "showBackground": true,
+                        "x": 2076,
+                        "y": 489.9999999999999
+                    }
+                ]
             }
         ]
     },
@@ -417,7 +467,7 @@
         ],
         "showHeader": true
     },
-    "settingsVersion": 31,
+    "settingsVersion": 32,
     "systemMonitor": {
         "cpuCriticalThreshold": 90,
         "cpuPollingInterval": 3000,
@@ -426,7 +476,7 @@
         "diskCriticalThreshold": 90,
         "diskPollingInterval": 3000,
         "diskWarningThreshold": 80,
-        "enableNvidiaGpu": false,
+        "enableDgpuMonitoring": false,
         "gpuCriticalThreshold": 90,
         "gpuPollingInterval": 3000,
         "gpuWarningThreshold": 80,
@@ -451,7 +501,8 @@
         "fuzzel": true,
         "ghostty": false,
         "gtk": true,
-        "hyprland": true,
+        "helix": false,
+        "hyprland": false,
         "kcolorscheme": true,
         "kitty": true,
         "mango": true,

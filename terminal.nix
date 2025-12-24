@@ -5,11 +5,11 @@
   imports = [
     ./terminal/fish.nix
     ./terminal/nvim.nix
+    ./terminal/kitty.nix
   ];
 
 
   home.packages = with pkgs; [
-    kitty
     foot
     kdePackages.konsole
     btop
