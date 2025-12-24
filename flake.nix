@@ -21,6 +21,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    cachyos.url = "github:drakon64/nixos-cachyos-kernel";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, mangowc, zen-browser, ... }: {
@@ -34,6 +36,9 @@
         ./ai.nix
         ./dev.nix
         ./dms.nix
+
+        inputs.cachyos.nixosModules.default
+        
 
         mangowc.nixosModules.mango
         home-manager.nixosModules.home-manager

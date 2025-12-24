@@ -12,10 +12,13 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
+    # "extra" versions just append to the system defaults
+    extra-substituters = [ "https://cachyos.cachix.org" ];
+    extra-trusted-public-keys = [ "cachyos.cachix.org-1:f/sSj99Y9H7K0x2A62LOn9p81NndP3T195Y85dToV7o=" ];
   };
 
   networking.hostName = "my-nix-den";
