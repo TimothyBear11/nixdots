@@ -23,7 +23,6 @@
 
     # Abbreviations expand in place (type 'nrs' + space -> see full command)
     shellAbbrs = {
-      nrs = "sudo nixos-rebuild switch --flake ~/nixdots#my-nix-den";
       flakeup = "nix flake update";
 
       # Git shortcuts are huge quality of life
@@ -40,6 +39,35 @@
       # (Only works if you enable eza below)
       ls = "eza --icons --group-directories-first";
       ll = "eza -l --icons --group-directories-first";
+    };
+
+    functions = {
+      # Custom rebuild function
+      nrs = {
+        body = ''
+          # Navigate to your config
+          pushd ~/nixdots > /dev/null
+          
+          # Stage changes (crucial for Flakes!)
+          git add .
+          
+          # Run the rebuild
+          if sudo nixos-rebuild switch --flake .#my-nix-den
+            # If successful, check if a commit message was provided
+            if set -q argv[1]
+              git commit -m "$argv[1]"
+              git push
+              echo "✅ Build successful and pushed to GitHub!"
+            else
+              echo "✅ Build successful! (No commit message provided)"
+            end
+          else
+            echo "❌ Build failed. Keeping changes staged for fix."
+          end
+          
+          popd > /dev/null
+        '';
+      };
     };
   };
 
