@@ -28,7 +28,6 @@
     pkgs.nerd-fonts.comic-shanns-mono
     nerd-fonts.victor-mono
     nerd-fonts.iosevka
-    nerd-fonts.maple-mono
     nerd-fonts.recursive-mono
     nerd-fonts.geist-mono
   ];
