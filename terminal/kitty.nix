@@ -1,4 +1,7 @@
-programs.kitty = {
+{ config, pkgs, ... }:
+
+{
+  programs.kitty = {
   enable = true;
 
   # 1. Fonts: Home Manager handles the font package and the config
@@ -44,3 +47,5 @@ programs.kitty = {
     scrollback_pager nvim -c "set signcolumn=no showtabline=0" -c "autocmd TermOpen * startinsert" -c "terminal"
   '';
 };
+
+}
