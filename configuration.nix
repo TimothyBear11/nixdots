@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -12,13 +12,12 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  boot.kernelPackages = inputs.cachyos.legacyPackages.${pkgs.system}."linuxPackages-cachyos-lts"; 
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
-    # "extra" versions just append to the system defaults
-    extra-substituters = [ "https://cachyos.cachix.org" ];
-    extra-trusted-public-keys = [ "cachyos.cachix.org-1:f/sSj99Y9H7K0x2A62LOn9p81NndP3T195Y85dToV7o=" ];
+    extra-substituters = [ "https://xddxdd.cachix.org" ];
+    extra-trusted-public-keys = [ "xddxdd.cachix.org-1:ay1QqcAsEbcpaFybWIieIg++nSabaHu7dFrRAccE6V0=" ];
   };
 
   networking.hostName = "my-nix-den";

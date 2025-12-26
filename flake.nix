@@ -22,10 +22,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    cachyos.url = "github:drakon64/nixos-cachyos-kernel";
+    cachyos.url = "github:xddxdd/nix-cachyos-kernel";
+    
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, mangowc, zen-browser, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, mangowc, zen-browser, cachyos, ... }: {
     nixosConfigurations.my-nix-den = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
@@ -37,9 +38,8 @@
         ./dev.nix
         ./dms.nix
 
-        inputs.cachyos.nixosModules.default
         
-
+        
         mangowc.nixosModules.mango
         home-manager.nixosModules.home-manager
         {
