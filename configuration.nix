@@ -30,6 +30,11 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+  
+  services.mako.enable = false;
+
+  systemd.user.services.mako.enable = false;
+  systemd.user.sockets.mako.enable = false;
 
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";

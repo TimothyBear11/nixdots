@@ -5,6 +5,7 @@
         "enableClipPreview": true,
         "enableClipboardHistory": false,
         "iconMode": "tabler",
+        "ignoreMouseInput": false,
         "pinnedExecs": [
         ],
         "position": "center",
@@ -25,6 +26,7 @@
         "volumeStep": 5
     },
     "bar": {
+        "backgroundOpacity": 0.93,
         "capsuleOpacity": 1,
         "density": "default",
         "exclusive": true,
@@ -37,7 +39,7 @@
         "position": "top",
         "showCapsule": false,
         "showOutline": false,
-        "transparent": false,
+        "useSeparateOpacity": false,
         "widgets": {
             "center": [
                 {
@@ -45,6 +47,7 @@
                     "formatHorizontal": "h:mm AP ddd, MMM dd",
                     "formatVertical": "h:mm AP",
                     "id": "Clock",
+                    "tooltipFormat": "HH:mm ddd, MMM dd",
                     "useCustomFont": false,
                     "usePrimaryColor": true
                 },
@@ -88,11 +91,13 @@
                     "colorizeIcons": true,
                     "enableScrollWheel": true,
                     "followFocusedScreen": false,
+                    "groupedBorderOpacity": 1,
                     "hideUnoccupied": false,
                     "id": "Workspace",
                     "labelMode": "index",
                     "showApplications": true,
-                    "showLabelsOnlyWhenOccupied": true
+                    "showLabelsOnlyWhenOccupied": true,
+                    "unfocusedIconsOpacity": 1
                 }
             ],
             "right": [
@@ -428,6 +433,7 @@
         "audioCodec": "opus",
         "audioSource": "default_output",
         "colorRange": "limited",
+        "copyToClipboard": false,
         "directory": "/home/tbear/Videos",
         "frameRate": 60,
         "quality": "very_high",
@@ -475,16 +481,18 @@
         "showHeader": true,
         "showNumberLabels": true
     },
-    "settingsVersion": 33,
+    "settingsVersion": 35,
     "systemMonitor": {
         "cpuCriticalThreshold": 90,
         "cpuPollingInterval": 3000,
         "cpuWarningThreshold": 80,
         "criticalColor": "",
         "diskCriticalThreshold": 90,
+        "diskPath": "/",
         "diskPollingInterval": 3000,
         "diskWarningThreshold": 80,
         "enableDgpuMonitoring": false,
+        "externalMonitor": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor",
         "gpuCriticalThreshold": 90,
         "gpuPollingInterval": 3000,
         "gpuWarningThreshold": 80,
@@ -513,7 +521,7 @@
         "hyprland": false,
         "kcolorscheme": true,
         "kitty": true,
-        "mango": true,
+        "mango": false,
         "niri": true,
         "pywalfox": true,
         "qt": true,
