@@ -21,12 +21,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    cachyos.url = "github:xddxdd/nix-cachyos-kernel";
     
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, mangowc, zen-browser, cachyos, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, mangowc, zen-browser, ... }: {
     nixosConfigurations.my-nix-den = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 

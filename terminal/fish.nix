@@ -68,7 +68,52 @@
           popd > /dev/null
         '';
       };
-    };
+
+      goodnight = {
+        body = ''
+          # 1. Safely find the git root or exit if not in a repo
+          
+          set -l repo_root (git rev-parse --show-toplevel 2>/dev/null)
+          
+          if test -z "$repo_root"
+            echo "Error: You are not inside a git repository."
+            return 1
+          end
+
+          cd $repo_root
+
+          echo "Updating flake inputs..."
+          nix flake update
+
+          echo "Staging changes..."
+          git add .
+
+          echo "Rebuilding..."
+          
+          # 2. Rebuild NixOS
+          if sudo nixos-rebuild switch --flake .#my-nix-den
+            echo "Rebuild successful."
+
+          # 3. Check if there are actually changes to commit to avoid errors
+          if not git diff --staged --quiet
+            echo "Committing and pushing..."
+            git commit -m "end of night updates"
+            git push
+          else
+            echo "No changes to commit."
+          end
+
+          echo "Shutting down in 10 seconds... (Press Ctrl+C to cancel)"
+          sleep 10
+          sudo shutdown -h now
+          else
+            echo "Rebuild failed. Aborting shutdown."
+            return 1
+          end
+          '';
+        };
+      };
+
   };
 
   # --- Integrations ---
