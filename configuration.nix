@@ -22,6 +22,8 @@
   networking.networkmanager.enable = true;
   services.printing.enable = true;
 
+  virtualisation.podman.enable = true;
+
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {

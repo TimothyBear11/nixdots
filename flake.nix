@@ -1,44 +1,42 @@
 {
-  description = "NixOS is a place to learn";
+  description = "UrsaOS & NixOS - Logic meets Magic";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # For GPU support on Fedora (UrsaOS)
+    nixgl.url = "github:nix-community/nixGL";
+
+    zen-browser.url = "github:youwen5/zen-browser-flake";
+    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
 
     mangowc = {
       url = "github:DreamMaoMao/mangowc";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zen-browser.url = "github:youwen5/zen-browser-flake";
-    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
-
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, mangowc, zen-browser, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
+    # --- 1. For your NixOS machine (Logic side) ---
     nixosConfigurations.my-nix-den = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-
+      inherit system;
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
-        ./noctalia.nix
-        ./ai.nix
-        ./dev.nix
-        ./dms.nix
-
-        
-        
-        mangowc.nixosModules.mango
         home-manager.nixosModules.home-manager
         {
           home-manager = {
@@ -50,6 +48,14 @@
           };
         }
       ];
+    };
+
+    # --- 2. For UrsaOS / Fedora (Standalone side) ---
+    # This is what 'just install-nix' looks for!
+    homeConfigurations.tbear = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      extraSpecialArgs = { inherit inputs; };
+      modules = [ ./home.nix ];
     };
   };
 }

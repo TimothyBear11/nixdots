@@ -11,11 +11,13 @@ let
     qtile = "qtile";
     noctalia = "noctalia";
     mango = "mango";
-    # Add Ambxst here (Capitalized A to match ~/.config/Ambxst)
     Ambxst = "Ambxst";
   };
 in
 {
+  # 1. Essential for Non-NixOS (Fedora)
+  nixpkgs.config.allowUnfree = true;
+
   imports = [
     ./terminal.nix
     ./apps.nix
@@ -26,12 +28,23 @@ in
   home.stateVersion = "25.05";
 
   programs.home-manager.enable = true;
-  services.mako.enable = false;
+
+  # 2. Ensure Fish is ready for Nix on Fedora
+  programs.fish = {
+  enable = true;
+  interactiveShellInit = ''
+    # Only source this on non-NixOS systems (like UrsaOS)
+    # NixOS doesn't have this file because it handles paths differently
+    if test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
+        source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
+    end
+    '';
+  };
 
   home.packages = with pkgs; [
     gcc
-    # Add Ambxst if you added it to your flake.nix inputs
-    # inputs.ambxst.packages.${pkgs.system}.default
+
+    inputs.nixgl.packages.${pkgs.system}.nixGLDefault
 
     (pkgs.writeShellApplication {
       name = "ns";
@@ -49,7 +62,7 @@ in
     inputs.zen-browser.packages.${pkgs.system}.default
   ];
 
-  # 1. Standard Configs (~/.config/...)
+
   xdg.configFile = builtins.mapAttrs
     (name: subpath: {
       source = create_symlink "${dotfiles}/${subpath}";
@@ -57,8 +70,6 @@ in
     })
     configs;
 
-  # 2. Data Files (~/.local/share/...)
-  # This handles the specific wallpaper fix we found
   xdg.dataFile."Ambxst/wallpapers.json".source =
     create_symlink "${dotfiles}/Ambxst/wallpapers.json";
 }

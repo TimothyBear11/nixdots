@@ -16,7 +16,7 @@
 
   programs.niri.enable = true;
 
-  programs.mango = {
+  programs.mangowc = {
     enable = true;
   };
 
