@@ -4,134 +4,93 @@
   programs.fish = {
     enable = true;
 
-    # Set environment variables here so they are ready before the prompt loads
+    # ------------------------------------------------------------
+    # Environment variables
+    # These must be available before Starship initializes
+    # ------------------------------------------------------------
     shellInit = ''
-      set -gx STARSHIP_CONFIG ~/nixdots/config/starship.toml
+      set -gx STARSHIP_CONFIG "$HOME/nixdots/config/starship.toml"
     '';
 
-    # Commands that run when you open a terminal
+    # ------------------------------------------------------------
+    # Interactive shell startup
+    # Runs only for real terminals, not scripts
+    # ------------------------------------------------------------
     interactiveShellInit = ''
-      # QoL: Disable the "Welcome to fish" message
+      # Disable the default Fish greeting (cleaner startup)
       set -g fish_greeting ""
 
-      # Fastfetch with custom logo
-      # The check ensures the shell still opens even if fastfetch isn't installed
+      # Optional system info splash
+      # Only runs if fastfetch is installed
       if type -q fastfetch
-        fastfetch --logo ~/nixdots/Pictures/tbearlogo.png --logo-type auto --logo-width 35 --logo-height 30
+        fastfetch \
+          --logo "$HOME/nixdots/Pictures/tbearlogo.png" \
+          --logo-type auto \
+          --logo-width 35 \
+          --logo-height 30
+      end
+
+      # Load custom Fish functions (modular & editable without rebuild)
+      if test -d "$HOME/nixdots/config/fish/functions"
+        for f in $HOME/nixdots/config/fish/functions/*.fish
+          source $f
+        end
       end
     '';
 
-    # Abbreviations expand in place (type 'nrs' + space -> see full command)
+    # ------------------------------------------------------------
+    # Abbreviations (expand inline as you type)
+    # ------------------------------------------------------------
     shellAbbrs = {
       flakeup = "nix flake update";
 
-      # Git shortcuts are huge quality of life
-      gs = "git status";
-      ga = "git add .";
-      gc = "git commit -m";
-      gp = "git push";
+      gs   = "git status";
+      ga   = "git add .";
+      gc   = "git commit -m";
+      gp   = "git push";
+      gd   = "git diff";
+      gds  = "git diff --staged";
+      gl   = "git pull --rebase";
+      gco  = "git checkout";
+      gb   = "git branch -vv";
+      gcm  = "git checkout main && git pull";
+      gundo = "git reset --soft HEAD~1";
     };
 
+    # ------------------------------------------------------------
+    # Aliases (command replacements)
+    # ------------------------------------------------------------
     shellAliases = {
       vim = "nvim";
 
-      # Optional: Map ls to eza for icons and better formatting
-      # (Only works if you enable eza below)
+      # Modern ls replacement
       ls = "eza --icons --group-directories-first";
       ll = "eza -l --icons --group-directories-first";
+
+      # Quick navigation helpers
+      d  = "cd ~";
+      dl = "cd ~/Downloads";
+      dt = "cd ~/Documents";
+      proj = "cd ~/projects";
+      zd = "z down";
+      zp = "z projects";
     };
-
-    functions = {
-      # Custom rebuild function
-      nrs = {
-        body = ''
-          # Navigate to your config
-          pushd ~/nixdots > /dev/null
-          
-          # Stage changes (crucial for Flakes!)
-          git add .
-          
-          # Run the rebuild
-          if sudo nixos-rebuild switch --flake .#my-nix-den
-            # If successful, check if a commit message was provided
-            if set -q argv[1]
-              git commit -m "$argv[1]"
-              git push
-              echo "✅ Build successful and pushed to GitHub!"
-            else
-              echo "✅ Build successful! (No commit message provided)"
-            end
-          else
-            echo "❌ Build failed. Keeping changes staged for fix."
-          end
-          
-          popd > /dev/null
-        '';
-      };
-
-      goodnight = {
-        body = ''
-          # 1. Safely find the git root or exit if not in a repo
-          
-          set -l repo_root (git rev-parse --show-toplevel 2>/dev/null)
-          
-          if test -z "$repo_root"
-            echo "Error: You are not inside a git repository."
-            return 1
-          end
-
-          cd $repo_root
-
-          echo "Updating flake inputs..."
-          nix flake update
-
-          echo "Staging changes..."
-          git add .
-
-          echo "Rebuilding..."
-          
-          # 2. Rebuild NixOS
-          if sudo nixos-rebuild switch --flake .#my-nix-den
-            echo "Rebuild successful."
-
-          # 3. Check if there are actually changes to commit to avoid errors
-          if not git diff --staged --quiet
-            echo "Committing and pushing..."
-            git commit -m "end of night updates"
-            git push
-          else
-            echo "No changes to commit."
-          end
-
-          echo "Shutting down in 10 seconds... (Press Ctrl+C to cancel)"
-          sleep 10
-          sudo shutdown -h now
-          else
-            echo "Rebuild failed. Aborting shutdown."
-            return 1
-          end
-          '';
-        };
-      };
-
   };
 
-  # --- Integrations ---
+  # ------------------------------------------------------------
+  # Shell integrations
+  # ------------------------------------------------------------
 
-  # Enable Starship Prompt
   programs.starship = {
     enable = true;
     enableFishIntegration = true;
   };
 
-  # Enable Zoxide (Smart 'cd')
-  # Usage: type 'z down' to jump to 'Downloads' automatically
   programs.zoxide = {
     enable = true;
     enableFishIntegration = true;
   };
 
-  # Enable Eza (Modern 'ls' replacement)
   programs.eza = {
     enable = true;
     enableFishIntegration = true;
