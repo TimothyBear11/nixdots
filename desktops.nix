@@ -16,9 +16,8 @@
 
   programs.niri.enable = true;
 
-  programs.mangowc = {
-    enable = true;
-  };
+  programs.mango.enable = true;
+  
 
   environment.systemPackages = [ pkgs.xwayland-satellite ];
 }
