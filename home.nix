@@ -16,7 +16,9 @@ let
 in
 {
   # 1. Essential for Non-NixOS (Fedora)
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = if (builtins.pathExists /etc/NIXOS) then { } else {
+  allowUnfree = true;
+  }; 
 
   imports = [
     ./terminal.nix
