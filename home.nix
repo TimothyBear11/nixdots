@@ -27,7 +27,8 @@ in
   home.stateVersion = "25.05";
 
   programs.home-manager.enable = true;
-  programs.mako.enable = false;
+
+  services.mako.enable = false;
 
   home.packages = with pkgs; [
     gcc

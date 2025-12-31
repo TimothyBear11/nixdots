@@ -18,7 +18,7 @@
     wlr-randr
     grim
     slurp
-    mako
+#    mako
     fuzzel
 
   ];
