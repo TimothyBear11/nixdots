@@ -15,10 +15,7 @@ let
   };
 in
 {
-  # 1. Essential for Non-NixOS (Fedora)
-  nixpkgs.config = if (builtins.pathExists /etc/NIXOS) then { } else {
-  allowUnfree = true;
-  }; 
+  
 
   imports = [
     ./terminal.nix
@@ -61,10 +58,7 @@ in
 
     inputs.zen-browser.packages.${pkgs.system}.default
 
-  ] ++ (if builtins.pathExists /etc/NIXOS then [ ] else [
-    # This only gets added if we ARE NOT on NixOS (Logic check)
-    inputs.nixgl.packages.${pkgs.system}.nixGLDefault
-  ]); 
+  ];  
 
   xdg.configFile = builtins.mapAttrs
     (name: subpath: {
