@@ -44,8 +44,6 @@ in
   home.packages = with pkgs; [
     gcc
 
-    inputs.nixgl.packages.${pkgs.system}.nixGLDefault
-
     (pkgs.writeShellApplication {
       name = "ns";
       runtimeInputs = with pkgs; [
@@ -60,8 +58,11 @@ in
     })
 
     inputs.zen-browser.packages.${pkgs.system}.default
-  ];
 
+  ] ++ (if builtins.pathExists /etc/NIXOS then [ ] else [
+    # This only gets added if we ARE NOT on NixOS (Logic check)
+    inputs.nixgl.packages.${pkgs.system}.nixGLDefault
+  ]); 
 
   xdg.configFile = builtins.mapAttrs
     (name: subpath: {
