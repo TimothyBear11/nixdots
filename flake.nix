@@ -37,6 +37,7 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
+        ./noctalia.nix
         home-manager.nixosModules.home-manager
         {
           home-manager = {
