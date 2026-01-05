@@ -16,8 +16,9 @@
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
 
   nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
-  };
+  download-buffer-size = 1073741824; # 1GB
+  experimental-features = [ "nix-command" "flakes" ];
+};
 
   networking.hostName = "my-nix-den";
   networking.networkmanager.enable = true;

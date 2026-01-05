@@ -1,14 +1,7 @@
 { config, pkgs, ... }:
 
 {
-
-  programs.mangohud = {
-    enable = true;
-    settings = {
-      full = true;
-      limit_fps = 144;
-    };
-  };
+  # ... (mangohud config) ...
 
   home.packages = with pkgs; [
     kdePackages.dolphin
@@ -17,7 +10,8 @@
     signal-desktop
     filezilla
     spotify
-    vesktop
+    legcord
+   # vesktop-bin
     joplin-desktop
     pcmanfm
     pywalfox-native
