@@ -10,24 +10,48 @@
     ./lazyvim.nix
     ./ai.nix
     ./dev.nix
-
   ];
 
+  # --- Boot & Kernel ---
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
 
-  nix.settings = {
-  download-buffer-size = 1073741824; # 1GB
-  experimental-features = [ "nix-command" "flakes" ];
-};
+  # --- Nix Housekeeping & Settings ---
+  nix = {
+    # 1. Weekly Garbage Collection
+    # This deletes old generations so your disk doesn't fill up.
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
 
+    # 2. Storage Optimization
+    # Deduplicates identical files in the store. 
+    # (Runs via a timer to avoid slowing down active builds)
+    optimise.automatic = true;
+
+    settings = {
+      download-buffer-size = 1073741824; # 1GB
+      experimental-features = [ "nix-command" "flakes" ];
+      
+      # 3. Trusted Users
+      # Allows sudo users (wheel) to configure binary caches 
+      # (useful if you ever pull from Cachix or other repos)
+      trusted-users = [ "root" "@wheel" ];
+    };
+  };
+
+  # --- Networking ---
   networking.hostName = "my-nix-den";
   networking.networkmanager.enable = true;
-  services.printing.enable = true;
 
+  # --- Virtualization ---
   virtualisation.podman.enable = true;
 
+  # --- Audio & Services ---
+  services.printing.enable = true;
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -37,10 +61,11 @@
     pulse.enable = true;
   };
   
-
+  # --- Locale & Time ---
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
 
+  # --- Users ---
   programs.fish.enable = true;
 
   users.users.tbear = {

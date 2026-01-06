@@ -3,30 +3,30 @@
 {
   nixpkgs.config.allowUnfree = true;
 
-  # --- System Packages ---
   environment.systemPackages = with pkgs; [
     vim
     wget
-    gh    # You NEED this installed for the credential helper to work
     tree
-    # 'git' is removed here because we enable it below
+    gh # Required for credentials
   ];
 
-  # --- Git Configuration ---
-  # This installs git AND configures /etc/gitconfig system-wide
   programs.git = {
     enable = true;
     config = {
+      # 1. Identity (So you can delete ~/.gitconfig safely)
+      user = {
+        name = "TimothyBear11"; 
+        email = "timothybear1183@pm.me"; 
+      };
+      
+      # 2. Set default branch to main
       init = {
         defaultBranch = "main";
       };
+      
+      # 3. Fix the credential helper (Nix-proof)
       credential = {
-        "https://github.com" = {
-          helper = "!gh auth git-credential";
-        };
-        "https://gist.github.com" = {
-          helper = "!gh auth git-credential";
-        };
+        helper = "!gh auth git-credential";
       };
     };
   };
@@ -42,8 +42,6 @@
     monaspace
     hack-font
     fantasque-sans-mono
-    
-    # Nerd Fonts (Grouped for readability)
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
     nerd-fonts.droid-sans-mono
