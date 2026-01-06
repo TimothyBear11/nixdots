@@ -26,7 +26,7 @@
         fastfetch \
           --logo "$HOME/nixdots/Pictures/tbearlogo.png" \
           --logo-type auto \
-          --logo-width 35 \
+          --logo-width 45 \
           --logo-height 30
       end
 

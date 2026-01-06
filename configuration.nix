@@ -8,6 +8,8 @@
     ./fontsAndNeeds.nix
     ./qtile.nix
     ./lazyvim.nix
+    ./ai.nix
+    ./dev.nix
 
   ];
 

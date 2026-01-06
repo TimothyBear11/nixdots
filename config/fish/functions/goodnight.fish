@@ -1,5 +1,4 @@
 function goodnight
-  # Ensure we're in a git repo
   set -l repo_root (git rev-parse --show-toplevel 2>/dev/null)
   if test -z "$repo_root"
     echo "❌ Not inside a git repository."

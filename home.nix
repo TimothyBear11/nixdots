@@ -20,7 +20,7 @@ in
   imports = [
     ./terminal.nix
     ./apps.nix
-   # ./noctalia.nix
+   
   ];
 
   home.username = "tbear";
