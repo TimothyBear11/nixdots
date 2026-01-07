@@ -2,14 +2,28 @@
   "settings": {
     "barWidth": "Bar Width",
     "bloomIntensity": "Bloom Intensity",
+    "customPrimaryColor": "Primary Color",
+    "customSecondaryColor": "Secondary Color",
     "description": "Configure the audio visualizer appearance",
+    "fadeWhenIdle": "Fade When Idle",
+    "fadeWhenIdle-description": "Fade out visualizer when no audio is playing",
+    "innerDiameter": "Inner Diameter",
+    "mode": {
+      "all": "All",
+      "bars": "Bars",
+      "barsRings": "Bars + Rings",
+      "rings": "Rings",
+      "wave": "Wave",
+      "waveRings": "Wave + Rings"
+    },
     "ringOpacity": "Ring Opacity",
     "rotationSpeed": "Rotation Speed",
     "sensitivity": "Sensitivity",
-    "showBars": "Show Bars",
-    "showBars-description": "Display circular audio bars",
-    "showRings": "Show Rings",
-    "showRings-description": "Display reactive rings in the center",
-    "title": "Visualizer Settings"
+    "title": "Visualizer Settings",
+    "useCustomColors": "Use Custom Colors",
+    "useCustomColors-description": "Override theme colors with custom colors",
+    "visualizationMode": "Visualization Mode",
+    "visualizationMode-description": "Choose visualization style",
+    "waveThickness": "Wave Thickness"
   }
 }

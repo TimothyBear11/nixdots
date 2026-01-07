@@ -2,14 +2,28 @@
   "settings": {
     "barWidth": "Largeur de la barre",
     "bloomIntensity": "Intensité de l'éclat",
+    "customPrimaryColor": "Couleur primaire",
+    "customSecondaryColor": "Couleur secondaire",
     "description": "Configurer l'apparence du visualiseur audio",
+    "fadeWhenIdle": "Estomper en cas d'inactivité",
+    "fadeWhenIdle-description": "Estomper le visualiseur en l'absence de son.",
+    "innerDiameter": "Diamètre intérieur",
+    "mode": {
+      "all": "Tout",
+      "bars": "Barres",
+      "barsRings": "Barres + Anneaux",
+      "rings": "Anneaux",
+      "wave": "Vague",
+      "waveRings": "Onde + Anneaux"
+    },
     "ringOpacity": "Opacité de l'anneau",
     "rotationSpeed": "Vitesse de rotation",
     "sensitivity": "Sensibilité",
-    "showBars": "Afficher les barres",
-    "showBars-description": "Afficher des barres audio circulaires",
-    "showRings": "Anneaux d'exposition",
-    "showRings-description": "Afficher les anneaux réactifs au centre.",
-    "title": "Paramètres du visualiseur"
+    "title": "Paramètres du visualiseur",
+    "useCustomColors": "Utiliser des couleurs personnalisées",
+    "useCustomColors-description": "Remplacer les couleurs du thème par des couleurs personnalisées",
+    "visualizationMode": "Mode de visualisation",
+    "visualizationMode-description": "Choisir le style de visualisation",
+    "waveThickness": "Épaisseur de la vague"
   }
 }

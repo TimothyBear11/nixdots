@@ -121,6 +121,9 @@
                     "pinned": [
                         "LM Studio"
                     ]
+                },
+                {
+                    "id": "plugin:catwalk"
                 }
             ]
         }
@@ -315,6 +318,16 @@
                         "showBackground": true,
                         "x": 2076,
                         "y": 489.9999999999999
+                    },
+                    {
+                        "defaultSettings": {
+                            "hideBackground": false,
+                            "minimumThreshold": 10
+                        },
+                        "id": "plugin:catwalk",
+                        "showBackground": true,
+                        "x": 2151,
+                        "y": 217
                     }
                 ]
             }
