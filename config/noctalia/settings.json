@@ -566,7 +566,7 @@
         "boxBorderEnabled": false,
         "fontDefault": "FiraCode Nerd Font",
         "fontDefaultScale": 1,
-        "fontFixed": "JetBrainsMono Nerd Font Mono",
+        "fontFixed": "VictorMono Nerd Font",
         "fontFixedScale": 1,
         "panelBackgroundOpacity": 0.65,
         "panelsAttachedToBar": true,
