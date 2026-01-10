@@ -1,6 +1,5 @@
 {
     "appLauncher": {
-        "autoPasteClipboard": false,
         "customLaunchPrefix": "",
         "customLaunchPrefixEnabled": false,
         "enableClipPreview": true,
@@ -123,6 +122,10 @@
                     ]
                 },
                 {
+                    "defaultSettings": {
+                        "hideBackground": false,
+                        "minimumThreshold": 10
+                    },
                     "id": "plugin:catwalk"
                 }
             ]
@@ -155,6 +158,7 @@
     },
     "colorSchemes": {
         "darkMode": true,
+        "generateTemplatesForPredefined": true,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "matugenSchemeType": "scheme-expressive",
@@ -369,7 +373,6 @@
         "shadowDirection": "bottom_right",
         "shadowOffsetX": 2,
         "shadowOffsetY": 3,
-        "showChangelogOnStartup": true,
         "showHibernateOnLockScreen": false,
         "showScreenCorners": false,
         "showSessionButtonsOnLockScreen": true
@@ -386,8 +389,6 @@
     "location": {
         "analogClockInCalendar": false,
         "firstDayOfWeek": -1,
-        "hideWeatherCityName": false,
-        "hideWeatherTimezone": false,
         "name": "Seffner, FL",
         "showCalendarEvents": true,
         "showCalendarWeather": true,
@@ -537,7 +538,7 @@
     "templates": {
         "alacritty": false,
         "cava": true,
-        "code": false,
+        "code": true,
         "discord": true,
         "emacs": false,
         "enableUserTemplates": false,
@@ -559,23 +560,18 @@
         "walker": false,
         "wezterm": false,
         "yazi": false,
-        "zed": true,
-        "zenBrowser": true
+        "zed": true
     },
     "ui": {
-        "bluetoothDetailsViewMode": "grid",
-        "bluetoothHideUnnamedDevices": false,
         "boxBorderEnabled": false,
         "fontDefault": "FiraCode Nerd Font",
         "fontDefaultScale": 1,
         "fontFixed": "JetBrainsMono Nerd Font Mono",
         "fontFixedScale": 1,
-        "networkPanelView": "wifi",
         "panelBackgroundOpacity": 0.65,
         "panelsAttachedToBar": true,
         "settingsPanelMode": "centered",
-        "tooltipsEnabled": true,
-        "wifiDetailsViewMode": "grid"
+        "tooltipsEnabled": true
     },
     "wallpaper": {
         "directory": "/home/tbear/nixdots/Pictures/Wallpapers",

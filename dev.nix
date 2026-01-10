@@ -7,7 +7,7 @@
     go
 
     # -- IDEs --
-    zed-editor
+    
     vscodium
     jetbrains.pycharm
 

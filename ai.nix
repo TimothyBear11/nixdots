@@ -14,7 +14,7 @@
   environment.systemPackages = with pkgs; [
     lmstudio
     ollama-rocm
-
+    gemini-cli
     rocmPackages.rocm-smi
     rocmPackages.rocminfo
   ];

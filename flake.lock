@@ -43,11 +43,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1767824564,
-        "narHash": "sha256-DRhbz2dZaEmj5MgLFMXjEPfmKYfMG6LwNT9Bv8zeLPQ=",
+        "lastModified": 1767971841,
+        "narHash": "sha256-TwDXF4MkmjI9c3Sly9FOWXf4sPbre6ZujG87v39G1Ig=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "4fee4bd14b5e4178855ad0041df89fa44f3f2bea",
+        "rev": "0e4217b2c4827e71e2e612accccb01981c16afda",
         "type": "github"
       },
       "original": {
@@ -65,11 +65,11 @@
         "scenefx": "scenefx"
       },
       "locked": {
-        "lastModified": 1767622364,
-        "narHash": "sha256-e+Q/ybTo6c3abKi3c6doty4rlVbsw6/+fLkZt6zliXo=",
+        "lastModified": 1767838401,
+        "narHash": "sha256-eyp6ZplrPoSU5FC2SJSfdMhuIImbWjws+bT1E7+evR8=",
         "owner": "DreamMaoMao",
         "repo": "mangowc",
-        "rev": "5a714b756278896d74aae892a58ed740b4c2d27b",
+        "rev": "4efb8c5e06debc3a32a711e3508593cfd1e1fb48",
         "type": "github"
       },
       "original": {
@@ -129,11 +129,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1767767207,
-        "narHash": "sha256-Mj3d3PfwltLmukFal5i3fFt27L6NiKXdBezC1EBuZs4=",
+        "lastModified": 1767892417,
+        "narHash": "sha256-dhhvQY67aboBk8b0/u0XB6vwHdgbROZT3fJAjyNh5Ww=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5912c1772a44e31bf1c63c0390b90501e5026886",
+        "rev": "3497aa5c9457a9d88d71fa93a4a8368816fbeeba",
         "type": "github"
       },
       "original": {
@@ -142,33 +142,12 @@
         "type": "indirect"
       }
     },
-    "noctalia": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1767809981,
-        "narHash": "sha256-xy15Vl9ySeK8xBqGGebkEaWmHoI4/fLWi8n8gLl3JGs=",
-        "owner": "noctalia-dev",
-        "repo": "noctalia-shell",
-        "rev": "3b8e8a0c35f7a85068a08e65773c6d3c112a8ac8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "noctalia-dev",
-        "repo": "noctalia-shell",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "mangowc": "mangowc",
         "nixgl": "nixgl",
         "nixpkgs": "nixpkgs_2",
-        "noctalia": "noctalia",
         "zen-browser": "zen-browser"
       }
     },

@@ -16,8 +16,12 @@
 
   programs.niri.enable = true;
 
- # programs.mango.enable = true;
   
+  
+  environment.systemPackages = [ 
+    pkgs.xwayland-satellite
+    pkgs.dms-shell
+    pkgs.noctalia-shell
+    ];
 
-  environment.systemPackages = [ pkgs.xwayland-satellite ];
-}
+  }
