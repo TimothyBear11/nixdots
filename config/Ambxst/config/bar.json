@@ -11,5 +11,10 @@
             "surface",
             0
         ]
-    ]
+    ],
+    "pinnedOnStartup": true,
+    "hoverToReveal": true,
+    "hoverRegionHeight": 8,
+    "showPinButton": true,
+    "availableOnFullscreen": false
 }
