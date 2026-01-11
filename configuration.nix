@@ -10,6 +10,7 @@
     ./lazyvim.nix
     ./ai.nix
     ./dev.nix
+    ./ambxst.nix
   ];
 
   # --- Boot & Kernel ---

@@ -20,10 +20,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-   # noctalia = {
-   #   url = "github:noctalia-dev/noctalia-shell";
-   #   inputs.nixpkgs.follows = "nixpkgs";
-   # };
+    ambxst = {
+      url = "github:Axenide/Ambxst";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:
@@ -37,7 +38,6 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
-        #./noctalia.nix
         home-manager.nixosModules.home-manager
         {
           home-manager = {
