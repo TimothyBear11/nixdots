@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+  # 1. GRAPHICS & ROCm SETUP
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -11,24 +12,32 @@
     ];
   };
 
+  # 2. SYSTEM PACKAGES
   environment.systemPackages = with pkgs; [
     lmstudio
-    ollama-rocm
     gemini-cli
     rocmPackages.rocm-smi
     rocmPackages.rocminfo
   ];
 
+  # 3. GLOBAL ENV VARS (For CLI usage outside the service)
   environment.variables = {
-    # CRITICAL: RX 6700 XT (gfx1031) requires spoofing gfx1030 to work with most ROCm apps
     HSA_OVERRIDE_GFX_VERSION = "10.3.0";
-
-    # Optional: Improves performance allocation
     ROC_ENABLE_PRE_VEGA = "1";
   };
 
-  # Ensure the ollama service picks up the environment variable
+  # 4. OLLAMA SERVICE
+  services.ollama = {
+    enable = true;
+    # FIX: We use the specific package instead of the 'acceleration' option
+    package = pkgs.ollama-rocm;
+    loadModels = [ "llama3.2" ];
+  };
+
+  # 5. SERVICE OVERRIDES (Crucial for RX 6700 XT Service)
+  # We still need to inject the spoofing variable into the systemd service
   systemd.services.ollama.environment = {
     HSA_OVERRIDE_GFX_VERSION = "10.3.0";
+    ROC_ENABLE_PRE_VEGA = "1";
   };
 }

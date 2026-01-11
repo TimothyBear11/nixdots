@@ -10,22 +10,22 @@
         },
         "listeners": [
             {
-                "timeout": 150,
+                "onResume": "ambxst brightness -r",
                 "onTimeout": "ambxst brightness 10 -s",
-                "onResume": "ambxst brightness -r"
+                "timeout": 150
             },
             {
-                "timeout": 300,
-                "onTimeout": "loginctl lock-session"
+                "onTimeout": "loginctl lock-session",
+                "timeout": 300
             },
             {
-                "timeout": 330,
+                "onResume": "ambxst screen on",
                 "onTimeout": "ambxst screen off",
-                "onResume": "ambxst screen on"
+                "timeout": 330
             },
             {
-                "timeout": 1800,
-                "onTimeout": "ambxst suspend"
+                "onTimeout": "ambxst suspend",
+                "timeout": 1800
             }
         ]
     },

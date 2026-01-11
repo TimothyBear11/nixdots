@@ -1,7 +1,7 @@
 {
-    "enabled": true,
+    "enabled": false,
     "theme": "default",
-    "position": "bottom",
+    "position": "right",
     "height": 48,
     "iconSize": 24,
     "spacing": 4,
