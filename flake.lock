@@ -8,11 +8,11 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1768022210,
-        "narHash": "sha256-ZGQhrK51+6GU9pS9MnuMZqMpBJCygu344WxSmChJaCY=",
+        "lastModified": 1768193595,
+        "narHash": "sha256-y8+9BWMJ+tfC9IIEWXJrOGR9QKkKSunHWayhwLRKXuI=",
         "owner": "Axenide",
         "repo": "Ambxst",
-        "rev": "1f7335d744697ab65ef786792d48616e56cecd76",
+        "rev": "75e7b8363abd2b026e356c30ba1d1ad0b7897683",
         "type": "github"
       },
       "original": {
