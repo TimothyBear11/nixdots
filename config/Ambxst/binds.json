@@ -126,6 +126,27 @@
                 "key": "A",
                 "dispatcher": "global",
                 "argument": "ambxst:lens"
+            },
+            "reload": {
+                "modifiers": [
+                    "SUPER",
+                    "ALT"
+                ],
+                "key": "B",
+                "dispatcher": "exec",
+                "argument": "ambxst reload",
+                "flags": ""
+            },
+            "quit": {
+                "modifiers": [
+                    "SUPER",
+                    "CTRL",
+                    "ALT"
+                ],
+                "key": "B",
+                "dispatcher": "exec",
+                "argument": "ambxst quit",
+                "flags": ""
             }
         }
     },
