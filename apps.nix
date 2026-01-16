@@ -14,5 +14,7 @@
     pcmanfm
     pywalfox-native
     spicetify-cli
+    uv
+    jq
   ];
 }

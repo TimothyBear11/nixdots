@@ -66,6 +66,10 @@
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
 
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
+  programs.nix-ld.enable = true;
+
   # --- Users ---
   programs.fish.enable = true;
 
