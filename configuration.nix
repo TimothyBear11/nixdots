@@ -69,6 +69,12 @@
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
   programs.nix-ld.enable = true;
+  programs.kdeconnect.enable = true;
+
+  programs.appimage = {
+  enable = true;
+  binfmt = true;
+};
 
   # --- Users ---
   programs.fish.enable = true;

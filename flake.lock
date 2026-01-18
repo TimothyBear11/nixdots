@@ -8,11 +8,11 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1768428877,
-        "narHash": "sha256-dHt3a5z2kKaq6Njy5iRwgUuAawQ0TpVLeGcWWj7VQck=",
+        "lastModified": 1768743412,
+        "narHash": "sha256-8jaxno2Yhs6FdzDKVtW52LoIkOggPEMJ7u1VaiV+bDw=",
         "owner": "Axenide",
         "repo": "Ambxst",
-        "rev": "641d7ced829df567434362404fbaaf374fd9efed",
+        "rev": "34c95d94d887932120e30d22b73ceff34a497e6d",
         "type": "github"
       },
       "original": {
@@ -64,11 +64,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1768598210,
-        "narHash": "sha256-kkgA32s/f4jaa4UG+2f8C225Qvclxnqs76mf8zvTVPg=",
+        "lastModified": 1768770171,
+        "narHash": "sha256-JPmLGZgdWa8QcQbbtBqyZhpmxIHZ3lUO48laERjw+4k=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c47b2cc64a629f8e075de52e4742de688f930dc6",
+        "rev": "521d5ea1a229ba315dd1cceaf869946ddcc83d36",
         "type": "github"
       },
       "original": {
@@ -86,11 +86,11 @@
         "scenefx": "scenefx"
       },
       "locked": {
-        "lastModified": 1768636186,
-        "narHash": "sha256-Tr1gfnU84Yk2L8ioIAphJLinU2kK+H9ZfKWiht8MfIE=",
+        "lastModified": 1768750308,
+        "narHash": "sha256-71LBZh3JjdS4eRdwGzBYYgnAOBHAVR09afq0oRNm90E=",
         "owner": "DreamMaoMao",
         "repo": "mangowc",
-        "rev": "48737bb58c43140bb29df07ee000055f4bc882d8",
+        "rev": "57d7801df2e8dc21414d710d00c4201c6c77a4c0",
         "type": "github"
       },
       "original": {
