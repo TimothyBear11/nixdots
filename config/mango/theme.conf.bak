@@ -1,0 +1,14 @@
+shadowscolor= 0x000000ff
+rootcolor=0x201b14ff
+bordercolor=0x444444ff
+focuscolor=0x8BAA9Bff
+maximizescreencolor=0xBABD2Cff
+urgentcolor=0xad401fff
+scratchpadcolor=0xc4939dff
+globalcolor=0x8d64cfff
+overlaycolor=0x95C381ff
+shadowscolor= 0x00000077
+rootcolor=0x201b14ff
+bordercolor=0x505050ff
+focuscolor=0xffc87fff
+urgentcolor=0x9b0000ff

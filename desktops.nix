@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
 
@@ -22,8 +22,7 @@
   
   environment.systemPackages = [ 
     pkgs.xwayland-satellite
-   # pkgs.dms-shell
-   # pkgs.noctalia-shell
+
     ];
 
   }

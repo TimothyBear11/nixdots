@@ -11,7 +11,6 @@
 
   # Core features
   enableSystemMonitoring = true;     # System monitoring widgets (dgop)
-  enableClipboard = true;            # Clipboard history manager
   enableVPN = true;                  # VPN management widget
   enableDynamicTheming = true;       # Wallpaper-based theming (matugen)
   enableAudioWavelength = true;      # Audio visualizer (cava)
