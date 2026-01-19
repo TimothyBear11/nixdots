@@ -2,7 +2,7 @@
   description = "UrsaOS & NixOS - Logic meets Magic";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -20,6 +20,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    dms.url = "github:AvengeMedia/DankMaterialShell";
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
+
     ambxst = {
       url = "github:Axenide/Ambxst";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,7 +30,7 @@
 
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, mangowc, ... }:
   let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
@@ -38,6 +41,8 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
+        mangowc.nixosModules.mango
+        inputs.dms.nixosModules.default
         home-manager.nixosModules.home-manager
         {
           home-manager = {
