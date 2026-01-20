@@ -31,19 +31,28 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, mangowc, spicetify-nix, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, mangowc, spicetify-nix, nix-cachyos-kernel, ... }:
   let
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+
+    # Apply the overlay here so 'pkgs' globally has the CachyOS kernels
+    pkgs = import nixpkgs {
+      inherit system;
+      overlays = [ nix-cachyos-kernel.overlays.default ];
+      config.allowUnfree = true;
+    };
   in {
-    # --- 1. For your NixOS machine (Logic side) ---
     nixosConfigurations.my-nix-den = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
+        ./cachykernel.nix
+
         mangowc.nixosModules.mango
         inputs.dms.nixosModules.default
         home-manager.nixosModules.home-manager
@@ -59,10 +68,8 @@
       ];
     };
 
-    # --- 2. For UrsaOS / Fedora (Standalone side) ---
-    # This is what 'just install-nix' looks for!
     homeConfigurations.tbear = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
+      inherit pkgs; # This now includes the CachyOS overlay
       extraSpecialArgs = { inherit inputs; };
       modules = [ ./home.nix ];
     };
