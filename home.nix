@@ -20,7 +20,8 @@ in
   imports = [
     ./terminal.nix
     ./apps.nix
-   
+    ./spicetify.nix
+       
   ];
 
   home.username = "tbear";
@@ -28,6 +29,11 @@ in
   home.stateVersion = "25.05";
 
   programs.home-manager.enable = true;
+
+  services.kdeconnect = {
+  enable = true;
+  indicator = true; # Starts the tray indicator automatically
+  };
 
   # 2. Ensure Fish is ready for Nix on Fedora
   programs.fish = {

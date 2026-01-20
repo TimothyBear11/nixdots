@@ -139,6 +139,18 @@
                         "minimumThreshold": 10
                     },
                     "id": "plugin:catwalk"
+                },
+                {
+                    "defaultSettings": {
+                        "autoStartBreaks": false,
+                        "autoStartWork": false,
+                        "compactMode": false,
+                        "longBreakDuration": 15,
+                        "sessionsBeforeLongBreak": 4,
+                        "shortBreakDuration": 5,
+                        "workDuration": 25
+                    },
+                    "id": "plugin:pomodoro"
                 }
             ]
         }
@@ -157,10 +169,6 @@
             {
                 "enabled": true,
                 "id": "calendar-month-card"
-            },
-            {
-                "enabled": true,
-                "id": "timer-card"
             },
             {
                 "enabled": true,
@@ -371,11 +379,13 @@
         "boxRadiusRatio": 1,
         "compactLockScreen": false,
         "dimmerOpacity": 0.6,
+        "enableLockScreenCountdown": true,
         "enableShadows": true,
         "forceBlackScreenCorners": false,
         "iRadiusRatio": 1,
         "language": "",
         "lockOnSuspend": true,
+        "lockScreenCountdownDuration": 10000,
         "radiusRatio": 1,
         "scaleRatio": 1,
         "screenRadiusRatio": 1,
@@ -544,11 +554,31 @@
         "activeTemplates": [
             {
                 "enabled": true,
-                "id": "gtk"
+                "id": "fuzzel"
             },
             {
                 "enabled": true,
-                "id": "qt"
+                "id": "mango"
+            },
+            {
+                "enabled": true,
+                "id": "btop"
+            },
+            {
+                "enabled": true,
+                "id": "cava"
+            },
+            {
+                "enabled": true,
+                "id": "discord"
+            },
+            {
+                "enabled": true,
+                "id": "foot"
+            },
+            {
+                "enabled": true,
+                "id": "gtk"
             },
             {
                 "enabled": true,
@@ -560,15 +590,7 @@
             },
             {
                 "enabled": true,
-                "id": "foot"
-            },
-            {
-                "enabled": true,
-                "id": "fuzzel"
-            },
-            {
-                "enabled": true,
-                "id": "discord"
+                "id": "niri"
             },
             {
                 "enabled": true,
@@ -576,7 +598,7 @@
             },
             {
                 "enabled": true,
-                "id": "code"
+                "id": "qt"
             },
             {
                 "enabled": true,
@@ -584,15 +606,7 @@
             },
             {
                 "enabled": true,
-                "id": "cava"
-            },
-            {
-                "enabled": true,
-                "id": "niri"
-            },
-            {
-                "enabled": true,
-                "id": "mango"
+                "id": "code"
             },
             {
                 "enabled": true,
@@ -609,9 +623,9 @@
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
         "boxBorderEnabled": false,
-        "fontDefault": "FiraCode Nerd Font",
+        "fontDefault": "ComicShannsMono Nerd Font",
         "fontDefaultScale": 1,
-        "fontFixed": "VictorMono Nerd Font",
+        "fontFixed": "Cascadia Mono NF",
         "fontFixedScale": 1,
         "networkPanelView": "wifi",
         "panelBackgroundOpacity": 0.65,
@@ -621,7 +635,7 @@
         "wifiDetailsViewMode": "grid"
     },
     "wallpaper": {
-        "directory": "/home/tbear/Pictures/Wallpapers",
+        "directory": "/home/tbear/nixdots/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "fillColor": "#000000",

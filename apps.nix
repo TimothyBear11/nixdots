@@ -8,7 +8,6 @@
     kdePackages.kate
     signal-desktop
     filezilla
-    spotify
     vesktop
     joplin-desktop
     pcmanfm
