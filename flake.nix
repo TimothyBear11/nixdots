@@ -22,7 +22,7 @@
 
     dms.url = "github:AvengeMedia/DankMaterialShell";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
-
+    
     ambxst = {
       url = "github:Axenide/Ambxst";
       inputs.nixpkgs.follows = "nixpkgs";

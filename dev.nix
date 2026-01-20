@@ -10,6 +10,7 @@
     
     vscodium
     jetbrains.pycharm
+    zed-editor
 
     # -- Productivity --
     direnv         # Auto-load envs

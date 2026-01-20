@@ -50,5 +50,7 @@
     nerd-fonts.iosevka
     nerd-fonts.recursive-mono
     nerd-fonts.geist-mono
+    rubik
+    nerd-fonts.ubuntu
   ];
 }

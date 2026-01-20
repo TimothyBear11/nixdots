@@ -49,6 +49,7 @@
   # --- Networking ---
   networking.hostName = "my-nix-den";
   networking.networkmanager.enable = true;
+  services.geoclue2.enable = true;
 
   # --- Virtualization ---
   virtualisation.podman.enable = true;

@@ -5,9 +5,8 @@ let
 
   configs = {
     nvim = "nvim";
-    foot = "foot";
-    hypr = "hypr";
     niri = "niri";
+    hypr = "hypr";
     qtile = "qtile";
     noctalia = "noctalia";
     mango = "mango";

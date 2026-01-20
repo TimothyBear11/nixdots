@@ -178,7 +178,7 @@
     },
     "colorSchemes": {
         "darkMode": true,
-        "extractionMethod": "default",
+        "generationMethod": "material",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "predefinedScheme": "Noctalia (default)",
@@ -554,14 +554,6 @@
         "activeTemplates": [
             {
                 "enabled": true,
-                "id": "fuzzel"
-            },
-            {
-                "enabled": true,
-                "id": "mango"
-            },
-            {
-                "enabled": true,
                 "id": "btop"
             },
             {
@@ -578,11 +570,19 @@
             },
             {
                 "enabled": true,
+                "id": "fuzzel"
+            },
+            {
+                "enabled": true,
                 "id": "gtk"
             },
             {
                 "enabled": true,
                 "id": "kcolorscheme"
+            },
+            {
+                "enabled": true,
+                "id": "hyprland"
             },
             {
                 "enabled": true,
@@ -610,11 +610,11 @@
             },
             {
                 "enabled": true,
-                "id": "zed"
+                "id": "zenBrowser"
             },
             {
                 "enabled": true,
-                "id": "zenBrowser"
+                "id": "zed"
             }
         ],
         "enableUserTheming": false
