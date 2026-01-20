@@ -11,6 +11,7 @@
     vscodium
     jetbrains.pycharm
     zed-editor
+    positron-bin
 
     # -- Productivity --
     direnv         # Auto-load envs

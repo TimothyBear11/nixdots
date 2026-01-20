@@ -11,6 +11,7 @@ let
     noctalia = "noctalia";
     mango = "mango";
     Ambxst = "Ambxst";
+    btop = "btop";
   };
 in
 {
