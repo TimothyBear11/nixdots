@@ -39,6 +39,9 @@
         "marginHorizontal": 5,
         "marginVertical": 5,
         "monitors": [
+            "DP-2",
+            "HDMI-A-1",
+            "DP-1"
         ],
         "outerCorners": true,
         "position": "top",
