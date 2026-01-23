@@ -15,7 +15,7 @@ in
     
     # Select your theme
     theme = spicePkgs.themes.comfy;
-    colorScheme = "Nord";
+    colorScheme = "catppuccin-mocha";
 
 
 

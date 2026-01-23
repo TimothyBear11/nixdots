@@ -51,7 +51,7 @@ $menu = wofi --show drun
 # Or execute your favorite apps at launch like this:
 
 exec-once = kdeconnect-indicator
-exec-once = noctalia-shell 
+exec-once = dms run 
 exec-once = [workspace 2] sleep 5 && steam
 exec-once = [workspace 3] sleep 5 && heroic
 exec-once = [workspace 4] zen
@@ -347,5 +347,3 @@ bindl = , XF86AudioPrev, exec, playerctl previous
 
 source = ~/.config/hypr/noctalia/noctalia-colors.conf
 
-
-source = ./dms/cursor.conf

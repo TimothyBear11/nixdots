@@ -181,7 +181,7 @@
     },
     "colorSchemes": {
         "darkMode": true,
-        "generationMethod": "material",
+        "generationMethod": "faithful",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
@@ -528,7 +528,7 @@
         "showHeader": true,
         "showNumberLabels": true
     },
-    "settingsVersion": 42,
+    "settingsVersion": 43,
     "systemMonitor": {
         "cpuCriticalThreshold": 90,
         "cpuPollingInterval": 3000,
@@ -583,11 +583,19 @@
             },
             {
                 "enabled": true,
-                "id": "kcolorscheme"
+                "id": "helix"
             },
             {
                 "enabled": true,
                 "id": "hyprland"
+            },
+            {
+                "enabled": true,
+                "id": "hyprtoolkit"
+            },
+            {
+                "enabled": true,
+                "id": "kcolorscheme"
             },
             {
                 "enabled": true,
@@ -607,11 +615,11 @@
             },
             {
                 "enabled": true,
-                "id": "spicetify"
+                "id": "code"
             },
             {
                 "enabled": true,
-                "id": "code"
+                "id": "zed"
             },
             {
                 "enabled": true,
@@ -619,7 +627,7 @@
             },
             {
                 "enabled": true,
-                "id": "zed"
+                "id": "spicetify"
             }
         ],
         "enableUserTheming": false
@@ -652,14 +660,15 @@
         "overviewEnabled": false,
         "panelPosition": "follow_bar",
         "randomIntervalSec": 600,
-        "recursiveSearch": false,
         "setWallpaperOnAllMonitors": true,
+        "showHiddenFiles": false,
         "solidColor": "#1a1a2e",
         "transitionDuration": 1500,
         "transitionEdgeSmoothness": 0.05,
         "transitionType": "random",
         "useSolidColor": false,
         "useWallhaven": false,
+        "viewMode": "single",
         "wallhavenApiKey": "",
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
