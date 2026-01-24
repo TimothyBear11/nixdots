@@ -1,7 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  # 1. The Magic Fix for Mason binaries
+  # KEEP THIS: This is the "Magic" that allows Mason's 
+  # downloaded binaries to actually run on NixOS.
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     stdenv.cc.cc.lib
@@ -12,12 +13,7 @@
     openssl
     curl
     expat
-  ];
-
-  # 2. System-wide dependencies that LazyVim assumes exist
-  environment.systemPackages = with pkgs; [
-    gcc     # C Compiler (needed for Treesitter)
-    unzip   # Unzip (needed for Mason)
-    nodejs_22 # (Optional) If you want Node available system-wide
+    # Add glibc if Mason binaries complain about "libm.so" or "libc.so"
+    glibc
   ];
 }

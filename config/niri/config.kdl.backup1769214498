@@ -58,5 +58,3 @@ include "dms/alttab.kdl"
 include "dms/binds.kdl"
 
 
-
-include "dms/cursor.kdl"

@@ -6,6 +6,7 @@
         "customLaunchPrefixEnabled": false,
         "enableClipPreview": true,
         "enableClipboardHistory": false,
+        "enableSettingsSearch": true,
         "iconMode": "tabler",
         "ignoreMouseInput": false,
         "pinnedApps": [
@@ -528,7 +529,7 @@
         "showHeader": true,
         "showNumberLabels": true
     },
-    "settingsVersion": 43,
+    "settingsVersion": 44,
     "systemMonitor": {
         "cpuCriticalThreshold": 90,
         "cpuPollingInterval": 3000,
@@ -636,7 +637,7 @@
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
         "boxBorderEnabled": false,
-        "fontDefault": "ComicShannsMono Nerd Font",
+        "fontDefault": "Hack",
         "fontDefaultScale": 1,
         "fontFixed": "Cascadia Mono NF",
         "fontFixedScale": 1,

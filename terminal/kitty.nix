@@ -4,13 +4,7 @@
   programs.kitty = {
     enable = true;
 
-    # Font selection (Nerd Font recommended for icons in Starship / eza / git)
-    font = {
-      name = "JetBrainsMono Nerd Font";
-      size = 12;
-    };
-
-    # Settings improvements
+     # Settings improvements
     settings = {
       scrollback_lines = 10000;          # good
       window_padding_width = 10;         # good
