@@ -13,7 +13,6 @@
     foot
     kdePackages.konsole
     btop
-    bootdev-cli
     starship
     fastfetch
     gh
