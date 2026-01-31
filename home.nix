@@ -21,7 +21,6 @@ in
     ./terminal.nix
     ./apps.nix
     ./spicetify.nix
-       
   ];
 
   home.username = "tbear";

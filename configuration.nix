@@ -13,6 +13,7 @@
     ./ambxst.nix
     ./dms.nix
     ./noctalia.nix
+    
   ];
 
   # --- Boot & Kernel ---

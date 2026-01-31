@@ -33,9 +33,11 @@
 
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
+    openclaw.url = "github:openclaw/nix-openclaw";
+
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, mangowc, spicetify-nix, nix-cachyos-kernel, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, mangowc, spicetify-nix, nix-cachyos-kernel, openclaw, ... }:
   let
     system = "x86_64-linux";
 
@@ -72,6 +74,6 @@
       inherit pkgs; # This now includes the CachyOS overlay
       extraSpecialArgs = { inherit inputs; };
       modules = [ ./home.nix ];
-    };
+      };
   };
 }
