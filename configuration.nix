@@ -53,6 +53,7 @@
 
   # --- Virtualization ---
   virtualisation.podman.enable = true;
+  virtualisation.docker.enable = true;
 
   services.blueman.enable = true;
   hardware.bluetooth.enable = true;
@@ -89,7 +90,7 @@
   users.users.tbear = {
     isNormalUser = true;
     description = "Timothy Bear";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.fish;
   };
 

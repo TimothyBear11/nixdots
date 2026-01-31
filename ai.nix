@@ -20,24 +20,26 @@
     rocmPackages.rocminfo
   ];
 
-  # 3. GLOBAL ENV VARS (For CLI usage outside the service)
-  environment.variables = {
-    HSA_OVERRIDE_GFX_VERSION = "10.3.0";
-    ROC_ENABLE_PRE_VEGA = "1";
-  };
-
-  # 4. OLLAMA SERVICE
+  # 3. OLLAMA SERVICE
   services.ollama = {
     enable = true;
-    # FIX: We use the specific package instead of the 'acceleration' option
+    
+    # FIX: Explicitly select the ROCm package as requested by the error message
     package = pkgs.ollama-rocm;
+    
+    # This option should still be valid in Unstable. 
+    # If this also causes an error, remove it and uncomment section #4 below.
+    rocmOverrideGfx = "10.3.0"; 
+    
     loadModels = [ "llama3.2" ];
+    
+    host = "0.0.0.0";
+    openFirewall = true;
   };
 
-  # 5. SERVICE OVERRIDES (Crucial for RX 6700 XT Service)
-  # We still need to inject the spoofing variable into the systemd service
-  systemd.services.ollama.environment = {
-    HSA_OVERRIDE_GFX_VERSION = "10.3.0";
-    ROC_ENABLE_PRE_VEGA = "1";
-  };
+  # 4. (Fallback) Force Environment Variables
+  # Only uncomment this if 'rocmOverrideGfx' above causes an error "option does not exist".
+  # systemd.services.ollama.environment = {
+  #   HSA_OVERRIDE_GFX_VERSION = "10.3.0";
+  # };
 }
