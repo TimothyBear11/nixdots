@@ -9,6 +9,7 @@
         "enableClipPreview": true,
         "enableClipboardHistory": false,
         "enableSettingsSearch": true,
+        "enableWindowsSearch": true,
         "iconMode": "tabler",
         "ignoreMouseInput": false,
         "pinnedApps": [
@@ -33,10 +34,13 @@
         "volumeStep": 5
     },
     "bar": {
+        "autoHideDelay": 500,
+        "autoShowDelay": 150,
         "backgroundOpacity": 0.93,
         "barType": "simple",
         "capsuleOpacity": 1,
         "density": "default",
+        "displayMode": "always_visible",
         "exclusive": true,
         "floating": false,
         "frameRadius": 12,
@@ -97,8 +101,10 @@
                     "compactMode": true,
                     "diskPath": "/",
                     "id": "SystemMonitor",
+                    "showCpuFreq": false,
                     "showCpuTemp": true,
                     "showCpuUsage": true,
+                    "showDiskAsFree": false,
                     "showDiskUsage": true,
                     "showGpuTemp": true,
                     "showLoadAverage": false,
