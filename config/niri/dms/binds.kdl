@@ -18,6 +18,7 @@ binds {
     Mod+A { spawn "signal-desktop"; }
     Mod+T { spawn "konsole"; }
     Mod+P { spawn "positron"; }
+    Ctrl+Return { spawn "kitty"; }
 
     // Security
     Mod+Alt+L hotkey-overlay-title="Lock Screen" { spawn "dms" "ipc" "call" "lock" "lock";  }
