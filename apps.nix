@@ -15,5 +15,7 @@
     spicetify-cli
     uv
     jq
+    apostrophe 
+    obsidian
   ];
 }
