@@ -35,9 +35,14 @@
 
     openclaw.url = "github:openclaw/nix-openclaw";
 
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, mangowc, spicetify-nix, nix-cachyos-kernel, openclaw, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, mangowc, spicetify-nix, nix-cachyos-kernel, openclaw, caelestia-shell, ... }:
   let
     system = "x86_64-linux";
 
