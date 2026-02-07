@@ -60,6 +60,8 @@
   hardware.bluetooth.enable = true;
   programs.dconf.enable = true;
 
+
+
   # --- Audio & Services ---
   services.printing.enable = true;
   services.pulseaudio.enable = false;

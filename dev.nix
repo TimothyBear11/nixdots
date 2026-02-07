@@ -19,5 +19,7 @@
     bat            # Better cat
     eza            # Better ls
     jq             # JSON processor (useful for API debugging)
+    devtoolbox
+    file
   ];
 }
