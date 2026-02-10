@@ -17,6 +17,7 @@
     fastfetch
     gh
     eza
+    
   ];
 }
 

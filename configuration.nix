@@ -6,7 +6,7 @@
     ./desktops.nix
     ./gaming.nix
     ./fontsAndNeeds.nix
-    ./qtile.nix
+   # ./qtile.nix
     ./lazyvim.nix
     ./ai.nix
     ./dev.nix
@@ -27,8 +27,8 @@
     # This deletes old generations so your disk doesn't fill up.
     gc = {
       automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
+      dates = "daily";
+      options = "--delete-older-than 3d";
     };
 
     # 2. Storage Optimization
