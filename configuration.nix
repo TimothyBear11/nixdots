@@ -6,7 +6,7 @@
     ./desktops.nix
     ./gaming.nix
     ./fontsAndNeeds.nix
-   # ./qtile.nix
+    ./qtile.nix
     ./lazyvim.nix
     ./ai.nix
     ./dev.nix

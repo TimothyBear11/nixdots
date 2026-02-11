@@ -428,9 +428,11 @@
         "language": "",
         "lockOnSuspend": true,
         "lockScreenAnimations": false,
+        "lockScreenBlur": 0,
         "lockScreenCountdownDuration": 10000,
         "lockScreenMonitors": [
         ],
+        "lockScreenTint": 0,
         "radiusRatio": 1,
         "scaleRatio": 1,
         "screenRadiusRatio": 1,
@@ -573,7 +575,7 @@
         "showHeader": true,
         "showNumberLabels": true
     },
-    "settingsVersion": 49,
+    "settingsVersion": 50,
     "systemMonitor": {
         "batteryCriticalThreshold": 5,
         "batteryWarningThreshold": 20,

@@ -14,8 +14,8 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/1fb60642-e18b-4bf7-9d3a-75d2ac06c081";
-      fsType = "ext4";
+    { device = "/dev/disk/by-uuid/54eb1372-85f6-410f-9223-3fa0ff3a2406";
+      fsType = "xfs";
     };
 
   fileSystems."/home/tbear/Games/Steam" =
@@ -24,14 +24,12 @@
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/B91B-2F35";
+    { device = "/dev/disk/by-uuid/40D9-36E0";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/3994c74f-3d24-4697-997c-40efc330641a"; }
-    ];
+  swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
