@@ -12,6 +12,7 @@
     jetbrains.pycharm
     zed-editor
     positron-bin
+    helix
 
     # -- Productivity --
     direnv         # Auto-load envs

@@ -9,6 +9,7 @@
         "density": "default",
         "enableClipPreview": true,
         "enableClipboardHistory": false,
+        "enableSessionSearch": true,
         "enableSettingsSearch": true,
         "enableWindowsSearch": true,
         "iconMode": "tabler",
@@ -418,12 +419,24 @@
         "forceBlackScreenCorners": false,
         "iRadiusRatio": 1,
         "keybinds": {
-            "keyDown": "Down",
-            "keyEnter": "Return",
-            "keyEscape": "Esc",
-            "keyLeft": "Left",
-            "keyRight": "Right",
-            "keyUp": "Up"
+            "keyDown": [
+                "Down"
+            ],
+            "keyEnter": [
+                "Return"
+            ],
+            "keyEscape": [
+                "Esc"
+            ],
+            "keyLeft": [
+                "Left"
+            ],
+            "keyRight": [
+                "Right"
+            ],
+            "keyUp": [
+                "Up"
+            ]
         },
         "language": "",
         "lockOnSuspend": true,
@@ -544,38 +557,43 @@
             {
                 "action": "lock",
                 "countdownEnabled": true,
-                "enabled": true
+                "enabled": true,
+                "keybind": "1"
             },
             {
                 "action": "suspend",
                 "countdownEnabled": true,
-                "enabled": true
+                "enabled": true,
+                "keybind": "2"
             },
             {
                 "action": "hibernate",
                 "countdownEnabled": true,
-                "enabled": true
+                "enabled": true,
+                "keybind": "3"
             },
             {
                 "action": "reboot",
                 "countdownEnabled": true,
-                "enabled": true
+                "enabled": true,
+                "keybind": "4"
             },
             {
                 "action": "logout",
                 "countdownEnabled": true,
-                "enabled": true
+                "enabled": true,
+                "keybind": "5"
             },
             {
                 "action": "shutdown",
                 "countdownEnabled": true,
-                "enabled": true
+                "enabled": true,
+                "keybind": "6"
             }
         ],
-        "showHeader": true,
-        "showNumberLabels": true
+        "showHeader": true
     },
-    "settingsVersion": 50,
+    "settingsVersion": 53,
     "systemMonitor": {
         "batteryCriticalThreshold": 5,
         "batteryWarningThreshold": 20,
@@ -665,6 +683,10 @@
             },
             {
                 "enabled": true,
+                "id": "spicetify"
+            },
+            {
+                "enabled": true,
                 "id": "code"
             },
             {
@@ -674,10 +696,6 @@
             {
                 "enabled": true,
                 "id": "zenBrowser"
-            },
-            {
-                "enabled": true,
-                "id": "spicetify"
             }
         ],
         "enableUserTheming": false
@@ -702,6 +720,8 @@
         "directory": "/home/tbear/nixdots/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
+        "favorites": [
+        ],
         "fillColor": "#000000",
         "fillMode": "crop",
         "hideWallpaperFilenames": false,
@@ -714,6 +734,7 @@
         "randomIntervalSec": 600,
         "setWallpaperOnAllMonitors": true,
         "showHiddenFiles": false,
+        "skipStartupTransition": false,
         "solidColor": "#1a1a2e",
         "sortOrder": "name",
         "transitionDuration": 1500,
