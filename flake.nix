@@ -56,7 +56,7 @@
       modules = [
         ./configuration.nix
         ./cachykernel.nix
-        #./openclaw.nix
+        ./openclaw.nix
 
         mangowc.nixosModules.mango
         inputs.dms.nixosModules.default

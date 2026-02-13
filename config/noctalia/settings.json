@@ -119,7 +119,8 @@
                     "showNetworkStats": true,
                     "showSwapUsage": false,
                     "textColor": "none",
-                    "useMonospaceFont": true
+                    "useMonospaceFont": true,
+                    "usePadding": true
                 },
                 {
                     "characterCount": 2,
@@ -503,6 +504,7 @@
     "notifications": {
         "backgroundOpacity": 1,
         "criticalUrgencyDuration": 15,
+        "density": "default",
         "enableBatteryToast": true,
         "enableKeyboardLayoutToast": true,
         "enableMediaToast": false,
@@ -627,6 +629,10 @@
         "activeTemplates": [
             {
                 "enabled": true,
+                "id": "niri"
+            },
+            {
+                "enabled": true,
                 "id": "btop"
             },
             {
@@ -671,10 +677,6 @@
             },
             {
                 "enabled": true,
-                "id": "niri"
-            },
-            {
-                "enabled": true,
                 "id": "pywalfox"
             },
             {
@@ -691,11 +693,11 @@
             },
             {
                 "enabled": true,
-                "id": "zed"
+                "id": "zenBrowser"
             },
             {
                 "enabled": true,
-                "id": "zenBrowser"
+                "id": "zed"
             }
         ],
         "enableUserTheming": false
@@ -704,7 +706,7 @@
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
         "boxBorderEnabled": false,
-        "fontDefault": "Hack",
+        "fontDefault": "ComicShannsMono Nerd Font",
         "fontDefaultScale": 1,
         "fontFixed": "Cascadia Mono NF",
         "fontFixedScale": 1,
