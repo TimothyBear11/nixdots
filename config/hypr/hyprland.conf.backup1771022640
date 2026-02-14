@@ -353,5 +353,3 @@ bindl = , XF86AudioPrev, exec, playerctl previous
 
 
 
-
-source = ./dms/cursor.conf
