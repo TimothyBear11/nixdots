@@ -1,46 +1,50 @@
 { pkgs, inputs, ... }:
 
 {
-
-imports = [
+  imports = [
     inputs.caelestia-shell.homeManagerModules.default
   ];
 
-programs.caelestia = {
-  enable = true;
-  systemd = {
-    enable = false; # if you prefer starting from your compositor
-    target = "graphical-session.target";
-    environment = [];
-  };
+  programs.caelestia = {
+    enable = true;
+    package = inputs.caelestia-shell.packages.${pkgs.system}.default;
 
-  settings = {
+    systemd.enable = false; 
 
-    visualizer = {
-      enable = true;
-    };
-
-    # 2. Desktop Clock Settings
-    widgets = {
-      desktop = {
-        clock = {
-          enable = true;
-          position = "top-right"; # Options: top-left, top-center, top-right, etc.
+    settings = {
+      # Use 'visualiser' with an 's'
+      background = {
+        visualiser = {
+          enabled = true;
+          scale = 1.0;
+          rounding = 4;
         };
+
+        desktopClock = {
+          enabled = true;
+          position = "top-right";
+          scale = 1.0;
+          autoHide = false;
+          rounding = 0;
+          spacing = 8;
+        };
+      };
+
+      # Fix the wallpaper path to be absolute just in case
+      path.wallpaperDir = "/home/tbear/nixdots/Pictures/Wallpapers"; 
+
+      font.family.clock = "Rubik";
+      anim.durations.scale = 1.0;
+
+      bar.workspaces = {
+        shown = 3;
+        activeIndicator = true;
+        activeTrail = false;
+        perMonitorWorkspaces = true;
+        showWindows = true;
       };
     };
 
-    bar.status = {
-      showBattery = false;
-    };
-    paths.wallpaperDir = "~/nixdots/Pictures/Wallpapers";
+    cli.enable = true;
   };
-  cli = {
-    enable = true; # Also add caelestia-cli to path
-    settings = {
-      theme.enableGtk = true;
-    };
-  };
-};
-
 }
