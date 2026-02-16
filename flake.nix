@@ -9,8 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
-    nixgl.url = "github:nix-community/nixGL";
     zen-browser.url = "github:youwen5/zen-browser-flake";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     mangowc.url = "github:DreamMaoMao/mangowc";
@@ -21,13 +19,12 @@
     ambxst.inputs.nixpkgs.follows = "nixpkgs";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     nix-openclaw.url = "github:openclaw/nix-openclaw";
     caelestia-shell.url = "github:caelestia-dots/shell";
     caelestia-shell.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, mangowc, spicetify-nix, nix-cachyos-kernel, nix-openclaw, caelestia-shell, determinate, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, mangowc, spicetify-nix, nix-openclaw, caelestia-shell, ... }:
   let
     system = "x86_64-linux";
 
@@ -41,7 +38,6 @@
     pkgs = import nixpkgs {
       inherit system;
       overlays = [
-        nix-cachyos-kernel.overlays.default
         youtuiOverlay
         nix-openclaw.overlays.default
       ];
@@ -55,7 +51,6 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
-        ./cachykernel.nix
        # ./openclaw.nix
 
         mangowc.nixosModules.mango
