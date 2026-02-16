@@ -12,7 +12,6 @@
     systemd.enable = false; 
 
     settings = {
-      # Use 'visualiser' with an 's'
       background = {
         visualiser = {
           enabled = true;
@@ -30,7 +29,6 @@
         };
       };
 
-      # Fix the wallpaper path to be absolute just in case
       path.wallpaperDir = "/home/tbear/nixdots/Pictures/Wallpapers"; 
 
       font.family.clock = "Rubik";
