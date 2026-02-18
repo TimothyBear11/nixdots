@@ -43,7 +43,7 @@
         "barType": "simple",
         "capsuleColorKey": "none",
         "capsuleOpacity": 1,
-        "density": "default",
+        "density": "comfortable",
         "displayMode": "always_visible",
         "floating": false,
         "frameRadius": 12,
@@ -57,7 +57,7 @@
             "DP-1"
         ],
         "outerCorners": true,
-        "position": "top",
+        "position": "left",
         "screenOverrides": [
         ],
         "showCapsule": false,
@@ -66,7 +66,7 @@
         "widgets": {
             "center": [
                 {
-                    "clockColor": "none",
+                    "clockColor": "secondary",
                     "customFont": "",
                     "formatHorizontal": "h:mm AP ddd, MMM dd",
                     "formatVertical": "h:mm AP",
@@ -75,10 +75,16 @@
                     "useCustomFont": false
                 },
                 {
-                    "colorName": "tertiary",
-                    "hideWhenIdle": true,
-                    "id": "AudioVisualizer",
-                    "width": 300
+                    "clockColor": "secondary",
+                    "customFont": "",
+                    "formatHorizontal": "HH:mm ddd, MMM dd",
+                    "formatVertical": "MMM ddd, dd",
+                    "id": "Clock",
+                    "tooltipFormat": "HH:mm ddd, MMM dd",
+                    "useCustomFont": false
+                },
+                {
+                    "id": "plugin:weather-indicator"
                 },
                 {
                     "compactMode": false,
@@ -95,7 +101,7 @@
                     "showArtistFirst": true,
                     "showProgressRing": true,
                     "showVisualizer": false,
-                    "textColor": "none",
+                    "textColor": "secondary",
                     "useFixedWidth": false,
                     "visualizerType": "linear"
                 }
@@ -104,7 +110,7 @@
                 {
                     "compactMode": true,
                     "diskPath": "/",
-                    "iconColor": "none",
+                    "iconColor": "primary",
                     "id": "SystemMonitor",
                     "showCpuFreq": false,
                     "showCpuTemp": true,
@@ -123,6 +129,13 @@
                     "usePadding": true
                 },
                 {
+                    "defaultSettings": {
+                        "hideBackground": false,
+                        "minimumThreshold": 10
+                    },
+                    "id": "plugin:catwalk"
+                },
+                {
                     "characterCount": 2,
                     "colorizeIcons": true,
                     "emptyColor": "secondary",
@@ -136,7 +149,6 @@
                     "labelMode": "index",
                     "occupiedColor": "secondary",
                     "pillSize": 0.6,
-                    "reverseScroll": false,
                     "showApplications": true,
                     "showBadge": true,
                     "showLabelsOnlyWhenOccupied": true,
@@ -147,15 +159,15 @@
                 {
                     "hideWhenZero": true,
                     "hideWhenZeroUnread": false,
-                    "iconColor": "none",
+                    "iconColor": "tertiary",
                     "id": "NotificationHistory",
                     "showUnreadBadge": true,
-                    "unreadBadgeColor": "primary"
+                    "unreadBadgeColor": "error"
                 },
                 {
                     "blacklist": [
                     ],
-                    "chevronColor": "none",
+                    "chevronColor": "tertiary",
                     "colorizeIcons": true,
                     "drawerEnabled": true,
                     "hidePassive": false,
@@ -163,13 +175,6 @@
                     "pinned": [
                         "LM Studio"
                     ]
-                },
-                {
-                    "defaultSettings": {
-                        "hideBackground": false,
-                        "minimumThreshold": 10
-                    },
-                    "id": "plugin:catwalk"
                 },
                 {
                     "defaultSettings": {
@@ -182,6 +187,12 @@
                         "workDuration": 25
                     },
                     "id": "plugin:pomodoro"
+                },
+                {
+                    "id": "plugin:kde-connect"
+                },
+                {
+                    "id": "plugin:notes-scratchpad"
                 }
             ]
         }
@@ -209,13 +220,13 @@
     },
     "colorSchemes": {
         "darkMode": true,
-        "generationMethod": "faithful",
+        "generationMethod": "vibrant",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Noctalia (default)",
+        "predefinedScheme": "Cyberpunk",
         "schedulingMode": "off",
-        "useWallpaperColors": true
+        "useWallpaperColors": false
     },
     "controlCenter": {
         "cards": [
@@ -326,17 +337,18 @@
                 "name": "DP-1",
                 "widgets": [
                     {
+                        "clockColor": "secondary",
                         "clockStyle": "minimal",
                         "customFont": "",
                         "format": "h:mm AP\\nddd, MMM dd",
                         "id": "Clock",
                         "roundedCorners": true,
                         "scale": 1.5515432893255072,
-                        "showBackground": true,
+                        "showBackground": false,
                         "useCustomFont": false,
                         "usePrimaryColor": true,
-                        "x": 2145,
-                        "y": 339.00000000000006
+                        "x": 2363,
+                        "y": 14
                     },
                     {
                         "hideMode": "idle",
@@ -345,8 +357,8 @@
                         "showButtons": true,
                         "visualizerType": "linear",
                         "visualizerVisibility": "always",
-                        "x": 2081,
-                        "y": 611
+                        "x": 2157,
+                        "y": 262
                     },
                     {
                         "defaultSettings": {
@@ -359,27 +371,17 @@
                             "showRings": true
                         },
                         "id": "plugin:fancy-audiovisualizer",
-                        "scale": 1.4148359782961077,
+                        "scale": 1.0282842712474618,
                         "showBackground": true,
-                        "x": 2053,
-                        "y": 752
+                        "x": 2213,
+                        "y": 335
                     },
                     {
                         "id": "Weather",
                         "scale": 1.2404163056034263,
-                        "showBackground": true,
-                        "x": 2076,
-                        "y": 489.9999999999999
-                    },
-                    {
-                        "defaultSettings": {
-                            "hideBackground": false,
-                            "minimumThreshold": 10
-                        },
-                        "id": "plugin:catwalk",
-                        "showBackground": true,
-                        "x": 2151,
-                        "y": 217
+                        "showBackground": false,
+                        "x": 2231,
+                        "y": 136
                     }
                 ]
             }
@@ -391,6 +393,7 @@
         "colorizeIcons": false,
         "deadOpacity": 0.6,
         "displayMode": "always_visible",
+        "dockType": "floating",
         "enabled": false,
         "floatingRatio": 1,
         "inactiveIndicators": false,
@@ -401,6 +404,8 @@
         ],
         "pinnedStatic": false,
         "position": "bottom",
+        "showFrameIndicator": true,
+        "sitOnFrame": false,
         "size": 1
     },
     "general": {
@@ -432,6 +437,9 @@
             "keyLeft": [
                 "Left"
             ],
+            "keyRemove": [
+                "Del"
+            ],
             "keyRight": [
                 "Right"
             ],
@@ -448,6 +456,7 @@
         ],
         "lockScreenTint": 0,
         "radiusRatio": 1,
+        "reverseScroll": false,
         "scaleRatio": 1,
         "screenRadiusRatio": 1,
         "shadowDirection": "bottom_right",
@@ -485,10 +494,12 @@
         "weatherShowEffects": true
     },
     "network": {
+        "airplaneModeEnabled": false,
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
         "bluetoothRssiPollIntervalMs": 10000,
         "bluetoothRssiPollingEnabled": false,
+        "disableDiscoverability": false,
         "wifiDetailsViewMode": "grid",
         "wifiEnabled": true
     },
@@ -503,10 +514,12 @@
     },
     "notifications": {
         "backgroundOpacity": 1,
+        "clearDismissed": true,
         "criticalUrgencyDuration": 15,
         "density": "default",
         "enableBatteryToast": true,
         "enableKeyboardLayoutToast": true,
+        "enableMarkdown": false,
         "enableMediaToast": false,
         "enabled": true,
         "location": "top_right",
@@ -547,7 +560,7 @@
         "overlayLayer": true
     },
     "plugins": {
-        "autoUpdate": false
+        "autoUpdate": true
     },
     "sessionMenu": {
         "countdownDuration": 10000,
@@ -593,31 +606,26 @@
                 "keybind": "6"
             }
         ],
-        "showHeader": true
+        "showHeader": true,
+        "showKeybinds": true
     },
     "settingsVersion": 53,
     "systemMonitor": {
         "batteryCriticalThreshold": 5,
         "batteryWarningThreshold": 20,
         "cpuCriticalThreshold": 90,
-        "cpuPollingInterval": 1000,
         "cpuWarningThreshold": 80,
         "criticalColor": "",
         "diskAvailCriticalThreshold": 10,
         "diskAvailWarningThreshold": 20,
         "diskCriticalThreshold": 90,
-        "diskPollingInterval": 3000,
         "diskWarningThreshold": 80,
         "enableDgpuMonitoring": false,
         "externalMonitor": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor",
         "gpuCriticalThreshold": 90,
-        "gpuPollingInterval": 3000,
         "gpuWarningThreshold": 80,
-        "loadAvgPollingInterval": 3000,
         "memCriticalThreshold": 90,
-        "memPollingInterval": 1000,
         "memWarningThreshold": 80,
-        "networkPollingInterval": 1000,
         "swapCriticalThreshold": 90,
         "swapWarningThreshold": 80,
         "tempCriticalThreshold": 90,
@@ -629,7 +637,7 @@
         "activeTemplates": [
             {
                 "enabled": true,
-                "id": "niri"
+                "id": "zenBrowser"
             },
             {
                 "enabled": true,
@@ -661,19 +669,15 @@
             },
             {
                 "enabled": true,
-                "id": "hyprland"
-            },
-            {
-                "enabled": true,
-                "id": "hyprtoolkit"
-            },
-            {
-                "enabled": true,
                 "id": "kcolorscheme"
             },
             {
                 "enabled": true,
                 "id": "kitty"
+            },
+            {
+                "enabled": true,
+                "id": "niri"
             },
             {
                 "enabled": true,
@@ -689,11 +693,11 @@
             },
             {
                 "enabled": true,
-                "id": "code"
+                "id": "telegram"
             },
             {
                 "enabled": true,
-                "id": "zenBrowser"
+                "id": "code"
             },
             {
                 "enabled": true,
@@ -718,7 +722,7 @@
         "wifiDetailsViewMode": "grid"
     },
     "wallpaper": {
-        "automationEnabled": true,
+        "automationEnabled": false,
         "directory": "/home/tbear/nixdots/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,

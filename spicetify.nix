@@ -15,7 +15,7 @@ in
     
     # Select your theme
     theme = spicePkgs.themes.comfy;
-    colorScheme = "catppuccin-mocha";
+    colorScheme = "cyberpunk";
 
 
 

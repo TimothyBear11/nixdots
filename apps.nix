@@ -22,5 +22,7 @@
     yt-dlp
     ffmpeg
     ffmpegthumbnailer
+    floorp-bin
+    telegram-desktop
   ];
 }
