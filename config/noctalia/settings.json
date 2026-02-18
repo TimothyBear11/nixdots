@@ -347,8 +347,8 @@
                         "showBackground": false,
                         "useCustomFont": false,
                         "usePrimaryColor": true,
-                        "x": 2363,
-                        "y": 14
+                        "x": 2291,
+                        "y": 10
                     },
                     {
                         "hideMode": "idle",
@@ -373,8 +373,8 @@
                         "id": "plugin:fancy-audiovisualizer",
                         "scale": 1.0282842712474618,
                         "showBackground": true,
-                        "x": 2213,
-                        "y": 335
+                        "x": 2210,
+                        "y": 319
                     },
                     {
                         "id": "Weather",

@@ -4,5 +4,8 @@
   "panelHeight": 400,
   "fontSize": 14,
   "filePath": "",
-  "useMonospace": false
+  "useMonospace": false,
+  "cursorPosition": 0,
+  "scrollPositionX": 0,
+  "scrollPositionY": 0
 }
