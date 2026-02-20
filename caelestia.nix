@@ -29,7 +29,7 @@
         };
       };
 
-      path.wallpaperDir = "/home/tbear/nixdots/Pictures/Wallpapers"; 
+      paths.wallpaperDir = "~/nixdots/Pictures/Wallpapers"; 
 
       font.family.clock = "Rubik";
       anim.durations.scale = 1.0;

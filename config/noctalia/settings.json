@@ -84,6 +84,13 @@
                     "useCustomFont": false
                 },
                 {
+                    "defaultSettings": {
+                        "customColor": "none",
+                        "showConditionIcon": true,
+                        "showTempUnit": true,
+                        "showTempValue": true,
+                        "tooltipOption": "everything"
+                    },
                     "id": "plugin:weather-indicator"
                 },
                 {
@@ -189,9 +196,21 @@
                     "id": "plugin:pomodoro"
                 },
                 {
+                    "defaultSettings": {
+                    },
                     "id": "plugin:kde-connect"
                 },
                 {
+                    "defaultSettings": {
+                        "cursorPosition": 0,
+                        "filePath": "",
+                        "fontSize": 14,
+                        "panelHeight": 400,
+                        "panelWidth": 600,
+                        "scratchpadContent": "",
+                        "scrollPositionX": 0,
+                        "scrollPositionY": 0
+                    },
                     "id": "plugin:notes-scratchpad"
                 }
             ]
@@ -220,13 +239,13 @@
     },
     "colorSchemes": {
         "darkMode": true,
-        "generationMethod": "vibrant",
+        "generationMethod": "dysfunctional",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
         "predefinedScheme": "Cyberpunk",
-        "schedulingMode": "off",
-        "useWallpaperColors": false
+        "schedulingMode": "location",
+        "useWallpaperColors": true
     },
     "controlCenter": {
         "cards": [
@@ -397,6 +416,7 @@
         "enabled": false,
         "floatingRatio": 1,
         "inactiveIndicators": false,
+        "launcherPosition": "end",
         "monitors": [
         ],
         "onlySameOutput": true,
@@ -405,6 +425,7 @@
         "pinnedStatic": false,
         "position": "bottom",
         "showFrameIndicator": true,
+        "showLauncherIcon": false,
         "sitOnFrame": false,
         "size": 1
     },
@@ -455,6 +476,7 @@
         "lockScreenMonitors": [
         ],
         "lockScreenTint": 0,
+        "passwordChars": false,
         "radiusRatio": 1,
         "reverseScroll": false,
         "scaleRatio": 1,
@@ -637,10 +659,6 @@
         "activeTemplates": [
             {
                 "enabled": true,
-                "id": "zenBrowser"
-            },
-            {
-                "enabled": true,
                 "id": "btop"
             },
             {
@@ -697,11 +715,19 @@
             },
             {
                 "enabled": true,
+                "id": "steam"
+            },
+            {
+                "enabled": true,
                 "id": "code"
             },
             {
                 "enabled": true,
                 "id": "zed"
+            },
+            {
+                "enabled": true,
+                "id": "zenBrowser"
             }
         ],
         "enableUserTheming": false
@@ -723,7 +749,7 @@
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/home/tbear/nixdots/Pictures/Wallpapers",
+        "directory": "/home/tbear/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
