@@ -24,66 +24,66 @@
     caelestia-shell.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, mangowc, spicetify-nix, nix-openclaw, caelestia-shell, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
   let
     system = "x86_64-linux";
 
-    # --- CHANGE 1 START ---
-    # Define the overlay
     youtuiOverlay = final: prev: {
       youtui = final.callPackage ./youtui.nix {};
     };
-
-    # Apply it to the standalone pkgs
-    pkgs = import nixpkgs {
-      inherit system;
-      overlays = [
-        youtuiOverlay
-        nix-openclaw.overlays.default
-      ];
-      config.allowUnfree = true;
-    };
-    # --- CHANGE 1 END ---
-
   in {
     nixosConfigurations.my-nix-den = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
-        ./openclaw.nix
 
-        mangowc.nixosModules.mango
+        inputs.mangowc.nixosModules.mango
         inputs.dms.nixosModules.default
         home-manager.nixosModules.home-manager
 
-
-        # --- CHANGE 2 START ---
-        # Apply the overlay to the NixOS system
-        ({ config, pkgs, ... }: {
-          nixpkgs.overlays = [ youtuiOverlay ];
-          environment.systemPackages = [ pkgs.youtui ];
-        })
-        # --- CHANGE 2 END ---
-
         {
+          nixpkgs.overlays = [
+            youtuiOverlay
+            inputs.nix-openclaw.overlays.default
+          ];
+          nixpkgs.config.allowUnfree = true;
+
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            extraSpecialArgs = { inherit inputs; };
-            users.tbear = import ./home.nix;
             backupFileExtension = "backup";
+
+            # This injects the Home Manager library (lib.hm) into the user modules
+            extraSpecialArgs = {
+              inherit inputs;
+              lib = nixpkgs.lib.extend (self: super: {
+                hm = home-manager.lib.hm;
+              });
+            };
+
+            users.tbear = {
+              imports = [
+                ./home.nix
+                ./openclaw.nix
+              ];
+            };
           };
         }
       ];
     };
 
     homeConfigurations.tbear = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [ youtuiOverlay inputs.nix-openclaw.overlays.default ];
+        config.allowUnfree = true;
+      };
       extraSpecialArgs = { inherit inputs; };
       modules = [
         inputs.mangowc.hmModules.mango
         ./home.nix
+        ./openclaw.nix
       ];
     };
   };
