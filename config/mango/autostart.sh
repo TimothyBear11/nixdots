@@ -13,8 +13,12 @@ systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 dms run &
 
 # --- 3. System Services ---
-# Polkit for NixOS (Required for apps needing sudo/root permissions)
-/run/current-system/sw/libexec/polkit-gnome-authentication-agent-1 &
+# Polkit for authentication (Required for apps needing sudo/root permissions)
+if [ -f /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1 ]; then
+    /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1 &
+elif command -v polkit-gnome-authentication-agent-1 &>/dev/null; then
+    polkit-gnome-authentication-agent-1 &
+fi
 
 # Night light
 wlsunset -T 3501 -t 3500 &
