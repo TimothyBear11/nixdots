@@ -8,7 +8,6 @@
 
   programs.hyprland.enable = true;
   programs.niri.enable = true;
-  programs.mango.enable = true;
   programs.dconf.enable = true; # <-- ADDED
 
   security.polkit.enable = true; # <-- ADDED

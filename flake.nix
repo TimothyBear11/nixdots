@@ -79,9 +79,12 @@
     };
 
     homeConfigurations.tbear = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs; # This inherits the pkgs with the overlay from 'let'
+      inherit pkgs;
       extraSpecialArgs = { inherit inputs; };
-      modules = [ ./home.nix ];
+      modules = [
+        inputs.mangowc.hmModules.mango
+        ./home.nix
+      ];
     };
   };
 }

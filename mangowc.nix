@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 
 {
-
-  programs.mango = {
+  wayland.windowManager.mango = {
     enable = true;
-    enableSession = true;
+    settings = "";
+    autostart_sh = "";
   };
 }
