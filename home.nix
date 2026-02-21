@@ -22,6 +22,7 @@ in
     ./apps.nix
     ./spicetify.nix
     ./caelestia.nix
+    ./openclaw.nix
   ];
 
   home.username = "tbear";

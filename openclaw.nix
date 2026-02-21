@@ -26,47 +26,47 @@
             };
           };
 
-          # --- MODEL ---
-          models.providers.openai-local = {
-            baseUrl = "http://127.0.0.1:1234/v1";
-            apiKey = "lm-studio";
-            api = "openai-completions"; 
+          # --- MODEL (MiniMax) ---
+          models.providers.minimax = {
+            apiKey = "YOUR_MINIMAX_API_KEY"; # Set via environment variable or replace
+            # No baseUrl needed - uses default MiniMax endpoint
             models = [
               { 
-                id = "mistralai/ministral-3-14b-reasoning"; # Or your rnj ID
-                name = "LocalModel"; 
+                id = "MiniMax-M2.5";
+                name = "MiniMax"; 
               }
             ];
           };
 
-          # --- AGENT (SPEED OPTIMIZATIONS) ---
+          # --- AGENT ---
           agents.defaults = {
-            model.primary = "openai-local/mistralai/ministral-3-14b-reasoning";
+            model.primary = "minimax/MiniMax-M2.5";
             workspace = "/home/tbear/.openclaw/workspace";
             
-            # Reduce history to 5000 tokens to prevent looping
-            contextTokens = 5000; 
+            # Reasonable context limits
+            contextTokens = 32000; 
             compaction.mode = "safeguard";
 
-            models."openai-local/mistralai/ministral-3-14b-reasoning" = {};
+            models."minimax/MiniMax-M2.5" = {};
           };
 
-          # --- CHANNELS ---
-          channels.discord = {
+          # --- CHANNELS (Telegram - the one you're using!) ---
+          channels.telegram = {
             enabled = true;
-            token = "YOUR_NEW_DISCORD_TOKEN"; 
-            groupPolicy = "allowlist";
-            guilds."528389665489944580".channels."528389665489944582".allow = true;
+            # Bot token - set via environment variable OPENCLAW_TELEGRAM_BOT_TOKEN
+            # or replace with your actual token
+            botToken = "YOUR_TELEGRAM_BOT_TOKEN";
           };
 
-          # --- DISABLE HEAVY TOOLS (This fixes the 12k n_keep) ---
+          # --- PLUGINS ---
           plugins.entries = {
-            discord.enabled = true;
-            # Disabling these removes thousands of tokens from the prompt
-            terminal.enabled = false;
-            browser.enabled = false;
-            files.enabled = false;
-            python.enabled = false;
+            # Keep Discord disabled since you're using Telegram
+            discord.enabled = false;
+            
+            # Enable useful plugins
+            terminal.enabled = true;
+            browser.enabled = true;
+            files.enabled = true;
           };
         };
       };

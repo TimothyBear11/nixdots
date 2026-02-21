@@ -51,7 +51,7 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
-       # ./openclaw.nix
+        ./openclaw.nix
 
         mangowc.nixosModules.mango
         inputs.dms.nixosModules.default
