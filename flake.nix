@@ -20,6 +20,7 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
     nix-openclaw.url = "github:openclaw/nix-openclaw";
+    sops-nix.url = "github:Mic92/sops-nix";
     caelestia-shell.url = "github:caelestia-dots/shell";
     caelestia-shell.inputs.nixpkgs.follows = "nixpkgs";
   };

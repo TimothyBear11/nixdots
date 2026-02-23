@@ -13,7 +13,7 @@
     ./ambxst.nix
     ./dms.nix
     ./noctalia.nix
-    
+    inputs.sops-nix.nixosModules.sops
   ];
 
   # --- Boot & Kernel ---
@@ -102,6 +102,22 @@
     description = "Timothy Bear";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.fish;
+  };
+
+  # --- SOPS Secrets ---
+  sops = {
+    defaultSopsFile = ./secrets.yaml;
+    age = {
+      keyFile = "/home/tbear/Games/Steam/nix-secrets/age-key.txt";
+    };
+    secrets = {
+      "openclaw/gateway-token".owner = "tbear";
+      "openclaw/gateway-token".mode = "0600";
+      "openclaw/minimax-api-key".owner = "tbear";
+      "openclaw/minimax-api-key".mode = "0600";
+      "openclaw/telegram-bot-token".owner = "tbear";
+      "openclaw/telegram-bot-token".mode = "0600";
+    };
   };
 
   system.stateVersion = "25.05";
