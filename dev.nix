@@ -13,6 +13,7 @@
     zed-editor
     positron-bin
     helix
+    antigravity
 
     # -- Productivity --
     direnv         # Auto-load envs

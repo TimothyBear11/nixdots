@@ -52,7 +52,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            backupFileExtension = "backup";
+            backupFileExtension = "hm-backup";
 
             # This injects the Home Manager library (lib.hm) into the user modules
             extraSpecialArgs = {

@@ -90,6 +90,13 @@
   # --- Users ---
   programs.fish.enable = true;
 
+  home-manager = {
+    backupFileExtension = lib.mkForce "hm-backup";  
+
+    users.tbear = import ./home.nix;  # or however you're importing the user's HM config
+    overwriteBackup = true;  
+  };
+
   users.users.tbear = {
     isNormalUser = true;
     description = "Timothy Bear";
