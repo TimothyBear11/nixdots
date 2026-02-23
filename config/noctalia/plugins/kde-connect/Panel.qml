@@ -18,7 +18,7 @@ Item {
   readonly property var geometryPlaceholder: panelContainer
 
   property real contentPreferredWidth: 440 * Style.uiScaleRatio
-  property real contentPreferredHeight: 360 * Style.uiScaleRatio
+  property real contentPreferredHeight: 360 * Style.uiScaleRatio * Settings.data.ui.fontDefaultScale
 
   readonly property bool allowAttach: true
 
@@ -171,13 +171,14 @@ Item {
         Layout.fillWidth: true
         Layout.fillHeight: true
         active: true
-        sourceComponent: (!KDEConnect.daemonAvailable)                                        ? daemonNotRunningCard   :
-                         (deviceSwitcherOpen)                                                 ? deviceSwitcherCard     :
-                         (KDEConnect.mainDevice !== null && !KDEConnect.mainDevice.reachable) ? deviceNotReachableCard :
-                         (KDEConnect.mainDevice !== null &&  KDEConnect.mainDevice.paired)    ? deviceConnectedCard    :
-                         (KDEConnect.mainDevice !== null && !KDEConnect.mainDevice.paired)    ? noDevicePairedCard     :
-                         (KDEConnect.devices.length === 0)                                    ? noDevicesAvailableCard :
-                         ""
+        sourceComponent:  (KDEConnect.qdbusCmd === null || KDEConnect.qdbusCmd === "")         ? qdbusNotFoundCard                :
+                          (!KDEConnect.daemonAvailable)                                        ? kdeConnectDaemonNotRunningCard   :
+                          (deviceSwitcherOpen)                                                 ? deviceSwitcherCard               :
+                          (KDEConnect.mainDevice !== null && !KDEConnect.mainDevice.reachable) ? deviceNotReachableCard           :
+                          (KDEConnect.mainDevice !== null &&  KDEConnect.mainDevice.paired)    ? deviceConnectedCard              :
+                          (KDEConnect.mainDevice !== null && !KDEConnect.mainDevice.paired)    ? noDevicePairedCard               :
+                          (KDEConnect.devices.length === 0)                                    ? noDevicesAvailableCard           :
+                          ""
       }
 
       Component {
@@ -251,21 +252,22 @@ Item {
             id: deviceStatsWithPhone
 
             RowLayout {
-
-              Item {
-                width: 7
-              }
+              spacing: Style.marginM
 
               Rectangle {
-                width: 100
+                width: 100 * Style.uiScaleRatio
                 color: "transparent"
                 Layout.fillHeight: true
-                Layout.leftMargin: Style.marginL
+                Layout.alignment: Qt.AlignCenter
 
                 PhoneDisplay {
-                  Layout.alignment: Qt.AlignTop
+                  Layout.alignment: Qt.AlignCenter
                   backgroundImage: ""
                 }
+              }
+
+              Item {
+                width: Style.marginL
               }
 
               // Stats Grid
@@ -283,16 +285,16 @@ Item {
                     icon: deviceData.getBatteryIcon(KDEConnect.mainDevice.battery, KDEConnect.mainDevice.charging)
                     pointSize: Style.fontSizeXXXL
                     applyUiScale: true
-                    color: KDEConnect.mainDevice.charging ? Color.mPrimary : Color.mOnSurface
+                    color: Color.mOnSurface
                   }
 
                   ColumnLayout {
-                    spacing: 2
+                    spacing: 2 * Style.uiScaleRatio
 
                     NText {
                       text: pluginApi?.tr("panel.card.battery")
                       pointSize: Style.fontSizeS
-                      color: Color.mOnSurfaceVariant
+                      color: Color.mOnSurface
                     }
 
                     NText {
@@ -316,16 +318,16 @@ Item {
                   }
 
                   ColumnLayout {
-                    spacing: 2
+                    spacing: 2 * Style.uiScaleRatio
 
                     NText {
                       text: pluginApi?.tr("panel.card.network")
                       pointSize: Style.fontSizeS
-                      color: Color.mOnSurfaceVariant
+                      color: Color.mOnSurface
                     }
 
                     NText {
-                      text: KDEConnect.mainDevice.cellularNetworkType
+                      text: KDEConnect.mainDevice.cellularNetworkType || pluginApi?.tr("panel.signal.unknown")
                       pointSize: Style.fontSizeL
                       font.weight: Style.fontWeightMedium
                       color: Color.mOnSurface
@@ -345,12 +347,12 @@ Item {
                   }
 
                   ColumnLayout {
-                    spacing: 2
+                    spacing: 2 * Style.uiScaleRatio
 
                     NText {
                       text: pluginApi?.tr("panel.card.signal-strength")
                       pointSize: Style.fontSizeS
-                      color: Color.mOnSurfaceVariant
+                      color: Color.mOnSurface
                     }
 
                     NText {
@@ -367,21 +369,19 @@ Item {
                   spacing: Style.marginM
 
                   NIcon {
-                    icon: "message"
-                    pointSize: Style.fontSizeXXL
+                    icon: "notification"
+                    pointSize: Style.fontSizeXXXL
                     applyUiScale: true
-                    color: Color.mPrimary
+                    color: Color.mOnSurface
                   }
 
-                  Item {}
-
                   ColumnLayout {
-                    spacing: 2
+                    spacing: 2 * Style.uiScaleRatio
 
                     NText {
                       text: pluginApi?.tr("panel.card.notifications")
                       pointSize: Style.fontSizeS
-                      color: Color.mOnSurfaceVariant
+                      color: Color.mOnSurface
                     }
 
                     NText {
@@ -501,7 +501,7 @@ Item {
 
             NIcon {
               icon: "device-mobile-off"
-              pointSize: 48
+              pointSize: 48 * Style.uiScaleRatio
               color: Color.mOnSurfaceVariant
               Layout.alignment: Qt.AlignHCenter
             }
@@ -546,7 +546,7 @@ Item {
 
             NIcon {
               icon: "device-mobile-off"
-              pointSize: 48
+              pointSize: 48 * Style.uiScaleRatio
               color: Color.mOnSurfaceVariant
               Layout.alignment: Qt.AlignHCenter
             }
@@ -582,8 +582,9 @@ Item {
         }
       }
 
+
       Component {
-        id: daemonNotRunningCard
+        id: qdbusNotFoundCard
 
         Rectangle {
           Layout.fillWidth: true
@@ -603,7 +604,62 @@ Item {
 
             NIcon {
               icon: "exclamation-circle"
-              pointSize: 48
+              pointSize: 48 * Style.uiScaleRatio
+              color: Color.mOnSurfaceVariant
+              Layout.alignment: Qt.AlignHCenter
+            }
+
+            Item {}
+
+            NText {
+              text: pluginApi?.tr("panel.qdbus-error.unavailable-title")
+              pointSize: Style.fontSizeL
+              color: Color.mOnSurfaceVariant
+              Layout.alignment: Qt.AlignCenter
+              horizontalAlignment: Text.AlignHCenter
+              verticalAlignment: Text.AlignVCenter
+            }
+
+            NText {
+              text: pluginApi?.tr("panel.qdbus-error.unavailable-desc")
+              pointSize: Style.fontSizeS
+              color: Color.mOnSurfaceVariant
+              Layout.alignment: Qt.AlignCenter
+              horizontalAlignment: Text.AlignHCenter
+              verticalAlignment: Text.AlignVCenter
+              wrapMode: Text.WordWrap
+              Layout.fillWidth: true
+            }
+
+            Item {
+              Layout.fillHeight: true
+            }
+          }
+        }
+      }
+
+      Component {
+        id: kdeConnectDaemonNotRunningCard
+
+        Rectangle {
+          Layout.fillWidth: true
+          Layout.fillHeight: true
+          color: Color.mSurfaceVariant
+          radius: Style.radiusM
+
+          ColumnLayout {
+            id: emptyState
+            anchors.fill: parent
+            anchors.margins: Style.marginM
+            spacing: Style.marginM
+
+            Item {
+              Layout.fillHeight: true
+            }
+
+            NIcon {
+              icon: "exclamation-circle"
+              pointSize: 48 * Style.uiScaleRatio
               color: Color.mOnSurfaceVariant
               Layout.alignment: Qt.AlignHCenter
             }

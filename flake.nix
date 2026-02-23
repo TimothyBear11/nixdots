@@ -22,6 +22,8 @@
     nix-openclaw.url = "github:openclaw/nix-openclaw";
     caelestia-shell.url = "github:caelestia-dots/shell";
     caelestia-shell.inputs.nixpkgs.follows = "nixpkgs";
+    illogical-flake.url = "github:soymou/illogical-flake";
+    illogical-flake.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:

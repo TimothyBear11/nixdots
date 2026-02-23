@@ -11,7 +11,6 @@
     ./ai.nix
     ./dev.nix
     ./ambxst.nix
-    ./dms.nix
     ./noctalia.nix
   ];
 

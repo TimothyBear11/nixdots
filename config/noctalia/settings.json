@@ -46,6 +46,7 @@
         "density": "comfortable",
         "displayMode": "always_visible",
         "floating": false,
+        "fontScale": 1,
         "frameRadius": 12,
         "frameThickness": 8,
         "hideOnOverview": false,
@@ -61,8 +62,10 @@
         "screenOverrides": [
         ],
         "showCapsule": false,
+        "showOnWorkspaceSwitch": true,
         "showOutline": false,
         "useSeparateOpacity": true,
+        "widgetSpacing": 6,
         "widgets": {
             "center": [
                 {
@@ -217,6 +220,8 @@
         }
     },
     "brightness": {
+        "backlightDeviceMappings": [
+        ],
         "brightnessStep": 5,
         "enableDdcSupport": false,
         "enforceMinimum": true
@@ -244,7 +249,7 @@
         "manualSunset": "18:30",
         "monitorForColors": "",
         "predefinedScheme": "Cyberpunk",
-        "schedulingMode": "location",
+        "schedulingMode": "off",
         "useWallpaperColors": true
     },
     "controlCenter": {
@@ -404,7 +409,8 @@
                     }
                 ]
             }
-        ]
+        ],
+        "overviewEnabled": true
     },
     "dock": {
         "animationSpeed": 1,
@@ -415,7 +421,12 @@
         "dockType": "floating",
         "enabled": false,
         "floatingRatio": 1,
+        "groupApps": false,
+        "groupClickAction": "cycle",
+        "groupContextMenuMode": "extended",
+        "groupIndicatorStyle": "dots",
         "inactiveIndicators": false,
+        "launcherIconColor": "none",
         "launcherPosition": "end",
         "monitors": [
         ],

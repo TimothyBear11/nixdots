@@ -44,5 +44,13 @@
     };
 
     cli.enable = true;
+    # cli.schemeCommand = false;  # Disable scheme command if it causes issues
   };
+
+  # Skip python deps for now - the scheme command may need manual pip install
+  # home.packages = with pkgs; [
+  #   (python313.withPackages (ps: with ps; [
+  #     materialyoucolor
+  #   ]))
+  # ];
 }
