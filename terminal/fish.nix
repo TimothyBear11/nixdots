@@ -11,6 +11,7 @@
     shellInit = ''
       set -gx STARSHIP_CONFIG "$HOME/nixdots/config/starship.toml"
       fish_add_path "$HOME/go/bin"
+      fish_add_path "$HOME/.local/bin"
     '';
 
     # ------------------------------------------------------------
