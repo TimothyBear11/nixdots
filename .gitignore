@@ -1,2 +1,4 @@
-# Secrets (age key is sensitive - keep safe!)
+# Secrets
+secrets.yaml
+secrets.yaml.age
 /home/tbear/Games/Steam/nix-secrets/
