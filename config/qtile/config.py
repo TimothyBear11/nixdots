@@ -1,155 +1,165 @@
+# Qtile Config for Bear
+# Based on hyprland/niri keybind patterns
+
 import os
 import subprocess
-from libqtile import layout, hook, qtile
+from libqtile import bar, layout, hook, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
-from libqtile.backend.wayland import InputConfig
 
-# --- Variables ---
-mod = "mod4"
-terminal = "kitty"
+# ==================== VARIABLES ====================
+mod = "mod4"           # Super key
+terminal = "kitty"     # Default terminal
+launcher = "fuzzel"   # Application launcher
 
-# --- Helper: Spawn on Current Screen ---
-# This fixes your issue where everything opens on the center monitor.
-def spawn_on_current(command):
-    @lazy.function
-    def __inner(qtile):
-        qtile.spawn(command)
-    return __inner
-
-# --- Keybindings ---
+# ==================== KEYBINDINGS ====================
 keys = [
-    # Navigation (Arrow Keys)
-    Key([mod], "Left", lazy.layout.left()),
-    Key([mod], "Right", lazy.layout.right()),
-    Key([mod], "Down", lazy.layout.down()),
-    Key([mod], "Up", lazy.layout.up()),
+    # --- Window Navigation ---
+    Key([mod], "left", lazy.layout.left()),
+    Key([mod], "right", lazy.layout.right()),
+    Key([mod], "down", lazy.layout.down()),
+    Key([mod], "up", lazy.layout.up()),
 
-    # Movement
-    Key([mod, "shift"], "Left", lazy.layout.shuffle_left()),
-    Key([mod, "shift"], "Right", lazy.layout.shuffle_right()),
-    Key([mod, "shift"], "Down", lazy.layout.shuffle_down()),
-    Key([mod, "shift"], "Up", lazy.layout.shuffle_up()),
+    # --- Window Movement ---
+    Key([mod, "shift"], "left", lazy.layout.shuffle_left()),
+    Key([mod, "shift"], "right", lazy.layout.shuffle_right()),
+    Key([mod, "shift"], "down", lazy.layout.shuffle_down()),
+    Key([mod, "shift"], "up", lazy.layout.shuffle_up()),
 
-    # Monitor Switching (Crucial for 3 screens)
-    # These force focus to a specific physical monitor
-    Key([mod], "w", lazy.to_screen(0), desc="Focus Center"),
-    Key([mod], "r", lazy.to_screen(1), desc="Focus Left"),
-    Key([mod], "p", lazy.to_screen(2), desc="Focus Right"),
-    
-    # Standard Controls
+    # --- Window Controls ---
     Key([mod], "f", lazy.window.toggle_fullscreen()),
-    Key([mod, "control"], "v", lazy.window.toggle_floating()),
+    Key([mod], "v", lazy.window.toggle_floating()),
     Key([mod], "q", lazy.window.kill()),
+
+    # --- Qtile Controls ---
     Key([mod, "shift"], "r", lazy.reload_config()),
     Key([mod, "shift"], "e", lazy.shutdown()),
-    Key([mod], "Tab", lazy.group.next_window()), # Cycle windows if focus gets lost
 
-    # SCRATCHPAD (Mod + `)
+    # --- Launcher ---
+    Key([mod], "d", lazy.spawn(launcher)),
+
+    # --- Applications ---
+    Key([mod], "Return", lazy.spawn(terminal)),
+    Key([mod], "n", lazy.spawn(f"{terminal} -e nvim")),
+    Key([mod], "k", lazy.spawn("kate")),
+    Key([mod], "z", lazy.spawn("zeditor")),
+    Key([mod], "b", lazy.spawn("floorp")),
+    Key([mod], "m", lazy.spawn("spotify")),
+    Key([mod], "v", lazy.spawn("vesktop")),
+    Key([mod], "g", lazy.spawn("steam")),
+    Key([mod], "h", lazy.spawn("heroic")),
+    Key([mod], "e", lazy.spawn("dolphin")),
+    Key([mod], "j", lazy.spawn("joplin-desktop")),
+    Key([mod], "p", lazy.spawn("positron")),
+    Key([mod], "s", lazy.spawn("signal-desktop")),
+
+    # --- Scratchpad ---
     Key([mod], "grave", lazy.group['scratchpad'].dropdown_toggle('term')),
-
-    # Apps (Using the Spawn Helper)
-    Key([mod], "Return", spawn_on_current(terminal)),
-    Key([mod], "d", spawn_on_current("noctalia-shell ipc call launcher toggle")),
-    Key([mod], "F1", spawn_on_current("noctalia-shell ipc call controlCenter toggle")),
-    Key([mod], "F2", spawn_on_current("noctalia-shell ipc call settings toggle")),
-    Key([mod], "F3", spawn_on_current("noctalia-shell ipc call launcher clipboard")),
-    Key([mod], "F4", spawn_on_current("noctalia-shell ipc call sessionsMenu toggle")),
-    
-    Key([mod], "k", spawn_on_current("kate")),
-    Key([mod], "b", spawn_on_current("zen")),
-    Key([mod], "m", spawn_on_current("spotify")),
-    Key([mod], "v", spawn_on_current("vesktop")),
-    Key([mod], "s", spawn_on_current("steam")),
-    Key([mod], "h", spawn_on_current("heroic")),
-    Key([mod], "z", spawn_on_current("zeditor")),
-    Key([mod], "e", spawn_on_current("dolphin")),
-    Key([mod], "j", spawn_on_current("joplin-desktop")),
-    Key([mod], "a", spawn_on_current("signal-desktop")),
-    Key([mod], "t", spawn_on_current("konsole")),
 ]
 
-# --- Groups & Scratchpad ---
-groups = [Group(i) for i in "123456789"]
+# ==================== WORKSPACES ====================
+groups = [Group(str(i)) for i in range(1, 10)]
 
-groups.append(
-    ScratchPad("scratchpad", [
-        DropDown("term", "kitty --class=scratchpad", 
-                 opacity=0.9, height=0.6, width=0.8, x=0.1, y=0.2, 
-                 on_focus_lost_hide=True)
-    ]),
-)
-
-for i in "123456789":
+for i in groups:
     keys.extend([
-        Key([mod], i, lazy.group[i].toscreen()),
-        Key([mod, "control"], i, lazy.window.togroup(i)),
+        Key([mod], i.name, lazy.group[i.name].toscreen()),
+        Key([mod, "control"], i.name, lazy.window.togroup(i.name)),
     ])
 
-# --- Layouts ---
+# ==================== SCRATCHPAD ====================
+groups.append(
+    ScratchPad("scratchpad", [
+        DropDown(
+            "term", 
+            "kitty --class=scratchpad",
+            opacity=0.95,
+            height=0.6,
+            width=0.8,
+            x=0.1,
+            y=0.2,
+        )
+    ])
+)
+
+# ==================== LAYOUTS ====================
 layouts = [
     layout.Columns(
-        border_focus="#ffc87f", 
-        border_normal="#505050", 
-        margin=8, 
+        border_focus="#ffc87f",
+        border_normal="#505050",
         border_width=2,
-        border_on_single=True,
-        insert_position=1, # New windows appear next to current focus
-        wrap_focus_columns=False,
-        wrap_focus_rows=False,
+        margin=8,
+        insert_position=1,
     ),
     layout.Max(),
+    layout.Floating(),
 ]
 
-# --- Screens ---
-screens = [Screen(), Screen(), Screen()]
+# ==================== BAR WIDGETS ====================
+def init_widgets_left():
+    return [
+        widget.CPU(format="CPU: {load_percent}%"),
+        widget.Memory(format="RAM: {MemUsed: .0f}{mm}"),
+        widget.GroupBox(),
+        widget.CurrentLayout(),
+    ]
 
-# --- Autostart ---
-@hook.subscribe.startup_once
-def autostart():
-    subprocess.Popen(["noctalia-shell"], shell=True)
-    subprocess.Popen(["kanshi"], shell=True)
-    subprocess.Popen(["swww-daemon"], shell=True)
+def init_widgets_center():
+    return [
+        widget.Clock(format="%H:%M"),
+        widget.Clock(format="%a %b %d"),
+    ]
 
-# --- Force Zen Browser to Tile ---
-@hook.subscribe.client_new
-def force_tile_browser(window):
-    # This detects Zen and forces it into the tiling layer
-    if "zen" in window.get_wm_class() or "Zen" in window.name:
-        window.floating = False
+def init_widgets_right():
+    return [
+        widget.Systray(),
+        widget.Notifications(),
+    ]
 
-# --- Input Rules ---
-wl_input_rules = {
-    "type:keyboard": InputConfig(kb_layout="us"),
-    "type:pointer": InputConfig(accel_profile="flat"),
-    "type:touchpad": InputConfig(tap=True, natural_scroll=True),
-}
+# ==================== SCREENS ====================
+screens = [
+    Screen(
+        top=bar.Bar(
+            widgets=init_widgets_left() + init_widgets_center() + init_widgets_right(),
+            size=30,
+            opacity=0.9,
+            margin=[4, 8, 0, 8],
+        )
+    )
+]
 
-# --- Floating Rules ---
+# ==================== MOUSE BINDINGS ====================
+mouse = [
+    Drag([mod], "left", lazy.window.set_position_floating(), start=lazy.window.get_position()),
+    Drag([mod], "right", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Click([mod], "button1", lazy.window.bring_to_front()),
+]
+
+# ==================== FLOATING RULES ====================
 floating_layout = layout.Floating(
     float_rules=[
         *layout.Floating.default_float_rules,
+        Match(wm_class="fuzzel"),
         Match(wm_class="noctalia-shell"),
         Match(wm_class="Noctalia-shell"),
+        Match(wm_class="dms"),
         Match(wm_class="scratchpad"),
     ]
 )
 
-# --- Focus Settings (The Stability Patch) ---
-# Setting this to False prevents the mouse from stealing focus or 
-# creating "dead zones" when you close windows.
-follow_mouse_focus = False
+# ==================== AUTOSTART ====================
+@hook.subscribe.startup_once
+def autostart():
+    # Wallpaper
+    subprocess.Popen(["swww", "img", os.path.expanduser("~/nixdots/Pictures/Wallpapers/Runic.png")])
+    # Daemons
+    subprocess.Popen(["kanshi"])
+    subprocess.Popen(["swww-daemon"])
 
-# This teleports the mouse to the center of the focused window.
-cursor_warp = True
-
-# Prevents windows from jumping to the front just because they were clicked.
+# ==================== BEHAVIOR SETTINGS ====================
+follow_mouse_focus = True
 bring_front_click = False
-
-# Fixes focus when apps request attention.
+cursor_warp = True
 focus_on_window_activation = "smart"
-
-# Essential for Wayland and Steam.
-auto_minimize = False
+auto_minimize = True
 reconfigure_screens = True
-wmname = "LG3D"
+wmname = "Qtile"

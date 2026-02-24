@@ -120,7 +120,7 @@
                 {
                     "compactMode": true,
                     "diskPath": "/",
-                    "iconColor": "primary",
+                    "iconColor": "secondary",
                     "id": "SystemMonitor",
                     "showCpuFreq": false,
                     "showCpuTemp": true,
@@ -157,7 +157,7 @@
                     "iconScale": 0.8,
                     "id": "Workspace",
                     "labelMode": "index",
-                    "occupiedColor": "secondary",
+                    "occupiedColor": "tertiary",
                     "pillSize": 0.6,
                     "showApplications": true,
                     "showBadge": true,
@@ -169,7 +169,7 @@
                 {
                     "hideWhenZero": true,
                     "hideWhenZeroUnread": false,
-                    "iconColor": "tertiary",
+                    "iconColor": "secondary",
                     "id": "NotificationHistory",
                     "showUnreadBadge": true,
                     "unreadBadgeColor": "error"
@@ -177,7 +177,7 @@
                 {
                     "blacklist": [
                     ],
-                    "chevronColor": "tertiary",
+                    "chevronColor": "secondary",
                     "colorizeIcons": true,
                     "drawerEnabled": true,
                     "hidePassive": false,
@@ -244,7 +244,7 @@
     },
     "colorSchemes": {
         "darkMode": true,
-        "generationMethod": "dysfunctional",
+        "generationMethod": "vibrant",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
@@ -760,7 +760,7 @@
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/home/tbear/Pictures/Wallpapers",
+        "directory": "/home/tbear/nixdots/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [

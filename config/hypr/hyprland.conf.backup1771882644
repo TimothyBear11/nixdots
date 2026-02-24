@@ -53,8 +53,8 @@ $menu = wofi --show drun
 exec-once = kdeconnect-indicator
 #exec-once = ambxst
 #exec-once = caelestia-shell -d
-#exec-once = dms run
-exec-once = noctalia-shell
+exec-once = dms run
+#exec-once = noctalia-shell
 #exec-once = qs -c illogical-impulse
 exec-once = [workspace 2] sleep 4 && steam
 exec-once = [workspace 3] sleep 5 && heroic
@@ -368,5 +368,3 @@ bindl = , XF86AudioPrev, exec, playerctl previous
 
 source = /home/tbear/.config/hypr/noctalia/noctalia-colors.conf
 
-
-source = ./dms/cursor.conf
