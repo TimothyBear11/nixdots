@@ -13,12 +13,14 @@
     ./ambxst.nix
     ./dms.nix
     ./noctalia.nix
-    ./cachykernel.nix
+    #./cachykernel.nix
   ];
 
   # --- Boot & Kernel ---
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
 
   # --- Nix Housekeeping & Settings ---
   nix = {
