@@ -122,9 +122,64 @@
                     "textColor": "secondary",
                     "useFixedWidth": false,
                     "visualizerType": "linear"
+                },
+                {
+                    "defaultSettings": {
+                        "ai": {
+                            "apiKeys": {
+                            },
+                            "maxHistoryLength": 100,
+                            "model": "gemini-2.5-flash",
+                            "openaiBaseUrl": "https://api.openai.com/v1/chat/completions",
+                            "openaiLocal": false,
+                            "provider": "google",
+                            "systemPrompt": "You are a helpful assistant integrated into a Linux desktop shell. Be concise and helpful.",
+                            "temperature": 0.7
+                        },
+                        "maxHistoryLength": 100,
+                        "panelDetached": true,
+                        "panelHeightRatio": 0.85,
+                        "panelPosition": "right",
+                        "panelWidth": 520,
+                        "scale": 1,
+                        "translator": {
+                            "backend": "google",
+                            "deeplApiKey": "",
+                            "realTimeTranslation": true,
+                            "sourceLanguage": "auto",
+                            "targetLanguage": "en"
+                        }
+                    },
+                    "id": "plugin:assistant-panel"
                 }
             ],
             "left": [
+                {
+                    "characterCount": 2,
+                    "colorizeIcons": true,
+                    "emptyColor": "secondary",
+                    "enableScrollWheel": true,
+                    "focusedColor": "primary",
+                    "followFocusedScreen": false,
+                    "groupedBorderOpacity": 1,
+                    "hideUnoccupied": false,
+                    "iconScale": 0.8,
+                    "id": "Workspace",
+                    "labelMode": "index",
+                    "occupiedColor": "tertiary",
+                    "pillSize": 0.6,
+                    "showApplications": true,
+                    "showBadge": true,
+                    "showLabelsOnlyWhenOccupied": true,
+                    "unfocusedIconsOpacity": 1
+                },
+                {
+                    "defaultSettings": {
+                        "hideBackground": false,
+                        "minimumThreshold": 10
+                    },
+                    "id": "plugin:catwalk"
+                },
                 {
                     "compactMode": true,
                     "diskPath": "/",
@@ -148,33 +203,27 @@
                     "usePadding": true
                 },
                 {
-                    "defaultSettings": {
-                        "hideBackground": false,
-                        "minimumThreshold": 10
-                    },
-                    "id": "plugin:catwalk"
-                },
-                {
-                    "characterCount": 2,
-                    "colorizeIcons": true,
-                    "emptyColor": "secondary",
-                    "enableScrollWheel": true,
-                    "focusedColor": "primary",
-                    "followFocusedScreen": false,
-                    "groupedBorderOpacity": 1,
-                    "hideUnoccupied": false,
-                    "iconScale": 0.8,
-                    "id": "Workspace",
-                    "labelMode": "index",
-                    "occupiedColor": "tertiary",
-                    "pillSize": 0.6,
-                    "showApplications": true,
-                    "showBadge": true,
-                    "showLabelsOnlyWhenOccupied": true,
-                    "unfocusedIconsOpacity": 1
+                    "id": "plugin:sticky-notes"
                 }
             ],
             "right": [
+                {
+                    "defaultSettings": {
+                    },
+                    "id": "plugin:kde-connect"
+                },
+                {
+                    "defaultSettings": {
+                        "autoStartBreaks": false,
+                        "autoStartWork": false,
+                        "compactMode": false,
+                        "longBreakDuration": 15,
+                        "sessionsBeforeLongBreak": 4,
+                        "shortBreakDuration": 5,
+                        "workDuration": 25
+                    },
+                    "id": "plugin:pomodoro"
+                },
                 {
                     "hideWhenZero": true,
                     "hideWhenZeroUnread": false,
@@ -197,20 +246,9 @@
                 },
                 {
                     "defaultSettings": {
-                        "autoStartBreaks": false,
-                        "autoStartWork": false,
-                        "compactMode": false,
-                        "longBreakDuration": 15,
-                        "sessionsBeforeLongBreak": 4,
-                        "shortBreakDuration": 5,
-                        "workDuration": 25
+                        "iconColor": "none"
                     },
-                    "id": "plugin:pomodoro"
-                },
-                {
-                    "defaultSettings": {
-                    },
-                    "id": "plugin:kde-connect"
+                    "id": "plugin:color-scheme-creator"
                 }
             ]
         }
@@ -312,63 +350,24 @@
             {
                 "name": "HDMI-A-1",
                 "widgets": [
-                    {
-                        "id": "MediaPlayer",
-                        "showBackground": true,
-                        "visualizerType": "linear",
-                        "x": 70,
-                        "y": 445.703125
-                    },
-                    {
-                        "clockStyle": "minimal",
-                        "customFont": "",
-                        "format": "h:mm AP\\n ddd, MMM dd",
-                        "id": "Clock",
-                        "showBackground": true,
-                        "useCustomFont": false,
-                        "usePrimaryColor": true,
-                        "x": 184.55859375,
-                        "y": 44.6328125
-                    },
-                    {
-                        "id": "Weather",
-                        "showBackground": true,
-                        "x": 123.765625,
-                        "y": 238.19921875
-                    },
-                    {
-                        "defaultSettings": {
-                            "barWidth": 0.6,
-                            "bloomIntensity": 0.5,
-                            "ringOpacity": 0.8,
-                            "rotationSpeed": 0.5,
-                            "sensitivity": 1.5,
-                            "showBars": true,
-                            "showRings": true
-                        },
-                        "id": "plugin:fancy-audiovisualizer",
-                        "showBackground": true,
-                        "x": 97,
-                        "y": 580
-                    }
                 ]
             },
             {
                 "name": "DP-1",
                 "widgets": [
                     {
-                        "clockColor": "secondary",
+                        "clockColor": "error",
                         "clockStyle": "minimal",
                         "customFont": "",
-                        "format": "h:mm AP\\nddd, MMM dd",
+                        "format": "h:mm AP \\n dddd \\n MMMM dd, yyyy",
                         "id": "Clock",
                         "roundedCorners": true,
-                        "scale": 1.5515432893255072,
+                        "scale": 2.2920350859883882,
                         "showBackground": false,
                         "useCustomFont": false,
                         "usePrimaryColor": true,
-                        "x": 2291,
-                        "y": 10
+                        "x": 2193,
+                        "y": -20
                     },
                     {
                         "hideMode": "idle",
@@ -378,7 +377,7 @@
                         "visualizerType": "linear",
                         "visualizerVisibility": "always",
                         "x": 2157,
-                        "y": 262
+                        "y": 227
                     },
                     {
                         "defaultSettings": {
@@ -391,17 +390,17 @@
                             "showRings": true
                         },
                         "id": "plugin:fancy-audiovisualizer",
-                        "scale": 1.0282842712474618,
+                        "scale": 1.4843865593518784,
                         "showBackground": true,
-                        "x": 2210,
-                        "y": 319
+                        "x": 2108,
+                        "y": 326
                     },
                     {
                         "id": "Weather",
                         "scale": 1.2404163056034263,
                         "showBackground": false,
-                        "x": 2231,
-                        "y": 136
+                        "x": 2192,
+                        "y": 139
                     }
                 ]
             }
@@ -687,6 +686,18 @@
         "activeTemplates": [
             {
                 "enabled": true,
+                "id": "foot"
+            },
+            {
+                "enabled": true,
+                "id": "fuzzel"
+            },
+            {
+                "enabled": true,
+                "id": "zenBrowser"
+            },
+            {
+                "enabled": true,
                 "id": "btop"
             },
             {
@@ -699,14 +710,6 @@
             },
             {
                 "enabled": true,
-                "id": "foot"
-            },
-            {
-                "enabled": true,
-                "id": "fuzzel"
-            },
-            {
-                "enabled": true,
                 "id": "gtk"
             },
             {
@@ -715,15 +718,19 @@
             },
             {
                 "enabled": true,
+                "id": "hyprland"
+            },
+            {
+                "enabled": true,
+                "id": "hyprtoolkit"
+            },
+            {
+                "enabled": true,
                 "id": "kcolorscheme"
             },
             {
                 "enabled": true,
                 "id": "kitty"
-            },
-            {
-                "enabled": true,
-                "id": "niri"
             },
             {
                 "enabled": true,
@@ -739,11 +746,11 @@
             },
             {
                 "enabled": true,
-                "id": "telegram"
+                "id": "steam"
             },
             {
                 "enabled": true,
-                "id": "steam"
+                "id": "telegram"
             },
             {
                 "enabled": true,
@@ -752,10 +759,6 @@
             {
                 "enabled": true,
                 "id": "zed"
-            },
-            {
-                "enabled": true,
-                "id": "zenBrowser"
             }
         ],
         "enableUserTheming": false
@@ -774,7 +777,7 @@
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/home/tbear/Pictures/Wallpapers",
+        "directory": "/home/tbear/nixdots/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [

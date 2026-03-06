@@ -52,5 +52,6 @@
     nerd-fonts.geist-mono
     rubik
     nerd-fonts.ubuntu
+    google-fonts
   ];
 }

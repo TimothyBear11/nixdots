@@ -24,5 +24,6 @@
     ffmpegthumbnailer
     floorp-bin
     telegram-desktop
+    python314Packages.materialyoucolor
   ];
 }

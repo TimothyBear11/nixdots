@@ -1,0 +1,34 @@
+{
+  "widget": {
+    "tooltip": "Sticky Notes"
+  },
+  "menu": {
+    "settings": "Widget settings"
+  },
+  "time": {
+    "just-now": "Just now",
+    "minutes-ago": "{n}m ago",
+    "hours-ago": "{n}h ago",
+    "days-ago": "{n}d ago"
+  },
+  "notes": {
+    "new": "New Note",
+    "empty": "No notes yet",
+    "create-first": "Click + to create your first note",
+    "delete-confirm": "Delete this note?",
+    "cancel": "Cancel"
+  },
+  "editor": {
+    "back": "Back to list",
+    "save": "Save",
+    "delete": "Delete",
+    "placeholder": "Start writing in Markdown...",
+    "hint": "Ctrl+Enter save · Esc cancel"
+  },
+  "settings": {
+    "notesDir": {
+      "label": "Notes Directory",
+      "desc": "Path to the folder where notes are stored."
+    }
+  }
+}

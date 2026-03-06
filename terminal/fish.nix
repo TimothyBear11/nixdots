@@ -23,8 +23,13 @@
       }
       {
         name = "fisher";
-        src = pkgs.fishPlugins.fisher.src;
-      }
+        src = pkgs.fetchFromGitHub {
+          owner = "jorgebucaran";
+          repo = "fisher";
+          rev = "4.4.4"; # Latest stable version
+          hash = "sha256-e8gIaVbuUzTwKtuMPNXBT5STeddYqQegduWBtURLT3M=";
+        };
+      }  
     ];
 
     # ------------------------------------------------------------

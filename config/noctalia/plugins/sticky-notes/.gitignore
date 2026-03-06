@@ -1,0 +1,10 @@
+# Editor directories and files
+.vscode/
+
+# Qt/QML specific
+*.qmlc
+*.jsc
+*.qml~
+*.js~
+
+settings.json

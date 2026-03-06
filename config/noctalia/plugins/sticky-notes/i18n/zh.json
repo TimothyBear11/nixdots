@@ -1,0 +1,34 @@
+{
+  "widget": {
+    "tooltip": "便利贴"
+  },
+  "menu": {
+    "settings": "插件设置"
+  },
+  "time": {
+    "just-now": "刚刚",
+    "minutes-ago": "{n}分钟前",
+    "hours-ago": "{n}小时前",
+    "days-ago": "{n}天前"
+  },
+  "notes": {
+    "new": "新建笔记",
+    "empty": "暂无笔记",
+    "create-first": "点击 + 创建你的第一条笔记",
+    "delete-confirm": "确定删除这条笔记？",
+    "cancel": "取消"
+  },
+  "editor": {
+    "back": "返回列表",
+    "save": "保存",
+    "delete": "删除",
+    "placeholder": "开始用 Markdown 写作...",
+    "hint": "Ctrl+Enter 保存 · Esc 取消"
+  },
+  "settings": {
+    "notesDir": {
+      "label": "笔记目录",
+      "desc": "笔记文件存储的文件夹路径。"
+    }
+  }
+}

@@ -12,7 +12,7 @@
 
     instances.default = {
       enable = true;
-
+      systemd.enable = true;
       stateDir = "/home/tbear/.openclaw";
       workspaceDir = "/home/tbear/.openclaw/workspace";
 
