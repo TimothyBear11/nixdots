@@ -6,13 +6,26 @@
 
     # ------------------------------------------------------------
     # Environment variables
-    # These must be available before Starship initializes
     # ------------------------------------------------------------
     shellInit = ''
-      set -gx STARSHIP_CONFIG "$HOME/nixdots/config/starship.toml"
+      # set -gx STARSHIP_CONFIG "$HOME/nixdots/config/starship.toml"
       fish_add_path "$HOME/go/bin"
       fish_add_path "$HOME/.local/bin"
     '';
+
+    # ------------------------------------------------------------
+    # Plugins (Declarative Fisher & Tide)
+    # ------------------------------------------------------------
+    plugins = [
+      {
+        name = "tide";
+        src = pkgs.fishPlugins.tide.src;
+      }
+      {
+        name = "fisher";
+        src = pkgs.fishPlugins.fisher.src;
+      }
+    ];
 
     # ------------------------------------------------------------
     # Interactive shell startup
@@ -38,6 +51,8 @@
           source $f
         end
       end
+      
+      # Note: The first time you run this, you may want to run 'tide configure'
     '';
 
     # ------------------------------------------------------------
@@ -89,10 +104,10 @@
     enableFishIntegration = true;
   };
 
-  programs.starship = {
-    enable = true;
-    enableFishIntegration = true;
-  };
+  # programs.starship = {
+  #   enable = true;
+  #   enableFishIntegration = true;
+  # };
 
   programs.zoxide = {
     enable = true;

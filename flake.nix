@@ -26,6 +26,7 @@
     caelestia-shell.inputs.nixpkgs.follows = "nixpkgs";
     illogical-flake.url = "github:soymou/illogical-flake";
     illogical-flake.inputs.nixpkgs.follows = "nixpkgs";
+    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:
@@ -50,6 +51,7 @@
           nixpkgs.overlays = [
             youtuiOverlay
             inputs.nix-openclaw.overlays.default
+            inputs.millennium.overlays.default
           ];
           nixpkgs.config.allowUnfree = true;
 
