@@ -14,10 +14,10 @@ in
     enable = true;
     
     # Comfy theme - clean and modern
-    theme = spicePkgs.themes.comfy;
+    theme = spicePkgs.themes.sleek;
     
     # catppuccin-mocha: deep blue base with nice cyan accents - great match for your dragon!
-    colorScheme = "catppuccin-mocha";
+    colorScheme = "Eldritch";
 
     # Select extensions
     enabledExtensions = with spicePkgs.extensions; [
