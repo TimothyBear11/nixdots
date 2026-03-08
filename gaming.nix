@@ -26,5 +26,6 @@
     heroic
     protonup-qt
     lutris
+    protonplus
   ];
 }

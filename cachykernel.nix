@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }: {
   # 1. Use 'linuxPackagesFor' to wrap the Bore kernel from the flake
   # This automatically handles all your modules/drivers (Nvidia, etc.)
-  boot.kernelPackages = pkgs.linuxPackagesFor inputs.nix-cachyos-kernel.packages.${pkgs.system}.linux-cachyos-bore;
+  boot.kernelPackages = pkgs.linuxPackagesFor inputs.nix-cachyos-kernel.packages.${pkgs.system}.linux-cachyos-bore-lto;
 
   # 2. Binary cache settings
   nix.settings = {

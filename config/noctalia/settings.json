@@ -27,10 +27,10 @@
         "viewMode": "list"
     },
     "audio": {
-        "cavaFrameRate": 30,
         "mprisBlacklist": [
         ],
         "preferredPlayer": "",
+        "spectrumFrameRate": 30,
         "visualizerType": "linear",
         "volumeFeedback": false,
         "volumeFeedbackSoundFile": "",
@@ -65,7 +65,7 @@
         "mouseWheelAction": "none",
         "mouseWheelWrap": true,
         "outerCorners": true,
-        "position": "left",
+        "position": "top",
         "reverseScroll": false,
         "rightClickAction": "controlCenter",
         "rightClickCommand": "",
@@ -80,18 +80,18 @@
         "widgets": {
             "center": [
                 {
-                    "clockColor": "secondary",
+                    "clockColor": "error",
                     "customFont": "",
-                    "formatHorizontal": "h:mm AP ddd, MMM dd",
+                    "formatHorizontal": "h:mm AP",
                     "formatVertical": "h:mm AP",
                     "id": "Clock",
                     "tooltipFormat": "HH:mm ddd, MMM dd",
                     "useCustomFont": false
                 },
                 {
-                    "clockColor": "secondary",
+                    "clockColor": "error",
                     "customFont": "",
-                    "formatHorizontal": "HH:mm ddd, MMM dd",
+                    "formatHorizontal": "ddd, MMM dd",
                     "formatVertical": "MMM ddd, dd",
                     "id": "Clock",
                     "tooltipFormat": "HH:mm ddd, MMM dd",
@@ -119,10 +119,62 @@
                     "showArtistFirst": true,
                     "showProgressRing": true,
                     "showVisualizer": false,
-                    "textColor": "secondary",
+                    "textColor": "tertiary",
                     "useFixedWidth": false,
                     "visualizerType": "linear"
+                }
+            ],
+            "left": [
+                {
+                    "compactMode": true,
+                    "diskPath": "/",
+                    "iconColor": "error",
+                    "id": "SystemMonitor",
+                    "showCpuCores": false,
+                    "showCpuFreq": false,
+                    "showCpuTemp": true,
+                    "showCpuUsage": true,
+                    "showDiskAvailable": false,
+                    "showDiskUsage": true,
+                    "showDiskUsageAsPercent": false,
+                    "showGpuTemp": true,
+                    "showLoadAverage": false,
+                    "showMemoryAsPercent": false,
+                    "showMemoryUsage": true,
+                    "showNetworkStats": true,
+                    "showSwapUsage": false,
+                    "textColor": "none",
+                    "useMonospaceFont": true,
+                    "usePadding": true
                 },
+                {
+                    "defaultSettings": {
+                        "iconColor": "none"
+                    },
+                    "id": "plugin:color-scheme-creator"
+                },
+                {
+                    "hideWhenZero": true,
+                    "hideWhenZeroUnread": false,
+                    "iconColor": "error",
+                    "id": "NotificationHistory",
+                    "showUnreadBadge": true,
+                    "unreadBadgeColor": "secondary"
+                },
+                {
+                    "blacklist": [
+                    ],
+                    "chevronColor": "error",
+                    "colorizeIcons": true,
+                    "drawerEnabled": true,
+                    "hidePassive": false,
+                    "id": "Tray",
+                    "pinned": [
+                        "LM Studio"
+                    ]
+                }
+            ],
+            "right": [
                 {
                     "defaultSettings": {
                         "ai": {
@@ -151,66 +203,6 @@
                         }
                     },
                     "id": "plugin:assistant-panel"
-                }
-            ],
-            "left": [
-                {
-                    "characterCount": 2,
-                    "colorizeIcons": true,
-                    "emptyColor": "secondary",
-                    "enableScrollWheel": true,
-                    "focusedColor": "primary",
-                    "followFocusedScreen": false,
-                    "groupedBorderOpacity": 1,
-                    "hideUnoccupied": false,
-                    "iconScale": 0.8,
-                    "id": "Workspace",
-                    "labelMode": "index",
-                    "occupiedColor": "tertiary",
-                    "pillSize": 0.6,
-                    "showApplications": true,
-                    "showBadge": true,
-                    "showLabelsOnlyWhenOccupied": true,
-                    "unfocusedIconsOpacity": 1
-                },
-                {
-                    "defaultSettings": {
-                        "hideBackground": false,
-                        "minimumThreshold": 10
-                    },
-                    "id": "plugin:catwalk"
-                },
-                {
-                    "compactMode": true,
-                    "diskPath": "/",
-                    "iconColor": "secondary",
-                    "id": "SystemMonitor",
-                    "showCpuCores": false,
-                    "showCpuFreq": false,
-                    "showCpuTemp": true,
-                    "showCpuUsage": true,
-                    "showDiskAvailable": false,
-                    "showDiskUsage": true,
-                    "showDiskUsageAsPercent": false,
-                    "showGpuTemp": true,
-                    "showLoadAverage": false,
-                    "showMemoryAsPercent": false,
-                    "showMemoryUsage": true,
-                    "showNetworkStats": true,
-                    "showSwapUsage": false,
-                    "textColor": "none",
-                    "useMonospaceFont": true,
-                    "usePadding": true
-                },
-                {
-                    "id": "plugin:sticky-notes"
-                }
-            ],
-            "right": [
-                {
-                    "defaultSettings": {
-                    },
-                    "id": "plugin:kde-connect"
                 },
                 {
                     "defaultSettings": {
@@ -225,30 +217,42 @@
                     "id": "plugin:pomodoro"
                 },
                 {
-                    "hideWhenZero": true,
-                    "hideWhenZeroUnread": false,
-                    "iconColor": "secondary",
-                    "id": "NotificationHistory",
-                    "showUnreadBadge": true,
-                    "unreadBadgeColor": "error"
+                    "defaultSettings": {
+                    },
+                    "id": "plugin:kde-connect"
                 },
                 {
-                    "blacklist": [
-                    ],
-                    "chevronColor": "secondary",
-                    "colorizeIcons": true,
-                    "drawerEnabled": true,
-                    "hidePassive": false,
-                    "id": "Tray",
-                    "pinned": [
-                        "LM Studio"
-                    ]
+                    "id": "plugin:sticky-notes"
                 },
                 {
                     "defaultSettings": {
-                        "iconColor": "none"
+                        "hideBackground": false,
+                        "minimumThreshold": 10
                     },
-                    "id": "plugin:color-scheme-creator"
+                    "id": "plugin:catwalk"
+                },
+                {
+                    "characterCount": 2,
+                    "colorizeIcons": true,
+                    "emptyColor": "secondary",
+                    "enableScrollWheel": true,
+                    "focusedColor": "tertiary",
+                    "followFocusedScreen": false,
+                    "fontWeight": "bold",
+                    "groupedBorderOpacity": 1,
+                    "hideUnoccupied": false,
+                    "iconScale": 0.8,
+                    "id": "Workspace",
+                    "labelMode": "index",
+                    "occupiedColor": "secondary",
+                    "pillSize": 0.6,
+                    "showApplications": true,
+                    "showBadge": true,
+                    "showLabelsOnlyWhenOccupied": true,
+                    "unfocusedIconsOpacity": 1
+                },
+                {
+                    "id": "plugin:hyprland-steam-overlay"
                 }
             ]
         }
@@ -282,7 +286,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Eldritch",
+        "predefinedScheme": "Naysayer",
         "schedulingMode": "off",
         "useWallpaperColors": false
     },
@@ -366,18 +370,22 @@
                         "showBackground": false,
                         "useCustomFont": false,
                         "usePrimaryColor": true,
-                        "x": 2193,
-                        "y": -20
+                        "x": 2182,
+                        "y": 18
                     },
                     {
                         "hideMode": "idle",
                         "id": "MediaPlayer",
-                        "showBackground": true,
+                        "roundedCorners": true,
+                        "scale": 0.9160494839731909,
+                        "showAlbumArt": true,
+                        "showBackground": false,
                         "showButtons": true,
+                        "showVisualizer": true,
                         "visualizerType": "linear",
                         "visualizerVisibility": "always",
-                        "x": 2157,
-                        "y": 227
+                        "x": 2170,
+                        "y": 274
                     },
                     {
                         "defaultSettings": {
@@ -392,15 +400,16 @@
                         "id": "plugin:fancy-audiovisualizer",
                         "scale": 1.4843865593518784,
                         "showBackground": true,
-                        "x": 2108,
-                        "y": 326
+                        "x": 2135,
+                        "y": 348
                     },
                     {
                         "id": "Weather",
-                        "scale": 1.2404163056034263,
+                        "roundedCorners": true,
+                        "scale": 1.3118819675249105,
                         "showBackground": false,
-                        "x": 2192,
-                        "y": 139
+                        "x": 2181,
+                        "y": 181
                     }
                 ]
             }
@@ -450,6 +459,7 @@
         "clockStyle": "custom",
         "compactLockScreen": false,
         "dimmerOpacity": 0.6,
+        "enableBlurBehind": true,
         "enableLockScreenCountdown": true,
         "enableLockScreenMediaControls": false,
         "enableShadows": true,
@@ -561,6 +571,10 @@
         "manualSunset": "18:30",
         "nightTemp": "4000"
     },
+    "noctaliaPerformance": {
+        "disableDesktopWidgets": true,
+        "disableWallpaper": true
+    },
     "notifications": {
         "backgroundOpacity": 1,
         "clearDismissed": true,
@@ -658,7 +672,7 @@
         "showHeader": true,
         "showKeybinds": true
     },
-    "settingsVersion": 56,
+    "settingsVersion": 57,
     "systemMonitor": {
         "batteryCriticalThreshold": 5,
         "batteryWarningThreshold": 20,
@@ -694,7 +708,7 @@
             },
             {
                 "enabled": true,
-                "id": "zenBrowser"
+                "id": "helix"
             },
             {
                 "enabled": true,
@@ -711,10 +725,6 @@
             {
                 "enabled": true,
                 "id": "gtk"
-            },
-            {
-                "enabled": true,
-                "id": "helix"
             },
             {
                 "enabled": true,

@@ -8,9 +8,9 @@
 
   programs.hyprland.enable = true;
   programs.niri.enable = true;
-  programs.dconf.enable = true; # <-- ADDED
+  programs.dconf.enable = true;
 
-  security.polkit.enable = true; # <-- ADDED
+  security.polkit.enable = true;
 
   # Polkit Agent Service
   systemd.user.services.polkit-gnome-authentication-agent-1 = {
@@ -48,7 +48,7 @@
     slurp
     pavucontrol
     polkit_gnome
-    gnome-keyring # <-- Optional: Helps with app passwords
+    gnome-keyring
   ];
 
   environment.sessionVariables = {

@@ -3,5 +3,5 @@
   "showConditionIcon": true,
   "showTempUnit": true,
   "tooltipOption": "everything",
-  "customColor": "secondary"
+  "customColor": "error"
 }
