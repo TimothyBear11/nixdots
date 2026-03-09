@@ -4,7 +4,11 @@
   # ... (mangohud config) ...
 
   home.packages = with pkgs; [
-    kdePackages.dolphin
+    thunar
+    thunar-volman
+    thunar-vcs-plugin
+    thunar-media-tags-plugin
+    tumbler
     kdePackages.kate
     signal-desktop
     filezilla

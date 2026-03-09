@@ -4,7 +4,7 @@
   services.xserver.enable = true;
   services.xserver.xkb.layout = "us";
   services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  
 
   programs.hyprland.enable = true;
   programs.niri.enable = true;
@@ -32,12 +32,7 @@
     config.common.default = "*";
   };
 
-  qt = {
-    enable = true;
-    platformTheme = "qt5ct";
-  };
-
-  environment.systemPackages = with pkgs; [
+    environment.systemPackages = with pkgs; [
     xwayland-satellite
     libsForQt5.qt5ct
     kdePackages.qt6ct
@@ -52,7 +47,7 @@
   ];
 
   environment.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "qt5ct";
+    QT_QPA_PLATFORMTHEME = "qt6ct";
     QT_QPA_PLATFORM = "wayland;xcb";
   };
 }

@@ -177,6 +177,13 @@
             "right": [
                 {
                     "defaultSettings": {
+                        "hideBackground": false,
+                        "minimumThreshold": 10
+                    },
+                    "id": "plugin:catwalk"
+                },
+                {
+                    "defaultSettings": {
                         "ai": {
                             "apiKeys": {
                             },
@@ -226,10 +233,15 @@
                 },
                 {
                     "defaultSettings": {
-                        "hideBackground": false,
-                        "minimumThreshold": 10
+                        "autoLaunchSteam": true,
+                        "chatWidthPercent": 25,
+                        "friendsWidthPercent": 10,
+                        "gapSize": 10,
+                        "mainWidthPercent": 60,
+                        "topMarginPercent": 2.5,
+                        "windowHeightPercent": 95
                     },
-                    "id": "plugin:catwalk"
+                    "id": "plugin:hyprland-steam-overlay"
                 },
                 {
                     "characterCount": 2,
@@ -250,9 +262,6 @@
                     "showBadge": true,
                     "showLabelsOnlyWhenOccupied": true,
                     "unfocusedIconsOpacity": 1
-                },
-                {
-                    "id": "plugin:hyprland-steam-overlay"
                 }
             ]
         }
@@ -360,7 +369,7 @@
                 "name": "DP-1",
                 "widgets": [
                     {
-                        "clockColor": "error",
+                        "clockColor": "tertiary",
                         "clockStyle": "minimal",
                         "customFont": "",
                         "format": "h:mm AP \\n dddd \\n MMMM dd, yyyy",
@@ -377,15 +386,15 @@
                         "hideMode": "idle",
                         "id": "MediaPlayer",
                         "roundedCorners": true,
-                        "scale": 0.9160494839731909,
+                        "scale": 0.8677857633093904,
                         "showAlbumArt": true,
                         "showBackground": false,
                         "showButtons": true,
                         "showVisualizer": true,
                         "visualizerType": "linear",
                         "visualizerVisibility": "always",
-                        "x": 2170,
-                        "y": 274
+                        "x": 2178,
+                        "y": 400
                     },
                     {
                         "defaultSettings": {
@@ -398,10 +407,10 @@
                             "showRings": true
                         },
                         "id": "plugin:fancy-audiovisualizer",
-                        "scale": 1.4843865593518784,
+                        "scale": 3.2655959068564284,
                         "showBackground": true,
-                        "x": 2135,
-                        "y": 348
+                        "x": 1973,
+                        "y": 847
                     },
                     {
                         "id": "Weather",
@@ -410,6 +419,32 @@
                         "showBackground": false,
                         "x": 2181,
                         "y": 181
+                    },
+                    {
+                        "colorName": "tertiary",
+                        "height": 72,
+                        "hideWhenIdle": false,
+                        "id": "AudioVisualizer",
+                        "roundedCorners": true,
+                        "scale": 1.0772477329968115,
+                        "showBackground": true,
+                        "visualizerType": "linear",
+                        "width": 320,
+                        "x": 2179,
+                        "y": 487
+                    },
+                    {
+                        "colorName": "error",
+                        "height": 72,
+                        "hideWhenIdle": false,
+                        "id": "AudioVisualizer",
+                        "roundedCorners": true,
+                        "scale": 1.079383784731646,
+                        "showBackground": true,
+                        "visualizerType": "linear",
+                        "width": 320,
+                        "x": 2179,
+                        "y": 307
                     }
                 ]
             }

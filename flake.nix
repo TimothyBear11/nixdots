@@ -11,22 +11,28 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zen-browser.url = "github:youwen5/zen-browser-flake";
-    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     mangowc.url = "github:DreamMaoMao/mangowc";
     mangowc.inputs.nixpkgs.follows = "nixpkgs";
-    dms.url = "github:AvengeMedia/DankMaterialShell";
-    noctalia.url = "github:noctalia-dev/noctalia-shell";
+    
     ambxst.url = "github:Axenide/Ambxst";
     ambxst.inputs.nixpkgs.follows = "nixpkgs";
+    
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
-    nix-openclaw.url = "github:openclaw/nix-openclaw";
+    
     caelestia-shell.url = "github:caelestia-dots/shell";
-    caelestia-shell.inputs.nixpkgs.follows = "nixpkgs";
-    illogical-flake.url = "github:soymou/illogical-flake";
-    illogical-flake.inputs.nixpkgs.follows = "nixpkgs";
+    
+    dms.url = "github:AvengeMedia/DankMaterialShell";
+    dms.inputs.nixpkgs.follows = "nixpkgs"; 
+
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
+    noctalia.inputs.nixpkgs.follows = "nixpkgs"; 
+    
+    nix-openclaw.url = "github:openclaw/nix-openclaw";
+    nix-openclaw.inputs.nixpkgs.follows = "nixpkgs"; 
+
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    millennium.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:
@@ -35,6 +41,12 @@
 
     youtuiOverlay = final: prev: {
       youtui = final.callPackage ./youtui.nix {};
+    };
+
+    app2unitOverlay = final: prev: {
+      app2unit = prev.app2unit.overrideAttrs (old: {
+        postPatch = ""; 
+      });
     };
   in {
     nixosConfigurations.my-nix-den = nixpkgs.lib.nixosSystem {
