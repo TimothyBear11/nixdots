@@ -30,5 +30,6 @@
     telegram-desktop
     wtfutil
     superfile
+    bibata-cursors
   ];
 }
