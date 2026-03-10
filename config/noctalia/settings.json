@@ -295,7 +295,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Naysayer",
+        "predefinedScheme": "TBear",
         "schedulingMode": "off",
         "useWallpaperColors": false
     },
@@ -359,6 +359,7 @@
     "desktopWidgets": {
         "enabled": true,
         "gridSnap": false,
+        "gridSnapScale": false,
         "monitorWidgets": [
             {
                 "name": "HDMI-A-1",
@@ -816,6 +817,7 @@
         "fontFixedScale": 1,
         "panelBackgroundOpacity": 0.65,
         "panelsAttachedToBar": true,
+        "scrollbarAlwaysVisible": true,
         "settingsPanelMode": "centered",
         "settingsPanelSideBarCardStyle": false,
         "tooltipsEnabled": true
