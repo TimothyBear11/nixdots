@@ -47,6 +47,7 @@
         "contentPadding": 2,
         "density": "comfortable",
         "displayMode": "always_visible",
+        "enableExclusionZoneInset": true,
         "floating": false,
         "fontScale": 1,
         "frameRadius": 12,
@@ -295,7 +296,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "TBear",
+        "predefinedScheme": "Marchborn!",
         "schedulingMode": "off",
         "useWallpaperColors": false
     },
@@ -396,22 +397,6 @@
                         "visualizerVisibility": "always",
                         "x": 2178,
                         "y": 400
-                    },
-                    {
-                        "defaultSettings": {
-                            "barWidth": 0.6,
-                            "bloomIntensity": 0.5,
-                            "ringOpacity": 0.8,
-                            "rotationSpeed": 0.5,
-                            "sensitivity": 1.5,
-                            "showBars": true,
-                            "showRings": true
-                        },
-                        "id": "plugin:fancy-audiovisualizer",
-                        "scale": 3.2655959068564284,
-                        "showBackground": true,
-                        "x": 1973,
-                        "y": 847
                     },
                     {
                         "id": "Weather",
@@ -820,7 +805,8 @@
         "scrollbarAlwaysVisible": true,
         "settingsPanelMode": "centered",
         "settingsPanelSideBarCardStyle": false,
-        "tooltipsEnabled": true
+        "tooltipsEnabled": true,
+        "translucentWidgets": false
     },
     "wallpaper": {
         "automationEnabled": false,
