@@ -81,7 +81,7 @@
         "widgets": {
             "center": [
                 {
-                    "clockColor": "error",
+                    "clockColor": "primary",
                     "customFont": "",
                     "formatHorizontal": "h:mm AP",
                     "formatVertical": "h:mm AP",
@@ -90,7 +90,7 @@
                     "useCustomFont": false
                 },
                 {
-                    "clockColor": "error",
+                    "clockColor": "primary",
                     "customFont": "",
                     "formatHorizontal": "ddd, MMM dd",
                     "formatVertical": "MMM ddd, dd",
@@ -120,16 +120,36 @@
                     "showArtistFirst": true,
                     "showProgressRing": true,
                     "showVisualizer": false,
-                    "textColor": "tertiary",
+                    "textColor": "primary",
                     "useFixedWidth": false,
                     "visualizerType": "linear"
                 }
             ],
             "left": [
                 {
+                    "characterCount": 2,
+                    "colorizeIcons": true,
+                    "emptyColor": "secondary",
+                    "enableScrollWheel": true,
+                    "focusedColor": "tertiary",
+                    "followFocusedScreen": false,
+                    "fontWeight": "bold",
+                    "groupedBorderOpacity": 1,
+                    "hideUnoccupied": false,
+                    "iconScale": 0.8,
+                    "id": "Workspace",
+                    "labelMode": "index",
+                    "occupiedColor": "secondary",
+                    "pillSize": 0.6,
+                    "showApplications": true,
+                    "showBadge": true,
+                    "showLabelsOnlyWhenOccupied": true,
+                    "unfocusedIconsOpacity": 1
+                },
+                {
                     "compactMode": true,
                     "diskPath": "/",
-                    "iconColor": "error",
+                    "iconColor": "tertiary",
                     "id": "SystemMonitor",
                     "showCpuCores": false,
                     "showCpuFreq": false,
@@ -157,15 +177,15 @@
                 {
                     "hideWhenZero": true,
                     "hideWhenZeroUnread": false,
-                    "iconColor": "error",
+                    "iconColor": "tertiary",
                     "id": "NotificationHistory",
                     "showUnreadBadge": true,
-                    "unreadBadgeColor": "secondary"
+                    "unreadBadgeColor": "primary"
                 },
                 {
                     "blacklist": [
                     ],
-                    "chevronColor": "error",
+                    "chevronColor": "tertiary",
                     "colorizeIcons": true,
                     "drawerEnabled": true,
                     "hidePassive": false,
@@ -176,13 +196,6 @@
                 }
             ],
             "right": [
-                {
-                    "defaultSettings": {
-                        "hideBackground": false,
-                        "minimumThreshold": 10
-                    },
-                    "id": "plugin:catwalk"
-                },
                 {
                     "defaultSettings": {
                         "ai": {
@@ -245,24 +258,11 @@
                     "id": "plugin:hyprland-steam-overlay"
                 },
                 {
-                    "characterCount": 2,
-                    "colorizeIcons": true,
-                    "emptyColor": "secondary",
-                    "enableScrollWheel": true,
-                    "focusedColor": "tertiary",
-                    "followFocusedScreen": false,
-                    "fontWeight": "bold",
-                    "groupedBorderOpacity": 1,
-                    "hideUnoccupied": false,
-                    "iconScale": 0.8,
-                    "id": "Workspace",
-                    "labelMode": "index",
-                    "occupiedColor": "secondary",
-                    "pillSize": 0.6,
-                    "showApplications": true,
-                    "showBadge": true,
-                    "showLabelsOnlyWhenOccupied": true,
-                    "unfocusedIconsOpacity": 1
+                    "defaultSettings": {
+                        "hideBackground": false,
+                        "minimumThreshold": 10
+                    },
+                    "id": "plugin:catwalk"
                 }
             ]
         }
@@ -431,6 +431,27 @@
                         "width": 320,
                         "x": 2179,
                         "y": 307
+                    },
+                    {
+                        "defaultSettings": {
+                            "barWidth": 0.6,
+                            "bloomIntensity": 0.5,
+                            "customPrimaryColor": "#6750A4",
+                            "customSecondaryColor": "#625B71",
+                            "fadeWhenIdle": false,
+                            "innerDiameter": 0.7,
+                            "ringOpacity": 0.8,
+                            "rotationSpeed": 0.5,
+                            "sensitivity": 1.5,
+                            "useCustomColors": false,
+                            "visualizationMode": 3,
+                            "waveThickness": 1
+                        },
+                        "id": "plugin:fancy-audiovisualizer",
+                        "scale": 2.3295448910216434,
+                        "showBackground": true,
+                        "x": 2113,
+                        "y": 987
                     }
                 ]
             }
