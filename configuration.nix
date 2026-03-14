@@ -13,7 +13,7 @@
     ./ambxst.nix
     ./dms.nix
     ./noctalia.nix
-    #./cachykernel.nix
+    ./cachykernel.nix
   ];
 
   # --- Boot & Kernel ---
@@ -21,7 +21,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   #boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
-  boot.kernelPackages = pkgs.linuxPackages_lqx;
+  #boot.kernelPackages = pkgs.linuxPackages_lqx;
 
   # --- Nix Housekeeping & Settings ---
   nix = {
