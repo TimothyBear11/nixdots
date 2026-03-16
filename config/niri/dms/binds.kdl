@@ -3,22 +3,23 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+D { spawn  "dms" "ipc" "call" "spotlight" "toggle"; }
+    Mod+F1 { spawn "dms" "ipc" "call" "dash" "toggle"; }
     Mod+F2 { spawn "dms" "ipc" "call" "settings" "focusOrToggle"; }
     Mod+F3 { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
+    Mod+F4 { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
     Mod+K { spawn "kate"; }
-    Mod+B { spawn "zen"; }
+    Mod+B { spawn "floorp"; }
     Mod+M { spawn "spotify"; }
     Mod+V { spawn "vesktop"; }
     Mod+Return { spawn "kitty"; }
     Mod+S { spawn "steam"; }
     Mod+H { spawn "heroic"; }
     Mod+Z { spawn "zeditor"; }
-    Mod+E { spawn "dolphin"; }
+    Mod+E { spawn "thunar"; }
     Mod+J { spawn "joplin-desktop"; }
     Mod+A { spawn "signal-desktop"; }
-    Mod+T { spawn "konsole"; }
+    Mod+T { spawn "Telegram"; }
     Mod+P { spawn "positron"; }
-    Ctrl+Return { spawn "kitty"; }
 
     // Security
     Mod+Alt+L hotkey-overlay-title="Lock Screen" { spawn "dms" "ipc" "call" "lock" "lock";  }
