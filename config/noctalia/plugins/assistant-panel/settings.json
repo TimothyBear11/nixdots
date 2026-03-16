@@ -5,14 +5,14 @@
       "openai_compatible": "llama3.1"
     },
     "apiKeys": {
-      "google": "AIzaSyB7JdeWDUIEpgArPdO2miqg_JDzksstVoU",
+      "google": "AIzaSyBrNScHwNQOL3ptxMVkhyAXZRxlaewxDmo",
       "openai_compatible": ""
     },
     "temperature": 0.7,
     "systemPrompt": "You are a helpful assistant integrated into a Linux desktop shell. Be concise and helpful.",
     "openaiLocal": false,
     "openaiBaseUrl": "http://localhost:11434",
-    "model": "llama3.1"
+    "model": "gemini-3-flash"
   },
   "translator": {
     "backend": "google",
