@@ -2,67 +2,22 @@
     (
         modifiers: [
             Super,
-            Alt,
         ],
-        key: "Down",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "k",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "Down",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "j",
+        key: "F11",
     ): Disable,
     (
         modifiers: [
             Super,
             Ctrl,
         ],
-        key: "Down",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "h",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "equal",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "slash",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-        ],
-        key: "j",
+        key: "l",
     ): Disable,
     (
         modifiers: [
             Super,
             Alt,
         ],
-        key: "Right",
+        key: "s",
     ): Disable,
     (
         modifiers: [
@@ -74,9 +29,46 @@
     (
         modifiers: [
             Super,
-            Ctrl,
         ],
-        key: "Up",
+        key: "a",
+        description: Some("Antigravity"),
+    ): Spawn("antigravity"),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "v",
+        description: Some("Vesktop"),
+    ): Spawn("vesktop"),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "0",
+    ): Disable,
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "F4",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "slash",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "l",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "h",
     ): Disable,
     (
         modifiers: [
@@ -88,26 +80,7 @@
     (
         modifiers: [
             Super,
-        ],
-        key: "0",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "Return",
-        description: Some("Kitty"),
-    ): Spawn("kitty"),
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "Left",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
+            Ctrl,
         ],
         key: "Up",
     ): Disable,
@@ -122,14 +95,27 @@
         modifiers: [
             Super,
         ],
-        key: "space",
+        key: "i",
     ): Disable,
     (
         modifiers: [
             Super,
-            Ctrl,
+            Alt,
         ],
-        key: "h",
+        key: "Down",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "Return",
+        description: Some("Kitty"),
+    ): Spawn("kitty"),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "Down",
     ): Disable,
     (
         modifiers: [
@@ -142,40 +128,41 @@
         modifiers: [
             Super,
         ],
-        key: "f",
-    ): Fullscreen,
+        key: "e",
+        description: Some("Thunar"),
+    ): Spawn("thunar"),
     (
         modifiers: [
             Super,
         ],
-        key: "y",
+        key: "g",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+        ],
+        key: "j",
     ): Disable,
     (
         modifiers: [
             Super,
         ],
-        key: "v",
-        description: Some("Vesktop"),
-    ): Spawn("vesktop"),
+        key: "s",
+        description: Some("Steam"),
+    ): Spawn("steam"),
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+        ],
+        key: "Right",
+    ): Disable,
     (
         modifiers: [
             Super,
         ],
         key: "minus",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "h",
-    ): Disable,
-    (
-        modifiers: [
-            Alt,
-            Shift,
-        ],
-        key: "Tab",
     ): Disable,
     (
         modifiers: [
@@ -194,36 +181,10 @@
     (
         modifiers: [
             Super,
-        ],
-        key: "j",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "g",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
             Ctrl,
         ],
-        key: "Left",
+        key: "Down",
     ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "Up",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "s",
-        description: Some("Steam"),
-    ): Spawn("steam"),
     (
         modifiers: [
             Super,
@@ -234,58 +195,19 @@
         modifiers: [
             Super,
         ],
-        key: "u",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "a",
-        description: Some("Antigravity"),
-    ): Spawn("antigravity"),
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "l",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "s",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "o",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "e",
-        description: Some("Thunar"),
-    ): Spawn("thunar"),
-    (
-        modifiers: [
-            Super,
-        ],
         key: "comma",
     ): Disable,
     (
         modifiers: [
             Super,
         ],
-        key: "F11",
+        key: "space",
     ): Disable,
     (
         modifiers: [
             Super,
         ],
-        key: "i",
+        key: "y",
     ): Disable,
     (
         modifiers: [
@@ -297,6 +219,13 @@
     (
         modifiers: [
             Super,
+            Alt,
+        ],
+        key: "h",
+    ): Disable,
+    (
+        modifiers: [
+            Alt,
             Shift,
         ],
         key: "Tab",
@@ -304,21 +233,99 @@
     (
         modifiers: [
             Super,
-            Ctrl,
         ],
-        key: "l",
+        key: "j",
     ): Disable,
     (
         modifiers: [
+            Super,
+        ],
+        key: "o",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "F2",
+        description: Some("Settings"),
+    ): Spawn("cosmic-settings"),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "Tab",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
             Alt,
         ],
-        key: "F4",
+        key: "Right",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "Up",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "j",
     ): Disable,
     (
         modifiers: [
             Super,
             Ctrl,
         ],
-        key: "Right",
+        key: "h",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "Left",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "Up",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "equal",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "u",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+        ],
+        key: "Left",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "f",
+    ): Fullscreen,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "k",
     ): Disable,
 }
