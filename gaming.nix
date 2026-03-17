@@ -23,9 +23,10 @@
   };
 
   environment.systemPackages = with pkgs; [
-    heroic
+    #heroic
     protonup-qt
     lutris
     protonplus
+    mindustry-wayland
   ];
 }

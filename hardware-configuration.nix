@@ -14,8 +14,8 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/df548c1a-871e-4e0f-bfb3-4f83c809be84";
-      fsType = "ext4";
+    { device = "/dev/disk/by-uuid/b86acb77-8ad3-4aa2-a641-d362a10a25cd";
+      fsType = "xfs";
     };
 
   fileSystems."/home/tbear/Games" =
@@ -24,13 +24,13 @@
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/A2C1-0610";
+    { device = "/dev/disk/by-uuid/4495-BA30";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/1f490df2-c5e8-48b4-ba27-f25c79ef887a"; }
+    [ { device = "/dev/disk/by-uuid/98c213d7-4f0f-4a19-95d8-21abf4ba8131"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

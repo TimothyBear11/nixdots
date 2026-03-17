@@ -12,10 +12,11 @@ let
     mango = "mango";
     Ambxst = "Ambxst";
     btop = "btop";
+    cosmic = "cosmic";
   };
 in
 {
-  
+
 
   imports = [
     ./terminal.nix
@@ -65,7 +66,7 @@ in
     })
 
 
-  ];  
+  ];
 
   xdg.configFile = builtins.mapAttrs
     (name: subpath: {

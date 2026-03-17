@@ -1,10 +1,10 @@
 {
-  description = "UrsaOS & NixOS - Logic meets Magic";
+  description = "NixOS - Logic meets Magic";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -13,7 +13,7 @@
 
     mangowc.url = "github:DreamMaoMao/mangowc";
     mangowc.inputs.nixpkgs.follows = "nixpkgs";
-    
+
     ambxst.url = "github:Axenide/Ambxst";
     ambxst.inputs.nixpkgs.follows = "nixpkgs";
     

@@ -3,8 +3,12 @@
 {
   services.xserver.enable = true;
   services.xserver.xkb.layout = "us";
-  services.displayManager.sddm.enable = true;
+
+  #services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+
+  services.desktopManager.cosmic.enable = true;
+  services.displayManager.cosmic-greeter.enable = true;
 
   programs.hyprland.enable = true;
   programs.niri.enable = true;
@@ -44,6 +48,9 @@
     pavucontrol
     polkit_gnome
     gnome-keyring
+    cosmic-ext-applet-weather
+    cosmic-ext-applet-minimon
+    cosmic-ext-applet-caffeine
   ];
 
   environment.sessionVariables = {

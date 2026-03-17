@@ -89,6 +89,9 @@
   binfmt = true;
 };
 
+  # --- For Cosmic Store Applets
+  services.flatpak.enable = true;
+
   # --- Users ---
   programs.fish.enable = true;
 

@@ -1,0 +1,5 @@
+Some([
+    "io.github.cosmic_utils.weather-applet",
+    "com.system76.CosmicAppletTime",
+    "net.tropicbliss.CosmicExtAppletCaffeine",
+])
