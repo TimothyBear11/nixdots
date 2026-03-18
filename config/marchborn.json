@@ -1,0 +1,22 @@
+{
+  "name": "Marchborn Guardian",
+  "primary": "#7FFFD4",
+  "primaryText": "#1A2024",
+  "primaryContainer": "#48D1CC",
+  "secondary": "#C61A1A",
+  "surface": "#22292E",
+  "surfaceText": "#D3E0E2",
+  "surfaceVariant": "#34424A",
+  "surfaceVariantText": "#FFFFFF",
+  "surfaceTint": "#7FFFD4",
+  "background": "#1A2024",
+  "backgroundText": "#D3E0E2",
+  "outline": "#4A5B66",
+  "surfaceContainer": "#1C2328",
+  "surfaceContainerHigh": "#22292E",
+  "surfaceContainerHighest": "#34424A",
+  "error": "#8A0303",
+  "warning": "#F4A261",
+  "info": "#48D1CC",
+  "matugen_type": "scheme-expressive"
+}

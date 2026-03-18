@@ -25,12 +25,10 @@
     enable = true;
     # The updated way to declare ROCm acceleration in NixOS:
     package = pkgs.ollama-rocm;
-    
+
     # Force ROCm compatibility for the RX 6700 XT (gfx1031)
     rocmOverrideGfx = "10.3.0";
     # Automatically download and load this model on startup
-    loadModels = [ "llama3.1" ];
+    loadModels = [ "llama3.2" ];
   };
 }
-
-  
