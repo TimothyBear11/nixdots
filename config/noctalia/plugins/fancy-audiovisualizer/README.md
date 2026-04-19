@@ -31,9 +31,8 @@ Access the plugin settings in Noctalia to configure the following options:
 
 ## Usage
 
-Add the widget to your desktop via the Noctalia desktop widgets interface. The visualizer responds to system audio through CavaService.
+Add the widget to your desktop via the Noctalia desktop widgets interface. The visualizer responds to system audio.
 
 ## Requirements
 
 - Noctalia 3.7.2 or later
-- Cava audio visualizer (for audio data)

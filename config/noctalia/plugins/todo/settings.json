@@ -1,4 +1,5 @@
 {
+  "todos": [],
   "pages": [
     {
       "id": 0,
@@ -6,14 +7,12 @@
     }
   ],
   "current_page_id": 0,
-  "todos": [],
   "count": 0,
   "completedCount": 0,
+  "showCompleted": true,
+  "showBackground": true,
   "isExpanded": false,
   "useCustomColors": false,
-  "exportPath": "~/Documents",
-  "exportFormat": "markdown",
-  "exportEmptySections": false,
   "priorityColors": {
     "high": {
       "r": 0.9450980424880981,
@@ -54,5 +53,8 @@
       "hslLightness": 0.7627527117729187,
       "valid": true
     }
-  }
+  },
+  "exportPath": "~/Documents",
+  "exportFormat": "markdown",
+  "exportEmptySections": false
 }

@@ -32,6 +32,7 @@
         ],
         "preferredPlayer": "",
         "spectrumFrameRate": 30,
+        "spectrumMirrored": true,
         "visualizerType": "linear",
         "volumeFeedback": false,
         "volumeFeedbackSoundFile": "",
@@ -49,7 +50,6 @@
         "density": "comfortable",
         "displayMode": "always_visible",
         "enableExclusionZoneInset": true,
-        "floating": false,
         "fontScale": 1,
         "frameRadius": 12,
         "frameThickness": 8,
@@ -82,60 +82,48 @@
         "widgets": {
             "center": [
                 {
-                    "defaultSettings": {
-                        "ai": {
-                            "apiKeys": {
-                            },
-                            "maxHistoryLength": 100,
-                            "model": "gemini-2.5-flash",
-                            "openaiBaseUrl": "https://api.openai.com/v1/chat/completions",
-                            "openaiLocal": false,
-                            "provider": "google",
-                            "systemPrompt": "You are a helpful assistant integrated into a Linux desktop shell. Be concise and helpful.",
-                            "temperature": 0.7
-                        },
-                        "maxHistoryLength": 100,
-                        "panelDetached": true,
-                        "panelHeightRatio": 0.85,
-                        "panelPosition": "right",
-                        "panelWidth": 520,
-                        "scale": 1,
-                        "translator": {
-                            "backend": "google",
-                            "deeplApiKey": "",
-                            "realTimeTranslation": true,
-                            "sourceLanguage": "auto",
-                            "targetLanguage": "en"
-                        }
-                    },
-                    "id": "plugin:assistant-panel"
+                    "clockColor": "primary",
+                    "customFont": "",
+                    "formatHorizontal": "h:mm AP",
+                    "formatVertical": "h:mm AP",
+                    "id": "Clock",
+                    "tooltipFormat": "HH:mm ddd, MMM dd",
+                    "useCustomFont": false
+                },
+                {
+                    "clockColor": "primary",
+                    "customFont": "",
+                    "formatHorizontal": "ddd, MMM dd",
+                    "formatVertical": "MMM ddd, dd",
+                    "id": "Clock",
+                    "tooltipFormat": "HH:mm ddd, MMM dd",
+                    "useCustomFont": false
                 },
                 {
                     "defaultSettings": {
-                        "autoStartBreaks": false,
-                        "autoStartWork": false,
-                        "compactMode": false,
-                        "longBreakDuration": 15,
-                        "sessionsBeforeLongBreak": 4,
-                        "shortBreakDuration": 5,
-                        "workDuration": 25
+                        "customColor": "none",
+                        "showConditionIcon": true,
+                        "showTempUnit": true,
+                        "showTempValue": true,
+                        "tooltipOption": "everything"
                     },
-                    "id": "plugin:pomodoro"
+                    "id": "plugin:weather-indicator"
                 },
                 {
-                    "defaultSettings": {
-                    },
-                    "id": "plugin:kde-connect"
-                },
-                {
-                    "id": "plugin:sticky-notes"
-                },
-                {
-                    "defaultSettings": {
-                        "hideBackground": false,
-                        "minimumThreshold": 10
-                    },
-                    "id": "plugin:catwalk"
+                    "compactMode": false,
+                    "hideMode": "idle",
+                    "hideWhenIdle": false,
+                    "id": "MediaMini",
+                    "maxWidth": 300,
+                    "panelShowAlbumArt": true,
+                    "scrollingMode": "hover",
+                    "showAlbumArt": true,
+                    "showArtistFirst": true,
+                    "showProgressRing": true,
+                    "showVisualizer": false,
+                    "textColor": "primary",
+                    "useFixedWidth": false,
+                    "visualizerType": "linear"
                 }
             ],
             "left": [
@@ -184,17 +172,129 @@
                 },
                 {
                     "defaultSettings": {
-                        "iconColor": "none"
                     },
-                    "id": "plugin:color-scheme-creator"
+                    "id": "plugin:kde-connect"
                 },
                 {
-                    "hideWhenZero": true,
-                    "hideWhenZeroUnread": false,
-                    "iconColor": "tertiary",
-                    "id": "NotificationHistory",
-                    "showUnreadBadge": true,
-                    "unreadBadgeColor": "primary"
+                    "defaultSettings": {
+                        "colorizationBadge": "Primary",
+                        "colorizationBadgeText": "Primary",
+                        "colorizationEnabled": false,
+                        "colorizationIcon": "Primary",
+                        "defaultTab": 0,
+                        "enableSystemNotifications": false,
+                        "maxEvents": 50,
+                        "notifyForks": true,
+                        "notifyGitHubNotifications": true,
+                        "notifyMyRepoForks": true,
+                        "notifyMyRepoStars": true,
+                        "notifyPRs": true,
+                        "notifyRepoCreations": true,
+                        "notifyStars": true,
+                        "openInBrowser": true,
+                        "refreshInterval": 1800,
+                        "showForks": true,
+                        "showMyRepoForks": true,
+                        "showMyRepoStars": true,
+                        "showNotificationBadge": true,
+                        "showPRs": true,
+                        "showRepoCreations": true,
+                        "showStars": true,
+                        "token": "",
+                        "username": ""
+                    },
+                    "id": "plugin:github-feed"
+                }
+            ],
+            "right": [
+                {
+                    "defaultSettings": {
+                        "ai": {
+                            "apiKeys": {
+                            },
+                            "maxHistoryLength": 100,
+                            "model": "gemini-2.5-flash",
+                            "openaiBaseUrl": "https://api.openai.com/v1/chat/completions",
+                            "openaiLocal": false,
+                            "provider": "google",
+                            "systemPrompt": "You are a helpful assistant integrated into a Linux desktop shell. Be concise and helpful.",
+                            "temperature": 0.7
+                        },
+                        "maxHistoryLength": 100,
+                        "panelDetached": true,
+                        "panelHeightRatio": 0.85,
+                        "panelPosition": "right",
+                        "panelWidth": 520,
+                        "scale": 1,
+                        "translator": {
+                            "backend": "google",
+                            "deeplApiKey": "",
+                            "realTimeTranslation": true,
+                            "sourceLanguage": "auto",
+                            "targetLanguage": "en"
+                        }
+                    },
+                    "id": "plugin:assistant-panel"
+                },
+                {
+                    "commandPrefix": "music-search",
+                    "defaultSettings": {
+                        "autoSaveMp3AfterPlayback": false,
+                        "defaultPanelLibrarySection": "tracks",
+                        "defaultPanelTab": "search",
+                        "panelDensity": "balanced",
+                        "previewMetadataMode": "always",
+                        "previewPaneWidth": 0,
+                        "previewThumbnailSize": "comfortable",
+                        "showAlbumMetadata": true,
+                        "showBarHoverTrackTitle": true,
+                        "showDurationMetadata": true,
+                        "showHomeArtists": true,
+                        "showHomePlaylists": true,
+                        "showHomeRecent": true,
+                        "showHomeTags": true,
+                        "showHomeTop": true,
+                        "showPanelHeader": true,
+                        "showPanelNowPlaying": true,
+                        "showPanelPlaybackProgress": true,
+                        "showPanelPreview": true,
+                        "showPanelProviderChips": true,
+                        "showPanelQueueControls": true,
+                        "showPanelRecentTracks": true,
+                        "showPanelSearchHelper": true,
+                        "showPanelSpeedControls": true,
+                        "showPanelStatusBanner": true,
+                        "showPanelUrlActions": true,
+                        "showPlayStatsMetadata": true,
+                        "showPreviewChips": true,
+                        "showRatingMetadata": true,
+                        "showStatusMetadata": true,
+                        "showTagMetadata": true,
+                        "showUploaderMetadata": true,
+                        "ytPlayerClient": "android"
+                    },
+                    "id": "plugin:music-search"
+                },
+                {
+                    "defaultSettings": {
+                        "githubGistId": "",
+                        "githubToken": "",
+                        "notes": "[]",
+                        "syncEnabled": false
+                    },
+                    "id": "plugin:sticky-notes"
+                },
+                {
+                    "defaultSettings": {
+                        "autoStartBreaks": false,
+                        "autoStartWork": false,
+                        "compactMode": false,
+                        "longBreakDuration": 15,
+                        "sessionsBeforeLongBreak": 4,
+                        "shortBreakDuration": 5,
+                        "workDuration": 25
+                    },
+                    "id": "plugin:pomodoro"
                 },
                 {
                     "blacklist": [
@@ -207,42 +307,18 @@
                     "pinned": [
                         "LM Studio"
                     ]
-                }
-            ],
-            "right": [
-                {
-                    "clockColor": "primary",
-                    "customFont": "",
-                    "formatHorizontal": "h:mm AP",
-                    "formatVertical": "h:mm AP",
-                    "id": "Clock",
-                    "tooltipFormat": "HH:mm ddd, MMM dd",
-                    "useCustomFont": false
                 },
                 {
-                    "clockColor": "primary",
-                    "customFont": "",
-                    "formatHorizontal": "ddd, MMM dd",
-                    "formatVertical": "MMM ddd, dd",
-                    "id": "Clock",
-                    "tooltipFormat": "HH:mm ddd, MMM dd",
-                    "useCustomFont": false
+                    "hideWhenZero": true,
+                    "hideWhenZeroUnread": false,
+                    "iconColor": "tertiary",
+                    "id": "NotificationHistory",
+                    "showUnreadBadge": true,
+                    "unreadBadgeColor": "primary"
                 },
                 {
-                    "compactMode": false,
-                    "hideMode": "idle",
-                    "hideWhenIdle": false,
-                    "id": "MediaMini",
-                    "maxWidth": 300,
-                    "panelShowAlbumArt": true,
-                    "scrollingMode": "hover",
-                    "showAlbumArt": true,
-                    "showArtistFirst": true,
-                    "showProgressRing": true,
-                    "showVisualizer": false,
-                    "textColor": "primary",
-                    "useFixedWidth": false,
-                    "visualizerType": "linear"
+                    "iconColor": "primary",
+                    "id": "SessionMenu"
                 }
             ]
         }
@@ -278,6 +354,7 @@
         "monitorForColors": "",
         "predefinedScheme": "Marchborn!",
         "schedulingMode": "off",
+        "syncGsettings": true,
         "useWallpaperColors": false
     },
     "controlCenter": {
@@ -383,8 +460,8 @@
                         "roundedCorners": true,
                         "scale": 1.3118819675249105,
                         "showBackground": false,
-                        "x": 2181,
-                        "y": 181
+                        "x": 2176,
+                        "y": 191
                     },
                     {
                         "colorName": "tertiary",
@@ -432,6 +509,50 @@
                         "showBackground": true,
                         "x": 2113,
                         "y": 987
+                    },
+                    {
+                        "barCount": 38,
+                        "customHeight": 0,
+                        "customPrimaryColor": "#6750a4",
+                        "customSecondaryColor": "#625b71",
+                        "customWidth": 0,
+                        "defaultSettings": {
+                            "barCount": 32,
+                            "customHeight": 0,
+                            "customPrimaryColor": "#6750A4",
+                            "customSecondaryColor": "#625B71",
+                            "customWidth": 0,
+                            "direction": "up",
+                            "fadeWhenIdle": true,
+                            "fps": 60,
+                            "mode": "bars",
+                            "sensitivity": 1.5,
+                            "smoothing": 0.18,
+                            "useCustomColors": false,
+                            "useGradient": true
+                        },
+                        "direction": "up",
+                        "fadeWhenIdle": true,
+                        "fps": 60,
+                        "id": "plugin:deskvis",
+                        "mode": "bars",
+                        "scale": 4.01535006578329,
+                        "sensitivity": 1,
+                        "showBackground": true,
+                        "smoothing": 0.18,
+                        "useCustomColors": false,
+                        "useGradient": true,
+                        "x": 137,
+                        "y": 950
+                    },
+                    {
+                        "defaultSettings": {
+                            "startOnMonday": true
+                        },
+                        "id": "plugin:calendar-widget",
+                        "showBackground": true,
+                        "x": 2237,
+                        "y": 585
                     }
                 ]
             }
@@ -533,6 +654,7 @@
         "showHibernateOnLockScreen": false,
         "showScreenCorners": false,
         "showSessionButtonsOnLockScreen": true,
+        "smoothScrollEnabled": true,
         "telemetryEnabled": true
     },
     "hooks": {
@@ -563,6 +685,7 @@
     },
     "location": {
         "analogClockInCalendar": false,
+        "autoLocate": false,
         "firstDayOfWeek": -1,
         "hideWeatherCityName": false,
         "hideWeatherTimezone": false,
@@ -573,10 +696,10 @@
         "use12hourFormat": true,
         "useFahrenheit": true,
         "weatherEnabled": true,
-        "weatherShowEffects": true
+        "weatherShowEffects": true,
+        "weatherTaliaMascotAlways": false
     },
     "network": {
-        "airplaneModeEnabled": false,
         "bluetoothAutoConnect": true,
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
@@ -584,8 +707,7 @@
         "bluetoothRssiPollingEnabled": false,
         "disableDiscoverability": false,
         "networkPanelView": "wifi",
-        "wifiDetailsViewMode": "grid",
-        "wifiEnabled": true
+        "wifiDetailsViewMode": "grid"
     },
     "nightLight": {
         "autoSchedule": true,
@@ -726,15 +848,7 @@
         "activeTemplates": [
             {
                 "enabled": true,
-                "id": "foot"
-            },
-            {
-                "enabled": true,
-                "id": "fuzzel"
-            },
-            {
-                "enabled": true,
-                "id": "helix"
+                "id": "discord"
             },
             {
                 "enabled": true,
@@ -746,11 +860,19 @@
             },
             {
                 "enabled": true,
-                "id": "discord"
+                "id": "foot"
+            },
+            {
+                "enabled": true,
+                "id": "fuzzel"
             },
             {
                 "enabled": true,
                 "id": "gtk"
+            },
+            {
+                "enabled": true,
+                "id": "helix"
             },
             {
                 "enabled": true,
@@ -770,6 +892,10 @@
             },
             {
                 "enabled": true,
+                "id": "niri"
+            },
+            {
+                "enabled": true,
                 "id": "pywalfox"
             },
             {
@@ -782,6 +908,10 @@
             },
             {
                 "enabled": true,
+                "id": "starship"
+            },
+            {
+                "enabled": true,
                 "id": "steam"
             },
             {
@@ -790,18 +920,18 @@
             },
             {
                 "enabled": true,
-                "id": "code"
+                "id": "zed"
             },
             {
                 "enabled": true,
-                "id": "zed"
+                "id": "code"
             }
         ],
         "enableUserTheming": false
     },
     "ui": {
         "boxBorderEnabled": false,
-        "fontDefault": "ComicShannsMono Nerd Font",
+        "fontDefault": "Acme",
         "fontDefaultScale": 1,
         "fontFixed": "Cascadia Mono NF",
         "fontFixedScale": 1,
@@ -823,6 +953,7 @@
         "fillColor": "#000000",
         "fillMode": "crop",
         "hideWallpaperFilenames": false,
+        "linkLightAndDarkWallpapers": true,
         "monitorDirectories": [
         ],
         "overviewBlur": 0.4,
@@ -845,6 +976,7 @@
             "pixelate",
             "honeycomb"
         ],
+        "useOriginalImages": false,
         "useSolidColor": false,
         "useWallhaven": false,
         "viewMode": "single",

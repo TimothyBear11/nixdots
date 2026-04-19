@@ -3,8 +3,8 @@
 {
   programs.neovim = {
     enable = true;
-    # Using extraPackages is better than home.packages 
-    # because it links these tools specifically for Neovim.
+    withPython3 = false;
+    withRuby = false;
     extraPackages = with pkgs; [
       # --- Essentials ---
       ripgrep
@@ -25,4 +25,7 @@
       cargo # If you do any Rust or Mason builds
     ];
   };
+
+  xdg.configFile."nvim/init.lua".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/tbear/nixdots/config/nvim/init.lua";
 }

@@ -8,8 +8,8 @@ set -eo pipefail
 shells=("ambxst" "caelestia" "dms" "noctalia")
 names=("Ambxst" "Caelestia" "DMS" "Noctalia")
 launch_cmds=("ambxst" "caelestia-shell -d" "dms run" "noctalia-shell")
-quit_cmds=("pkill -f quickshell.*ambxst" "pkill -f quickshell.*caelestia" "pkill -f quickshell.*dms" "pkill -f quickshell.*noctalia")
-patterns=("quickshell.*ambxst" "quickshell.*caelestia" "quickshell.*dms" "quickshell.*noctalia")
+patterns=(".quickshell-wra" ".quickshell-wra" ".quickshell-wra" ".quickshell-wra")
+quit_cmds=("pkill -fi ambxst" "pkill -fi caelestia" "pkill -fi dms" "pkill -fi noctalia")
 
 # Colors
 RED='\033[0;31m'
@@ -33,46 +33,51 @@ get_shell_index() {
     echo "-1"
 }
 
-# Detect currently running shell
+# 1. Simplified Detection: Just see if ANY quickshell is running
 detect_shell() {
-    for i in "${!shells[@]}"; do
-        if pgrep -f "${patterns[$i]}" &>/dev/null; then
-            echo "${shells[$i]}"
-            return 0
-        fi
-    done
-    echo ""
+    if pgrep -f ".quickshell-wra" &>/dev/null; then
+        echo "active-shell" # We don't need to know which one, just that one exists
+    else
+        echo ""
+    fi
 }
 
-# Kill a shell
+# 2. The Universal Kill: This actually works (as proven by your manual test)
 kill_shell() {
-    local idx="$1"
-    local shell="${shells[$idx]}"
-    
-    if ! pgrep -f "${patterns[$idx]}" &>/dev/null; then
-        log "$shell is not running"
-        return 0
-    fi
-    
-    log "Stopping $shell..."
-    
-    # Try graceful quit
-    eval "${quit_cmds[$idx]}" &>/dev/null || true
+    log "Clearing existing shell interface..."
+
+    # Use the command that worked manually
+    # We use || true so the script doesn't crash if nothing is found
+    kill -9 $(pgrep -f ".quickshell-wra") 2>/dev/null || true
+    pkill -9 -f "quickshell" 2>/dev/null || true
+
     sleep 0.5
-    
-    # Force if still running
-    if pgrep -f "${patterns[$idx]}" &>/dev/null; then
-        pkill -f "${patterns[$idx]}" || true
-        sleep 0.5
-    fi
-    
-    if pgrep -f "${patterns[$idx]}" &>/dev/null; then
-        pkill -9 -f "${patterns[$idx]}" || true
-    fi
-    
-    log "Stopped $shell"
 }
 
+# 3. Updated Main: Remove the index check for 'current'
+main() {
+    if [[ $# -eq 0 ]]; then
+        echo "Usage: shell-switch <ambxst|caelestia|dms|noctalia>"
+        exit 1
+    fi
+
+    local new_shell="$1"
+    local new_idx
+    new_idx=$(get_shell_index "$new_shell")
+
+    if [[ "$new_idx" == "-1" ]]; then
+        error "Unknown shell: $new_shell"
+        exit 1
+    fi
+
+    # Always kill whatever is currently there
+    kill_shell
+
+    update_config "$new_idx"
+    start_shell "$new_idx"
+
+    log "Switched to ${names[$new_idx]}!"
+}
 # Start a shell
 start_shell() {
     local idx="$1"
@@ -87,26 +92,26 @@ start_shell() {
 update_config() {
     local idx="$1"
     local conf="$HOME/.config/hypr/hyprland.conf"
-    
+
     # Comment out all
     for i in "${!shells[@]}"; do
         sed -i "s/^exec-once = ${launch_cmds[$i]}/#exec-once = ${launch_cmds[$i]}/" "$conf"
     done
-    
+
     # Uncomment target
     sed -i "s/#exec-once = ${launch_cmds[$idx]}/exec-once = ${launch_cmds[$idx]}/" "$conf"
-    
+
     hyprctl reload &>/dev/null || true
 }
 
 # Show menu
 show_menu() {
     local current="$1"
-    
+
     echo ""
     echo "Select a shell to switch to:"
     echo ""
-    
+
     for i in "${!shells[@]}"; do
         if [[ "${shells[$i]}" == "$current" ]]; then
             echo "$((i + 1))) ${GREEN}* ${names[$i]} (active)${NC}"
@@ -115,47 +120,6 @@ show_menu() {
         fi
     done
     echo ""
-}
-
-# Main
-main() {
-    if [[ $# -eq 0 ]]; then
-        echo "Usage: shell-switch <ambxst|caelestia|dms|noctalia>"
-        echo "Or use Super+Ctrl+1-4 in Hyprland"
-        exit 1
-    fi
-    
-    local current
-    current=$(detect_shell)
-    
-    local new_shell="$1"
-    local new_idx
-    new_idx=$(get_shell_index "$new_shell")
-    
-    if [[ "$new_idx" == "-1" ]]; then
-        error "Unknown shell: $new_shell"
-        echo "Available: ${shells[*]}"
-        exit 1
-    fi
-    
-    if [[ "$new_shell" == "$current" ]]; then
-        log "${names[$new_idx]} is already active"
-        exit 0
-    fi
-    
-    echo ""
-    log "Switching from ${names[$(get_shell_index "$current")]:-none} to ${names[$new_idx]}..."
-    echo ""
-    
-    if [[ -n "$current" ]]; then
-        kill_shell "$(get_shell_index "$current")"
-    fi
-    
-    update_config "$new_idx"
-    start_shell "$new_idx"
-    
-    echo ""
-    log "Switched to ${names[$new_idx]}!"
 }
 
 main "$@"

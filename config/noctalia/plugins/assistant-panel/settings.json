@@ -1,8 +1,14 @@
 {
+  "maxHistoryLength": 100,
+  "panelDetached": true,
+  "panelPosition": "right",
+  "panelHeightRatio": 0.85,
+  "panelWidth": 520,
+  "scale": 1,
   "ai": {
-    "provider": "google",
+    "provider": "openai_compatible",
     "models": {
-      "openai_compatible": "llama3.1"
+      "openai_compatible": "llama3.2"
     },
     "apiKeys": {
       "google": "AIzaSyBrNScHwNQOL3ptxMVkhyAXZRxlaewxDmo",
@@ -10,20 +16,14 @@
     },
     "temperature": 0.7,
     "systemPrompt": "You are a helpful assistant integrated into a Linux desktop shell. Be concise and helpful.",
-    "openaiLocal": false,
+    "openaiLocal": true,
     "openaiBaseUrl": "http://localhost:11434",
-    "model": "gemini-3-flash"
+    "model": "llama3.2"
   },
   "translator": {
     "backend": "google",
     "deeplApiKey": "",
     "realTimeTranslation": true
   },
-  "maxHistoryLength": 100,
-  "panelDetached": true,
-  "panelPosition": "right",
-  "panelHeightRatio": 0.85,
-  "panelWidth": 520,
-  "attachmentStyle": "connected",
-  "scale": 1
+  "attachmentStyle": "connected"
 }

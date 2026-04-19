@@ -83,7 +83,7 @@
             users.tbear = {
               imports = [
                 ./home.nix
-                ./openclaw.nix
+                #./openclaw.nix
               ];
             };
           };

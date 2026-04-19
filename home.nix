@@ -1,10 +1,9 @@
 { config, pkgs, inputs, ... }:
 let
-  dotfiles = "${config.home.homeDirectory}/nixdots/config";
+  dotfiles = "/home/tbear/nixdots/config";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
 
   configs = {
-    nvim = "nvim";
     niri = "niri";
     hypr = "hypr";
     qtile = "qtile";
@@ -23,7 +22,7 @@ in
     ./apps.nix
     ./spicetify.nix
     ./caelestia.nix
-    ./openclaw.nix
+    #./openclaw.nix
   ];
 
   home.username = "tbear";
@@ -70,11 +69,12 @@ in
 
   xdg.configFile = builtins.mapAttrs
     (name: subpath: {
-      source = create_symlink "${dotfiles}/${subpath}";
-      recursive = true;
+      # Use a plain string path for the symlink target
+      source = config.lib.file.mkOutOfStoreSymlink "/home/tbear/nixdots/config/${subpath}";
     })
     configs;
 
+  # Also update this one:
   xdg.dataFile."Ambxst/wallpapers.json".source =
-    create_symlink "${dotfiles}/Ambxst/wallpapers.json";
+    config.lib.file.mkOutOfStoreSymlink "/home/tbear/nixdots/config/Ambxst/wallpapers.json";
 }
