@@ -6,7 +6,7 @@
     ./desktops.nix
     ./gaming.nix
     ./fontsAndNeeds.nix
-    ./qtile.nix
+    #./qtile.nix
     ./lazyvim.nix
     ./ai.nix
     ./dev.nix
@@ -14,6 +14,7 @@
     ./dms.nix
     ./noctalia.nix
     ./cachykernel.nix
+    ./mangowc.nix
   ];
 
   # --- Boot & Kernel ---
@@ -34,16 +35,16 @@
     };
 
     # 2. Storage Optimization
-    # Deduplicates identical files in the store. 
+    # Deduplicates identical files in the store.
     # (Runs via a timer to avoid slowing down active builds)
     optimise.automatic = true;
 
     settings = {
       download-buffer-size = 1073741824; # 1GB
       experimental-features = [ "nix-command" "flakes" ];
-      
+
       # 3. Trusted Users
-      # Allows sudo users (wheel) to configure binary caches 
+      # Allows sudo users (wheel) to configure binary caches
       # (useful if you ever pull from Cachix or other repos)
       trusted-users = [ "root" "@wheel" ];
     };
@@ -74,7 +75,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  
+
   # --- Locale & Time ---
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -96,10 +97,10 @@
   programs.fish.enable = true;
 
   home-manager = {
-    backupFileExtension = lib.mkForce "hm-backup";  
+    backupFileExtension = lib.mkForce "hm-backup";
 
     users.tbear = import ./home.nix;  # or however you're importing the user's HM config
-    overwriteBackup = true;  
+    overwriteBackup = true;
   };
 
   users.users.tbear = {

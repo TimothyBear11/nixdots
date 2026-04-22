@@ -1,7 +1,7 @@
 {
   "id": "github-feed",
   "name": "GitHub Feed",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "minNoctaliaVersion": "3.6.0",
   "author": "linuxmobile",
   "license": "MIT",
@@ -26,6 +26,7 @@
     "defaultSettings": {
       "username": "",
       "token": "",
+      "githubUrl": "",
       "refreshInterval": 1800,
       "maxEvents": 50,
       "showStars": true,

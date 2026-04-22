@@ -96,7 +96,7 @@ Item {
         if (event.type === "PullRequestEvent" && event.payload?.pull_request?.html_url) {
             return event.payload.pull_request.html_url
         }
-        return "https://github.com/" + repo
+        return (root.mainInstance?.githubWebUrl || "https://github.com") + "/" + repo
     }
 
     function getNotificationIcon(type) {

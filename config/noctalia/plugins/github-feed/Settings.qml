@@ -11,6 +11,7 @@ ColumnLayout {
 
     property string editUsername: ""
     property string editToken: ""
+    property string editGithubUrl: ""
     property int editRefreshInterval: 1800
     property int editMaxEvents: 50
     property bool editShowStars: true
@@ -57,6 +58,15 @@ ColumnLayout {
         placeholderText: "ghp_xxxxxxxxxxxx"
         text: root.editToken
         onTextChanged: root.editToken = text
+    }
+
+    NTextInput {
+        Layout.fillWidth: true
+        label: pluginApi?.tr("settings.githubUrl.label")
+        description: pluginApi?.tr("settings.githubUrl.description")
+        placeholderText: "https://github.mycompany.com"
+        text: root.editGithubUrl
+        onTextChanged: root.editGithubUrl = text
     }
 
     NDivider {
@@ -446,6 +456,7 @@ ColumnLayout {
 
         pluginApi.pluginSettings.username = root.editUsername.trim()
         pluginApi.pluginSettings.token = root.editToken.trim()
+        pluginApi.pluginSettings.githubUrl = root.editGithubUrl.trim()
         pluginApi.pluginSettings.refreshInterval = root.editRefreshInterval
         pluginApi.pluginSettings.maxEvents = root.editMaxEvents
         pluginApi.pluginSettings.showStars = root.editShowStars
@@ -484,6 +495,7 @@ ColumnLayout {
 
         root.editUsername = settings?.username || defaults?.username || ""
         root.editToken = settings?.token || defaults?.token || ""
+        root.editGithubUrl = settings?.githubUrl || defaults?.githubUrl || ""
         root.editRefreshInterval = settings?.refreshInterval || defaults?.refreshInterval || 1800
         root.editMaxEvents = settings?.maxEvents || defaults?.maxEvents || 50
         root.editShowStars = settings?.showStars ?? defaults?.showStars ?? true

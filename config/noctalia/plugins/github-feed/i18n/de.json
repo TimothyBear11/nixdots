@@ -77,6 +77,10 @@
       "title": "Einstellungen aktualisieren"
     },
     "saved": "GitHub-Feed-Einstellungen gespeichert",
+    "githubUrl": {
+      "description": "Leer lassen für github.com. Für GitHub Enterprise Server die Basis-URL eingeben, z. B. https://github.meinfirma.com",
+      "label": "GitHub-Instanz-URL (Optional)"
+    },
     "token": {
       "description": "Erhöht die Ratenbegrenzung von 60 auf 5000 Anfragen/Stunde",
       "label": "Persönlicher Zugriffstoken (Optional)",

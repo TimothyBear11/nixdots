@@ -77,6 +77,10 @@
       "title": "Actualizar configuración"
     },
     "saved": "Configuración del feed de GitHub guardada",
+    "githubUrl": {
+      "description": "Dejar vacío para github.com. Para GitHub Enterprise Server, ingrese la URL base, p. ej. https://github.miempresa.com",
+      "label": "URL de instancia de GitHub (Opcional)"
+    },
     "token": {
       "description": "Aumenta el límite de velocidad de 60 a 5000 solicitudes por hora.",
       "label": "Token de acceso personal (opcional)",

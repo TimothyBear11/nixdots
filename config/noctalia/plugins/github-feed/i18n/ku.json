@@ -77,6 +77,10 @@
       "title": "Nûkirina Mîhengan"
     },
     "saved": "Mîhengên xwarina GitHubê hatin tomarkirin",
+    "githubUrl": {
+      "description": "Ji bo github.com vala bihêle. Ji bo GitHub Enterprise Server URL-a bingehê têkeve, mînak https://github.mycompany.com",
+      "label": "URL-a Nimûneya GitHubê (Bijare)"
+    },
     "token": {
       "description": "Rêjeya sînorê ji 60 daxwazan bo 5000 daxwazên/saetê zêde dike",
       "label": "Tokena Gihîştina Kesane (Bijare)",

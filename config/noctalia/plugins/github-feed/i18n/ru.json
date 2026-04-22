@@ -77,6 +77,10 @@
       "title": "Обновить настройки"
     },
     "saved": "Настройки ленты GitHub сохранены.",
+    "githubUrl": {
+      "description": "Оставьте пустым для github.com. Для GitHub Enterprise Server введите базовый URL, например https://github.mycompany.com",
+      "label": "URL экземпляра GitHub (Необязательно)"
+    },
     "token": {
       "description": "Увеличение лимита запросов с 60 до 5000 в час.",
       "label": "Персональный токен доступа (необязательно)",

@@ -77,6 +77,10 @@
       "title": "Atualizar Configurações"
     },
     "saved": "Configurações do Feed do GitHub salvas.",
+    "githubUrl": {
+      "description": "Deixe vazio para github.com. Para GitHub Enterprise Server insira a URL base, ex. https://github.minhaempresa.com",
+      "label": "URL da instância GitHub (Opcional)"
+    },
     "token": {
       "description": "Aumenta o limite de taxa de 60 para 5000 requisições/hora.",
       "label": "Token de Acesso Pessoal (Opcional)",

@@ -77,6 +77,10 @@
       "title": "Ayarları Yenile"
     },
     "saved": "GitHub Akışı ayarları kaydedildi",
+    "githubUrl": {
+      "description": "github.com için boş bırakın. GitHub Enterprise Server için temel URL'yi girin, örn. https://github.sirketim.com",
+      "label": "GitHub Örnek URL'si (İsteğe Bağlı)"
+    },
     "token": {
       "description": "Saatlik istek sınırını 60'tan 5000'e yükseltir.",
       "label": "Kişisel Erişim Belirteci (İsteğe Bağlı)",

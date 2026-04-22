@@ -77,6 +77,10 @@
       "title": "Refresh Settings"
     },
     "saved": "GitHub Feed settings saved",
+    "githubUrl": {
+      "description": "Leave empty for github.com. For GitHub Enterprise Server enter the base URL, e.g. https://github.mycompany.com",
+      "label": "GitHub Instance URL (Optional)"
+    },
     "token": {
       "description": "Increases rate limit from 60 to 5000 requests/hour",
       "label": "Personal Access Token (Optional)",

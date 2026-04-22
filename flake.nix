@@ -11,25 +11,26 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    mangowc.url = "github:DreamMaoMao/mangowc";
-    mangowc.inputs.nixpkgs.follows = "nixpkgs";
+    # Renamed to mangowm to match your module usage
+    mangowm.url = "github:mangowm/mango";
+    mangowm.inputs.nixpkgs.follows = "nixpkgs";
 
     ambxst.url = "github:Axenide/Ambxst";
     ambxst.inputs.nixpkgs.follows = "nixpkgs";
-    
+
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
-    
+
     caelestia-shell.url = "github:caelestia-dots/shell";
-    
+
     dms.url = "github:AvengeMedia/DankMaterialShell";
-    dms.inputs.nixpkgs.follows = "nixpkgs"; 
+    dms.inputs.nixpkgs.follows = "nixpkgs";
 
     noctalia.url = "github:noctalia-dev/noctalia-shell";
-    noctalia.inputs.nixpkgs.follows = "nixpkgs"; 
-    
+    noctalia.inputs.nixpkgs.follows = "nixpkgs";
+
     nix-openclaw.url = "github:openclaw/nix-openclaw";
-    nix-openclaw.inputs.nixpkgs.follows = "nixpkgs"; 
+    nix-openclaw.inputs.nixpkgs.follows = "nixpkgs";
 
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
     millennium.inputs.nixpkgs.follows = "nixpkgs";
@@ -45,7 +46,7 @@
 
     app2unitOverlay = final: prev: {
       app2unit = prev.app2unit.overrideAttrs (old: {
-        postPatch = ""; 
+        postPatch = "";
       });
     };
   in {
@@ -55,13 +56,15 @@
       modules = [
         ./configuration.nix
 
-        inputs.mangowc.nixosModules.mango
+        # Corrected prefixes
+        inputs.mangowm.nixosModules.mango
         inputs.dms.nixosModules.default
         home-manager.nixosModules.home-manager
 
         {
           nixpkgs.overlays = [
             youtuiOverlay
+            app2unitOverlay # Added the missing overlay
             inputs.nix-openclaw.overlays.default
             inputs.millennium.overlays.default
           ];
@@ -71,19 +74,12 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             backupFileExtension = "hm-backup";
-
-            # This injects the Home Manager library (lib.hm) into the user modules
-            extraSpecialArgs = {
-              inherit inputs;
-              lib = nixpkgs.lib.extend (self: super: {
-                hm = home-manager.lib.hm;
-              });
-            };
-
+            extraSpecialArgs = { inherit inputs; };
             users.tbear = {
               imports = [
                 ./home.nix
                 #./openclaw.nix
+                # Note: Spicetify-nix or other inputs usually get imported in home.nix
               ];
             };
           };
@@ -91,17 +87,23 @@
       ];
     };
 
+    # Standalone HM config (if you use home-manager switch)
     homeConfigurations.tbear = home-manager.lib.homeManagerConfiguration {
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [ youtuiOverlay inputs.nix-openclaw.overlays.default ];
+        overlays = [
+            youtuiOverlay
+            app2unitOverlay
+            inputs.nix-openclaw.overlays.default
+        ];
         config.allowUnfree = true;
       };
       extraSpecialArgs = { inherit inputs; };
       modules = [
-        inputs.mangowc.hmModules.mango
+        # Note: HM standalone uses different module syntax than NixOS modules
+        # Ensure mangowm provides a homeManagerModules if using here
         ./home.nix
-        ./openclaw.nix
+        #./openclaw.nix
       ];
     };
   };

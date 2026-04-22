@@ -77,6 +77,10 @@
       "title": "Beállítások frissítése"
     },
     "saved": "A GitHub-hírcsatorna beállításai mentve",
+    "githubUrl": {
+      "description": "Hagyja üresen github.com esetén. GitHub Enterprise Server esetén adja meg az alap URL-t, pl. https://github.cegem.com",
+      "label": "GitHub-példány URL-je (Opcionális)"
+    },
     "token": {
       "description": "Növeli a sebességkorlátozást 60-ról 5000 kérésre/óra",
       "label": "Személyes hozzáférési token (opcionális)",

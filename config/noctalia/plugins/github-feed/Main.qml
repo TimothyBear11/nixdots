@@ -26,6 +26,20 @@ Item {
 
     readonly property string username: pluginApi?.pluginSettings?.username || ""
     readonly property string token: pluginApi?.pluginSettings?.token || ""
+    readonly property string githubUrl: pluginApi?.pluginSettings?.githubUrl || ""
+
+    // Derived URL properties, empty githubUrl means use github.com; otherwise treat
+    // githubUrl as the web base URL of a GitHub Enterprise Server instance.
+    // The scheme is stripped from user input and always rebuilt as https://, so both
+    // "github.mycompany.com" and "https://github.mycompany.com" produce identical URLs.
+    readonly property string _githubHost: {
+        if (!githubUrl || githubUrl.trim() === "") return ""
+        return githubUrl.trim().replace(/^https?:\/\//, "").replace(/\/+$/, "")
+    }
+    readonly property string githubWebUrl: _githubHost ? "https://" + _githubHost : "https://github.com"
+    readonly property string githubRestApiUrl: _githubHost ? "https://" + _githubHost + "/api/v3" : "https://api.github.com"
+    readonly property string githubGraphqlUrl: _githubHost ? "https://" + _githubHost + "/api/graphql" : "https://api.github.com/graphql"
+
     readonly property int refreshInterval: pluginApi?.pluginSettings?.refreshInterval || 1800
     readonly property int maxEvents: pluginApi?.pluginSettings?.maxEvents || 50
 
@@ -68,21 +82,21 @@ Item {
     readonly property var urlResolvers: ({
         "PullRequest": function(url, repo, title) {
             var match = url.match(/\/pulls\/(\d+)$/);
-            return match ? "https://github.com/" + repo + "/pull/" + match[1] : "https://github.com/" + repo;
+            return match ? root.githubWebUrl + "/" + repo + "/pull/" + match[1] : root.githubWebUrl + "/" + repo;
         },
         "Issue": function(url, repo, title) {
             var match = url.match(/\/issues\/(\d+)$/);
-            return match ? "https://github.com/" + repo + "/issues/" + match[1] : "https://github.com/" + repo;
+            return match ? root.githubWebUrl + "/" + repo + "/issues/" + match[1] : root.githubWebUrl + "/" + repo;
         },
         "Release": function(url, repo, title) {
-            return "https://github.com/" + repo + "/releases/tag/" + encodeURIComponent(title);
+            return root.githubWebUrl + "/" + repo + "/releases/tag/" + encodeURIComponent(title);
         },
         "Discussion": function(url, repo, title) {
             var match = url.match(/\/discussions\/(\d+)$/);
-            return match ? "https://github.com/" + repo + "/discussions/" + match[1] : "https://github.com/" + repo + "/discussions";
+            return match ? root.githubWebUrl + "/" + repo + "/discussions/" + match[1] : root.githubWebUrl + "/" + repo + "/discussions";
         },
         "Default": function(url, repo, title) {
-            return url.replace("https://api.github.com/repos/", "https://github.com/");
+            return url.replace(root.githubRestApiUrl + "/repos/", root.githubWebUrl + "/");
         }
         // FIXME: Notifications API does not include subject.url for CheckSuite events
         //        it is unclear how to construct the check-run url from the CheckSuite notification
@@ -109,7 +123,7 @@ Item {
         var cmd = ["notify-send", "-a", "GitHub Feed", "--action=default=Open", "--wait", title, message]
         var process = notificationProcessComponent.createObject(root, {
             "command": cmd,
-            "targetUrl": url || "https://github.com"
+            "targetUrl": url || root.githubWebUrl
         })
         process.running = true
         logDebug("Sending system notification: " + title + " - " + message + " (URL: " + url + ")")
@@ -249,7 +263,7 @@ Item {
             "curl", "-s", "--max-time", "30",
             "-H", "Authorization: Bearer " + root.token,
             "-H", "Accept: application/vnd.github.v3+json",
-            "https://api.github.com/users/" + root.username + "/following?per_page=100&page=" + page
+            root.githubRestApiUrl + "/users/" + root.username + "/following?per_page=100&page=" + page
         ] : ["echo", "[]"]
 
         stdout: StdioCollector {
@@ -378,7 +392,7 @@ Item {
         return [
             "curl", "-s", "--max-time", "20",
             "-X", "POST",
-            "https://api.github.com/graphql",
+            root.githubGraphqlUrl,
             "-H", "Authorization: Bearer " + root.token,
             "-H", "Content-Type: application/json",
             "-d", payload
@@ -633,7 +647,7 @@ Item {
         myReposProcess.command = [
             "curl", "-s", "--max-time", "20",
             "-X", "POST",
-            "https://api.github.com/graphql",
+            root.githubGraphqlUrl,
             "-H", "Authorization: Bearer " + root.token,
             "-H", "Content-Type: application/json",
             "-d", payload
@@ -780,7 +794,7 @@ Item {
             "curl", "-s", "--max-time", "10",
             "-H", "Authorization: Bearer " + root.token,
             "-H", "Accept: application/vnd.github.v3+json",
-            "https://api.github.com/notifications"
+            root.githubRestApiUrl + "/notifications"
         ]
         notificationsProcess.running = true
     }
@@ -806,7 +820,7 @@ Item {
                     if (n.subject && n.subject.url) {
                         url = resolver(n.subject.url, repo, title);
                     } else {
-                        url = "https://github.com/" + repo;
+                        url = root.githubWebUrl + "/" + repo;
                     }
 
                     list.push({
@@ -878,11 +892,11 @@ Item {
                     if (shouldNotify) {
                         var title = "GitHub Activity"
                         var msg = e.actor.login + " "
-                        var eventUrl = "https://github.com/" + e.repo.name
+                        var eventUrl = root.githubWebUrl + "/" + e.repo.name
                         if (e.type === "WatchEvent") msg += "starred " + e.repo.name
                         else if (e.type === "ForkEvent") {
                             msg += "forked " + (e.payload.forkee ? e.payload.forkee.full_name : e.repo.name)
-                            if (e.payload.forkee) eventUrl = "https://github.com/" + e.payload.forkee.full_name
+                            if (e.payload.forkee) eventUrl = root.githubWebUrl + "/" + e.payload.forkee.full_name
                         }
                         else if (e.type === "PullRequestEvent") {
                             msg += "opened/merged PR: " + e.payload.pull_request.title
@@ -1136,6 +1150,16 @@ Item {
     onUsernameChanged: {
         if (root.username && root.token) {
             Logger.i("GitHubFeed", "Username changed, fetching new data")
+            root.rawEvents = []
+            root.followingList = []
+            root.lastFetchTimestamp = 0
+            fetchFromGitHub()
+        }
+    }
+
+    onGithubUrlChanged: {
+        if (root.username && root.token) {
+            Logger.i("GitHubFeed", "GitHub URL changed to: " + (root.githubWebUrl))
             root.rawEvents = []
             root.followingList = []
             root.lastFetchTimestamp = 0

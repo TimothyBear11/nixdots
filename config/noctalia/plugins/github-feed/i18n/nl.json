@@ -77,6 +77,10 @@
       "title": "Instellingen vernieuwen"
     },
     "saved": "GitHub Feed instellingen opgeslagen",
+    "githubUrl": {
+      "description": "Leeg laten voor github.com. Voor GitHub Enterprise Server de basis-URL invoeren, bijv. https://github.mijnbedrijf.com",
+      "label": "GitHub-instantie URL (Optioneel)"
+    },
     "token": {
       "description": "Verhoogt de snelheidslimiet van 60 naar 5000 verzoeken per uur.",
       "label": "Persoonlijke toegangstoken (optioneel)",

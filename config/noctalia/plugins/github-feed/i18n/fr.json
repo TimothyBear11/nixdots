@@ -77,6 +77,10 @@
       "title": "Actualiser les paramètres"
     },
     "saved": "Paramètres du flux GitHub enregistrés.",
+    "githubUrl": {
+      "description": "Laisser vide pour github.com. Pour GitHub Enterprise Server, entrez l'URL de base, ex. https://github.monentreprise.com",
+      "label": "URL de l'instance GitHub (Facultatif)"
+    },
     "token": {
       "description": "Augmentation de la limite de débit de 60 à 5000 requêtes par heure.",
       "label": "Jeton d'accès personnel (facultatif)",

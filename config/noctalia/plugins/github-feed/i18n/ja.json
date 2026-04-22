@@ -77,6 +77,10 @@
       "title": "設定を更新"
     },
     "saved": "GitHubフィードの設定を保存しました。",
+    "githubUrl": {
+      "description": "github.com の場合は空欄のままにしてください。GitHub Enterprise Server の場合はベース URL を入力してください（例：https://github.mycompany.com）",
+      "label": "GitHub インスタンス URL（任意）"
+    },
     "token": {
       "description": "リクエスト制限を1時間あたり60回から5000回に引き上げます。",
       "label": "個人アクセストークン（任意）",

@@ -77,6 +77,10 @@
       "title": "Ricarica impostazioni"
     },
     "saved": "Impostazioni feed GitHub salvate",
+    "githubUrl": {
+      "description": "Lasciare vuoto per github.com. Per GitHub Enterprise Server inserire l'URL base, es. https://github.miazienda.com",
+      "label": "URL istanza GitHub (Opzionale)"
+    },
     "token": {
       "description": "Cresce il limite di frequenza da 60 a 5000 richieste/ora",
       "label": "Token Akses Pribadi (Opsional)",

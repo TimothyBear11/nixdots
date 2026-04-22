@@ -77,6 +77,10 @@
       "title": "Оновити налаштування"
     },
     "saved": "Налаштування стрічки GitHub збережено",
+    "githubUrl": {
+      "description": "Залиште порожнім для github.com. Для GitHub Enterprise Server введіть базовий URL, наприклад https://github.mycompany.com",
+      "label": "URL екземпляра GitHub (Необов'язково)"
+    },
     "token": {
       "description": "Збільшує ліміт швидкості з 60 до 5000 запитів на годину",
       "label": "Персональний токен доступу (необов'язково)",

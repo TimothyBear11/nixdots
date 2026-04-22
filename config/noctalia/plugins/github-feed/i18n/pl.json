@@ -77,6 +77,10 @@
       "title": "Odśwież ustawienia"
     },
     "saved": "Ustawienia kanału GitHub zapisane",
+    "githubUrl": {
+      "description": "Zostaw puste dla github.com. Dla GitHub Enterprise Server wpisz bazowy URL, np. https://github.mojafirma.com",
+      "label": "URL instancji GitHub (Opcjonalny)"
+    },
     "token": {
       "description": "Zwiększa limit szybkości z 60 do 5000 żądań/godzinę",
       "label": "Osobisty token dostępu (opcjonalny)",
