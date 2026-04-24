@@ -43,13 +43,7 @@
       # Optional system info splash
       # Only runs if fastfetch is installed
       if type -q fastfetch
-        fastfetch \
-          --logo "$HOME/nixdots/Pictures/tbearlogo.png" \
-          --logo-type auto \
-          --logo-width 45 \
-          --logo-height 30 \
-          --os-key "OS" \
-          --os-value "GuardianOS"
+        fastfetch
       end
 
       # Load custom Fish functions (modular & editable without rebuild)

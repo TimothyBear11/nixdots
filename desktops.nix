@@ -11,7 +11,10 @@
   services.displayManager.cosmic-greeter.enable = true;
 
   programs.hyprland.enable = true;
-  programs.niri.enable = true;
+  programs.niri = {
+    enable = true;
+    package = inputs.niri.packages.${pkgs.system}.niri-unstable;
+  };
   programs.dconf.enable = true;
 
   security.polkit.enable = true;

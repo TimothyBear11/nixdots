@@ -8,12 +8,12 @@
       doCheck = false;
       doInstallCheck = false;
     });
-    extraPackages = python3Packages: with python3Packages; [
+    extraPackages = lib.mkForce (python3Packages: with python3Packages; [
       qtile-extras
       dbus-next
       pulsectl-asyncio
       psutil
-    ];
+    ]);
   };
 
   # Add fuzzel launcher and control tools

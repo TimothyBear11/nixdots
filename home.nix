@@ -11,6 +11,10 @@ let
     Ambxst = "Ambxst";
     btop = "btop";
     cosmic = "cosmic";
+    fastfetch = "fastfetch";
+    "hypr/dms" = "hypr/dms";
+    "hypr/noctalia" = "hypr/noctalia";
+    "hypr/scheme" = "hypr/scheme";
   };
 in
 {
@@ -67,19 +71,12 @@ in
 
   ];
 
-  xdg.configFile = (builtins.mapAttrs
+  xdg.configFile = builtins.mapAttrs
     (name: subpath: {
       # Use a plain string path for the symlink target
       source = config.lib.file.mkOutOfStoreSymlink "/home/tbear/nixdots/config/${subpath}";
     })
-    configs) // {
-      # Handle Hyprland files individually to allow illogical-flake to manage others (like hyprlock)
-      "hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/tbear/nixdots/config/hypr/hyprland.conf";
-      "hypr/hyprtoolkit.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/tbear/nixdots/config/hypr/hyprtoolkit.conf";
-      "hypr/dms".source = config.lib.file.mkOutOfStoreSymlink "/home/tbear/nixdots/config/hypr/dms";
-      "hypr/noctalia".source = config.lib.file.mkOutOfStoreSymlink "/home/tbear/nixdots/config/hypr/noctalia";
-      "hypr/scheme".source = config.lib.file.mkOutOfStoreSymlink "/home/tbear/nixdots/config/hypr/scheme";
-    };
+    configs;
 
   # Also update this one:
   xdg.dataFile."Ambxst/wallpapers.json".source =

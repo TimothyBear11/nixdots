@@ -12,14 +12,30 @@ def load_colors():
     colors_path = os.path.expanduser("~/nixdots/config/noctalia/colors.json")
     try:
         with open(colors_path, "r") as f:
-            return json.load(f)
+            colors = json.load(f)
+            # Ensure required keys exist with fallbacks
+            defaults = {
+                "mPrimary": "#ff4d4d",
+                "mSurface": "#151a1c",
+                "mOnSurface": "#e1e8e6",
+                "mSecondary": "#2a5a5c",
+                "mTertiary": "#56b6c2",
+                "mOnPrimary": "#151a1c",
+                "mSurfaceVariant": "#0b3335"
+            }
+            for key, val in defaults.items():
+                if key not in colors:
+                    colors[key] = val
+            return colors
     except Exception:
         return {
             "mPrimary": "#ff4d4d",
             "mSurface": "#151a1c",
             "mOnSurface": "#e1e8e6",
             "mSecondary": "#2a5a5c",
-            "mTertiary": "#56b6c2"
+            "mTertiary": "#56b6c2",
+            "mOnPrimary": "#151a1c",
+            "mSurfaceVariant": "#0b3335"
         }
 
 c = load_colors()

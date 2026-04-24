@@ -42,21 +42,19 @@ layer-rule {
 
 /* Noctalia: blur everywhere without xray for a better look */
 layer-rule {
-  match namespace="^noctalia-(background|launcher-overlay|dock|control-center|notifications|settings|session-menu)-.*$"
+  match namespace="noctalia"
+  exclude namespace="(bar|noctalia-background)"
   background-effect {
-    blur {
-        radius 12
-    }
+    blur true
     xray false
   }
 }
 
-blur {
-  enable
-  passes 3
-  offset 2.0
-  noise 0.02
-  saturation 1.2
+layer-rule {
+  match namespace="(toast|osd)"
+  background-effect {
+    blur false
+  }
 }
 
 debug {
