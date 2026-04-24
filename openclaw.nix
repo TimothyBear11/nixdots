@@ -7,14 +7,14 @@
   programs.openclaw = {
     enable = true;
 
-    # Use the package from the flake input
-    package = inputs.nix-openclaw.packages.${pkgs.system}.openclaw-gateway;
+    # Use the package from the overlay
+    package = pkgs.openclaw-gateway;
 
     instances.default = {
       enable = true;
       systemd.enable = true;
-      stateDir = "/home/tbear/.openclaw";
-      workspaceDir = "/home/tbear/.openclaw/workspace";
+      stateDir = "${config.home.homeDirectory}/.openclaw";
+      workspaceDir = "${config.home.homeDirectory}/.openclaw/workspace";
 
       config = {
         # GATEWAY
@@ -43,7 +43,7 @@
         # AGENT defaults
         agents.defaults = {
           model.primary = "minimax/MiniMax-M2.5";
-          workspace = "/home/tbear/.openclaw/workspace";
+          workspace = "${config.home.homeDirectory}/.openclaw/workspace";
           contextTokens = 32000;
           compaction.mode = "safeguard";
           memorySearch.enabled = false;

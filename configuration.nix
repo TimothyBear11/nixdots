@@ -6,7 +6,7 @@
     ./desktops.nix
     ./gaming.nix
     ./fontsAndNeeds.nix
-    #./qtile.nix
+    ./qtile.nix
     ./lazyvim.nix
     ./ai.nix
     ./dev.nix
@@ -99,7 +99,7 @@
   home-manager = {
     backupFileExtension = lib.mkForce "hm-backup";
 
-    users.tbear = import ./home.nix;  # or however you're importing the user's HM config
+    users.tbear = ./home.nix;
     overwriteBackup = true;
   };
 
@@ -109,6 +109,11 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.fish;
   };
+
+  # --- Branding & Identity ---
+  system.nixos.distroName = "GuardianOS";
+  system.nixos.distroId = "guardianos";
+  system.nixos.label = "Bear-Edition";
 
   system.stateVersion = "25.05";
 }

@@ -5,7 +5,6 @@ let
 
   configs = {
     niri = "niri";
-    hypr = "hypr";
     qtile = "qtile";
     noctalia = "noctalia";
     mango = "mango";
@@ -22,7 +21,8 @@ in
     ./apps.nix
     ./spicetify.nix
     ./caelestia.nix
-    #./openclaw.nix
+    ./openclaw.nix
+    ./illogical.nix
   ];
 
   home.username = "tbear";
@@ -67,12 +67,19 @@ in
 
   ];
 
-  xdg.configFile = builtins.mapAttrs
+  xdg.configFile = (builtins.mapAttrs
     (name: subpath: {
       # Use a plain string path for the symlink target
       source = config.lib.file.mkOutOfStoreSymlink "/home/tbear/nixdots/config/${subpath}";
     })
-    configs;
+    configs) // {
+      # Handle Hyprland files individually to allow illogical-flake to manage others (like hyprlock)
+      "hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/tbear/nixdots/config/hypr/hyprland.conf";
+      "hypr/hyprtoolkit.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/tbear/nixdots/config/hypr/hyprtoolkit.conf";
+      "hypr/dms".source = config.lib.file.mkOutOfStoreSymlink "/home/tbear/nixdots/config/hypr/dms";
+      "hypr/noctalia".source = config.lib.file.mkOutOfStoreSymlink "/home/tbear/nixdots/config/hypr/noctalia";
+      "hypr/scheme".source = config.lib.file.mkOutOfStoreSymlink "/home/tbear/nixdots/config/hypr/scheme";
+    };
 
   # Also update this one:
   xdg.dataFile."Ambxst/wallpapers.json".source =

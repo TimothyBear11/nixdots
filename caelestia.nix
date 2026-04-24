@@ -18,6 +18,11 @@
 
       font.family.clock = "Acme"; 
 
+      bar.workspaces = {
+        shown = 3;
+        perMonitorWorkspaces = true;
+      };
+
       background = {
         visualiser.enabled = true;
         desktopClock = {

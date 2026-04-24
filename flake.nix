@@ -34,6 +34,11 @@
 
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
     millennium.inputs.nixpkgs.follows = "nixpkgs";
+
+    niri.url = "github:sodiboo/niri-flake";
+
+    illogical-flake.url = "github:soymou/illogical-flake";
+    illogical-flake.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:
@@ -59,6 +64,7 @@
         # Corrected prefixes
         inputs.mangowm.nixosModules.mango
         inputs.dms.nixosModules.default
+        inputs.niri.nixosModules.niri
         home-manager.nixosModules.home-manager
 
         {

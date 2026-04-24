@@ -4,15 +4,22 @@
   # Qtile window manager - Wayland version
   services.xserver.windowManager.qtile = {
     enable = true;
+    package = pkgs.python3Packages.qtile.overrideAttrs (oldAttrs: {
+      doCheck = false;
+      doInstallCheck = false;
+    });
     extraPackages = python3Packages: with python3Packages; [
-     # qtile-extras
+      qtile-extras
       dbus-next
-      pulsectl
+      pulsectl-asyncio
+      psutil
     ];
   };
 
-  # Add fuzzel launcher (NixOS level)
+  # Add fuzzel launcher and control tools
   environment.systemPackages = with pkgs; [
     fuzzel
+    brightnessctl
+    pamixer
   ];
 }

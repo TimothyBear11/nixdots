@@ -5,11 +5,11 @@
 set -eo pipefail
 
 # Shell data - parallel arrays
-shells=("ambxst" "caelestia" "dms" "noctalia")
-names=("Ambxst" "Caelestia" "DMS" "Noctalia")
-launch_cmds=("ambxst" "caelestia-shell -d" "dms run" "noctalia-shell")
-patterns=(".quickshell-wra" ".quickshell-wra" ".quickshell-wra" ".quickshell-wra")
-quit_cmds=("pkill -fi ambxst" "pkill -fi caelestia" "pkill -fi dms" "pkill -fi noctalia")
+shells=("ambxst" "caelestia" "dms" "noctalia" "end4")
+names=("Ambxst" "Caelestia" "DMS" "Noctalia" "End4")
+launch_cmds=("ambxst" "caelestia-shell -d" "dms run" "noctalia-shell" "qs -c illogical-impulse")
+patterns=(".quickshell-wra" ".quickshell-wra" ".quickshell-wra" ".quickshell-wra" ".quickshell-wra")
+quit_cmds=("pkill -fi ambxst" "pkill -fi caelestia" "pkill -fi dms" "pkill -fi noctalia" "pkill -fi quickshell")
 
 # Colors
 RED='\033[0;31m'

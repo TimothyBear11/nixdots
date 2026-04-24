@@ -47,7 +47,9 @@
           --logo "$HOME/nixdots/Pictures/tbearlogo.png" \
           --logo-type auto \
           --logo-width 45 \
-          --logo-height 30
+          --logo-height 30 \
+          --os-key "OS" \
+          --os-value "GuardianOS"
       end
 
       # Load custom Fish functions (modular & editable without rebuild)

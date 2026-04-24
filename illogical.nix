@@ -1,18 +1,25 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
+  imports = [
+    inputs.illogical-flake.homeManagerModules.default
+  ];
+
   xdg.enable = true;
 
   programs.illogical-impulse = {
     enable = true;
     dotfiles = {
       fish.enable = true;
-      kitty.enable = true;
-      starship.enable = true;
+      kitty.enable = false;
+      starship.enable = false;
     };
     # Plugins are still commented out to avoid the version mismatch error from before
     # hyprland.plugins = [ ... ]; 
   };
+
+  # Fix for "outside $HOME" error caused by illogical-flake trying to manage kitty files
+  xdg.configFile."kitty/diff.conf".enable = false;
 
   # End4's dots automatically "source" files from ~/.config/hypr/custom/
   # We will use xdg.configFile to create those files with your settings.

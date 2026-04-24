@@ -1,0 +1,7 @@
+background = rgba(151a1cff)
+base = rgba(151a1cff)
+text = rgba(e1e8e6ff)
+alternate_base = rgba(0b3335ff)
+bright_text = rgba(e1e8e6ff)
+accent = rgba(ff4d4dff)
+accent_secondary = rgba(2a5a5cff)

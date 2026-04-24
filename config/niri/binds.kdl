@@ -111,4 +111,19 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+
+    // Scroll through workspaces
+    Mod+WheelScrollDown      { focus-workspace-down; }
+    Mod+WheelScrollUp        { focus-workspace-up; }
+    Mod+Ctrl+WheelScrollDown { move-column-to-workspace-down; }
+    Mod+Ctrl+WheelScrollUp   { move-column-to-workspace-up; }
+
+    // Column width adjustment
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+    Mod+Comma  { consume-window-into-column; }
+    Mod+Period { expel-window-from-column; }
+
+    // Alternative centering
+    Mod+C { center-column; }
 }
