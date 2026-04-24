@@ -1,0 +1,9 @@
+output "DP-1" {
+    position x=1920 y=0
+}
+output "DP-2" {
+    position x=0 y=0
+}
+output "HDMI-A-1" {
+    position x=4480 y=0
+}

@@ -1,0 +1,5 @@
+spawn-at-startup "polkit-gnome-authentication-agent-1"
+spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "steam"
+spawn-at-startup "kdeconnect-indicator"
+spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
